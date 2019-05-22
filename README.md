@@ -2,10 +2,12 @@
 mysql -h localhost -u root
 source c:/xampp/htdocs/CSE305Project/table.sql;
 http://localhost/CSE305Project/index.php
-//진우형
+
+//Jinwoo Choi
 mysql -h localhost -u root
-source c:/xampp/htdocs/CSE305Project/table.sql;
-http://localhost/CSE305Project/index.php
+source d:/downloads/xampp/htdocs/CSE305/table.sql;
+http://localhost/CSE305/index.php
+
 //수인누나
 mysql -h localhost -u root
 source c:/xampp/htdocs/CSE305Project/table.sql;
