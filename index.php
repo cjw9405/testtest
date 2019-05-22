@@ -61,7 +61,7 @@
                 $total = mysqli_num_rows($result);
 
         ?>
-        <h2 align=center>게시판</h2>
+        <h2 align=center>진우님의 게시판</h2>
         <table align = center>
         <thead align = "center">
         <tr>
