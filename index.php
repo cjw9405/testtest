@@ -10,12 +10,12 @@
                 session_start();
 
                 if(isset($_SESSION['userid'])) {
-                        echo $_SESSION['userid'];?>님 안녕하세요
+                        echo $_SESSION['userid'];?> Hello!
                         <br/>
         <?php
                 }
                 else {
-        ?>              <button onclick="location.href='./login.php'">로그인</button>
+        ?>              <button onclick="location.href='./login.php'">Log In</button>
                         <br />
         <?php   }
         ?>
@@ -61,15 +61,15 @@
                 $total = mysqli_num_rows($result);
 
         ?>
-        <h2 align=center>Suin 님의 게시판</h2>
+        <h2 align=center>Open Board</h2>
         <table align = center>
         <thead align = "center">
         <tr>
-        <td width = "50" align="center">번호</td>
-        <td width = "500" align = "center">제목</td>
-        <td width = "100" align = "center">작성자</td>
-        <td width = "200" align = "center">날짜</td>
-        <td width = "50" align = "center">조회수</td>
+        <td width = "50" align="center">Number</td>
+        <td width = "500" align = "center">Title</td>
+        <td width = "100" align = "center">Writer</td>
+        <td width = "200" align = "center">Date</td>
+        <td width = "50" align = "center">Hit</td>
         </tr>
         </thead>
 
@@ -98,7 +98,7 @@
         </table>
 
         <div class = text>
-        <font style="cursor: hand"onClick="location.href='./write.php'">글쓰기</font>
+        <font style="cursor: hand"onClick="location.href='./write.php'">Write</font>
         </div>
 
 
