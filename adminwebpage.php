@@ -1,7 +1,6 @@
 <?php // adddelete.php
-  require_once 'login.php';
-  $conn = new mysqli($hn, $un, $pw, $db);
-  if ($conn->connect_error) die($conn->connect_error);
+  require_once 'accessDatabase.php';
+
 
   if (isset($_POST['delete']) && isset($_POST['title'])) {
     $title   = get_post($conn, 'title');
