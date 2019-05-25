@@ -11,6 +11,7 @@ CREATE TABLE Vehicle (
   model VARCHAR(20),
 	maker VARCHAR(20),
   isrent  BOOLEAN,
+  price INTEGER,
   PRIMARY KEY (vid)
 );
 
