@@ -6,28 +6,73 @@ GRANT ALL PRIVILEGES ON hlps5.* to grader@localhost IDENTIFIED BY 'allowme';
 
 USE hlps5;
 
-create table board (
-     number int unsigned not null primary key auto_increment,
-     title varchar(150) not null,
-     content text not null,
-     id varchar(20) not null,
-     password varchar(20) not null,
-     date datetime not null,
-     hit int unsigned not null default 0
-     );
-create table comment (
-     number int unsigned not null primary key auto_increment,
-     board_number int unsigned not null,
-     id varchar(20) not null,
-     content text not null,
-     date datetime not null,
-     parent_number int unsigned not null default 0
-     );
- create table member (
-		      id varchar(16) not null,
-		      pw varchar(20) not null,
-          email varchar(50) not null,
-		      permit tinyint(3) unsigned
-		      );
+CREATE TABLE Vehicle (
+  vid INTEGER,
+	maker VARCHAR(20),
+	type VARCHAR(10),
+  isrent  BOOLEAN,
+  PRIMARY KEY (vid)
+);
 
-          insert into member (id, pw, email, permit)values ('sg04108', '$sjaqjwm39', '$sg04108', 0);
+CREATE TABLE Motorcycle (
+	vid INTEGER,
+	speed REAL,
+  enginecapacity VARCHAR(10),
+  weight REAL,
+  color VARCHAR(20),
+  PRIMARY KEY (vid)
+);
+
+CREATE TABLE Tank(
+	vid INTEGER,
+	speed REAL,
+  shell REAL,
+  aromor REAL
+  weight REAL,
+  PRIMARY KEY (vid)
+);
+CREATE TABLE Car(
+	vid  INTEGER,
+	fuel VARCHAR(20),
+  color VARCHAR(20),
+  speed REAL,
+  bodytype VARCHAR(20),
+  PRIMARY KEY (vid)
+);
+CREATE TABLE People (
+	pid INTEGER,
+  password INTEGER,
+  email VARCHAR(256),
+  isManager  BOOLEAN,
+  telephoneNumber INTEGER,
+  PRIMARY KEY (pid)
+);
+CREATE TABLE Customer (
+	pid INTEGER,
+  ranking VARCHAR(32),
+  address VARCHAR(32),
+  fax  REAL,
+  PRIMARY KEY (pid)
+);
+CREATE TABLE Discount (
+  ranking VARCHAR(32),
+  rate    NUMBER(8,2)
+);
+
+CREATE TABLE Admin (
+	pid INTEGER,
+  click INTEGER,
+  PRIMARY KEY (pid)
+);
+CREATE TABLE Rent (
+  vid INTEGER,
+	pid INTEGER,
+  did INTEGER,
+  PRIMARY KEY (vid,pid,did)
+);
+CREATE TABLE Duration (
+  did INTEGER,
+  datefrom INTEGER,
+  dateto INTEGER,
+  PRIMARY KEY (did)
+);
