@@ -9,7 +9,6 @@ USE hlps5;
 CREATE TABLE Vehicle (
   vid INTEGER,
 	maker VARCHAR(20),
-	type VARCHAR(10),
   isrent  BOOLEAN,
   PRIMARY KEY (vid)
 );
@@ -35,6 +34,7 @@ CREATE TABLE Tank(
 );
 CREATE TABLE Car(
 	vid  INTEGER NOT NULL,
+  type VARCHAR(10),
 	fuel VARCHAR(20),
   color VARCHAR(20),
   speed REAL,
