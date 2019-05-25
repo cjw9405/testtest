@@ -27,7 +27,7 @@ CREATE TABLE Tank(
 	vid INTEGER,
 	speed REAL,
   shell REAL,
-  aromor REAL
+  aromor REAL,
   weight REAL,
   PRIMARY KEY (vid)
 );
