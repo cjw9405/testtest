@@ -60,7 +60,7 @@ CREATE TABLE Customer (
 );
 CREATE TABLE Discount (
   ranking VARCHAR(32),
-  rate    NUMBER(8,2)
+  rate DOUBLE NOT NULL
 );
 
 CREATE TABLE Admin (
@@ -69,19 +69,20 @@ CREATE TABLE Admin (
   PRIMARY KEY (pid),
   FOREIGN KEY (pid) REFERENCES People(pid) ON DELETE CASCADE
 );
+
+CREATE TABLE Duration (
+  did INTEGER NOT NULL,
+  datefrom INTEGER,
+  dateto INTEGER,
+  PRIMARY KEY (did)
+);
 CREATE TABLE Rent (
   vid INTEGER NOT NULL,
 	pid INTEGER NOT NULL,
   did INTEGER NOT NULL,
   PRIMARY KEY (vid,pid,did),
   FOREIGN KEY (pid) REFERENCES People(pid) ON DELETE CASCADE,
-  FOREIGN KEY (vid) REFERENCES Vehicle (vid) ON DELETE CASCADE
+  FOREIGN KEY (vid) REFERENCES Vehicle (vid) ON DELETE CASCADE,
   FOREIGN KEY (did) REFERENCES Duration (did) ON DELETE CASCADE
 
-);
-CREATE TABLE Duration (
-  did INTEGER NOT NULL,
-  datefrom INTEGER,
-  dateto INTEGER,
-  PRIMARY KEY (did)
 );
