@@ -8,6 +8,7 @@ USE hlps5;
 
 CREATE TABLE Vehicle (
   vid INTEGER,
+  model VARCHAR(20),
 	maker VARCHAR(20),
   isrent  BOOLEAN,
   PRIMARY KEY (vid)
@@ -44,6 +45,7 @@ CREATE TABLE Car(
 );
 CREATE TABLE People (
 	pid INTEGER NOT NULL,
+  name VARCHAR(20),
   password INTEGER,
   email VARCHAR(256),
   isManager  BOOLEAN,
