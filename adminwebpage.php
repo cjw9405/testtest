@@ -61,7 +61,7 @@ _END;
 
 <body>
 
-<h2>PHP and MySQL</h2>
+<h2>Admin webpage</h2>
 
 <ol>
 
