@@ -203,3 +203,17 @@ INSERT INTO Address (pid,country,region,postal,city,street) VALUES (161,"Mauriti
 INSERT INTO Address (pid,country,region,postal,city,street) VALUES (171,"Mauritius","PA","40261-976","Erie","Ap #944-642 Integer Road"),(172,"Switzerland","QC","53051","Thurso","P.O. Box 529, 1172 Malesuada. Av."),(173,"Cambodia","So Paulo","4523","Ribeiro Preto","459-6095 In, Avenue"),(174,"Lebanon","Wie","939869","Vienna","4823 Libero. St."),(175,"Bosnia and Herzegovina","OG","C3W 9Y4","Sagamu","155-7954 Sem Av."),(176,"Sri Lanka","So Paulo","42640","Ribeiro Preto","3905 Quis Street"),(177,"South Africa","Berlin","67491","Berlin","651-2431 Ultrices, St."),(178,"Saint Pierre and Miquelon","Cartago","8059","Aguacaliente (San Francisco)","990-8736 A St."),(179,"Zambia","PI","OB4 2GV","Abbeville","P.O. Box 238, 8200 Consequat Rd."),(180,"Denmark","Veneto","82774","Feltre","Ap #891-6243 Mollis Rd.");
 INSERT INTO Address (pid,country,region,postal,city,street) VALUES (181,"Barbados","BC","993440","Sooke","483 Diam St."),(182,"Poland","Diyarbakr","3000","Bismil","P.O. Box 691, 6656 Justo. Rd."),(183,"Egypt","SK","31080","Ostrowiec witokrzyski","P.O. Box 392, 9231 Sem, Rd."),(184,"Jersey","Coquimbo","8077","Illapel","Ap #294-1507 Montes, Rd."),(185,"New Caledonia","Bretagne","2858","Lorient","507-1173 Eget, Av."),(186,"Belgium","Utah","85492","Provo","P.O. Box 126, 9708 Magnis Ave"),(187,"Saint Vincent and The Grenadines","Wie","32312","Vienna","Ap #575-6695 Nec, Ave"),(188,"Moldova","AR","53341-625","Fayetteville","5809 Eget Street"),(189,"Jersey","RM","1190","Pirque","Ap #749-9032 Lorem, Rd."),(190,"Venezuela","OY","55982","Ogbomosho","P.O. Box 226, 9955 Id Rd.");
 INSERT INTO Address (pid,country,region,postal,city,street) VALUES (191,"Finland","Wie","9944","Vienna","6536 Vestibulum Ave"),(192,"Belize","Maryland","709411","Rockville","5438 Amet Avenue"),(193,"Thailand","Hamburg","7476","Hamburg","9076 In Rd."),(194,"Qatar","Minnesota","26887","Duluth","Ap #152-9121 Cras Rd."),(195,"Egypt","TOS","569033","Massa e Cozzile","P.O. Box 672, 6167 Hendrerit. Avenue"),(196,"Romania","LAZ","00931","Acquafondata","901-8635 Ridiculus Av."),(197,"Macao","NSW","67-838","Newcastle","4037 Luctus Avenue"),(198,"Netherlands","QC","926730","Kawawachikamach","941-4347 Lacus Rd."),(199,"Slovakia","Leinster","93605","Dublin","P.O. Box 993, 1654 Enim. Rd."),(200,"Andorra","WM","9304","Elblg","Ap #441-8376 Pharetra. Av.");
+
+
+INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) VALUES (1,"A","A",1,"A@gmail.com",1,"010-1111-1111");
+INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) VALUES (2,"B","B",2,"B@gmail.com",1,"010-2222-2222");
+
+INSERT INTO admin (pid, click) VALUES(1, 999);
+INSERT INTO admin (pid, click) VALUES(2, 0);
+
+INSERT INTO Discount (ranking, rate) VALUES ("A",50);
+INSERT INTO Discount (ranking, rate) VALUES ("B",60);
+INSERT INTO Discount (ranking, rate) VALUES ("C",70);
+INSERT INTO Discount (ranking, rate) VALUES ("D",80);
+INSERT INTO Discount (ranking, rate) VALUES ("E",90);
+INSERT INTO Discount (ranking, rate) VALUES ("F",100);
