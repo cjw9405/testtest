@@ -211,9 +211,9 @@ INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) 
 INSERT INTO admin (pid, click) VALUES(1, 999);
 INSERT INTO admin (pid, click) VALUES(2, 0);
 
-INSERT INTO Discount (ranking, rate) VALUES ("A",50);
-INSERT INTO Discount (ranking, rate) VALUES ("B",60);
-INSERT INTO Discount (ranking, rate) VALUES ("C",70);
-INSERT INTO Discount (ranking, rate) VALUES ("D",80);
-INSERT INTO Discount (ranking, rate) VALUES ("E",90);
-INSERT INTO Discount (ranking, rate) VALUES ("F",100);
+INSERT INTO Discount (ranking, rate) VALUES ("A",0.5);
+INSERT INTO Discount (ranking, rate) VALUES ("B",0.6);
+INSERT INTO Discount (ranking, rate) VALUES ("C",0.7);
+INSERT INTO Discount (ranking, rate) VALUES ("D",0.8);
+INSERT INTO Discount (ranking, rate) VALUES ("E",0.9);
+INSERT INTO Discount (ranking, rate) VALUES ("F",1.2);
