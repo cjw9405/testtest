@@ -1,5 +1,7 @@
 <?php // adddelete.php
   require_once 'accessDatabase.php';
+ //session_start();
+// $id = $_SESSION['']
 
 
 
