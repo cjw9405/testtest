@@ -2,44 +2,21 @@
   require_once 'accessDatabase.php';
 
 
-  if (isset($_POST['delete']) && isset($_POST['title'])) {
-    $title   = get_post($conn, 'title');
-    $query  = "DELETE FROM Book WHERE title='$title'";
+
+  if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
+
+    $vid  = get_post($conn, 'vid');
+    $pid  = get_post($conn, 'pid');
+    $did  = get_post($conn, 'did');
+    $query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
+    $result = $conn->query($query);
+    $query  = "UPDATE Vehicle Set isrent =0  WHERE vid='$vid'";
     $result = $conn->query($query);
     if (!$result)
       echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";
   }
 
-  if (isset($_POST['author'])   &&
-      isset($_POST['title'])    &&
-      isset($_POST['category']) &&
-      isset($_POST['year'])     &&
-      isset($_POST['price'])) {
-    $author   = get_post($conn, 'author');
-    $title    = get_post($conn, 'title');
-    $category = get_post($conn, 'category');
-    $year     = get_post($conn, 'year');
-    $price    = floatval(get_post($conn, 'price'));
-
-    $query = "INSERT INTO Book (author, title, category, year, price) VALUES" .
-      "('$author', '$title', '$category', '$year', '$price')";
-    $result   = $conn->query($query);
-    if (!$result) echo "INSERT failed: $query<br>" .
-      $conn->error . "<br><br>";
-  }
-
-  echo <<<_END
-  <form action="adddelete.php" method="post"><pre>
-    Author <input type="text" name="author">
-     Title <input type="text" name="title">
-  Category <input type="text" name="category">
-      Year <input type="text" name="year">
-     Price <input type="text" name="price">
-           <input type="submit" value="ADD RECORD">
-  </pre></form>
-_END;
-
-  $query  = "SELECT * FROM Book";
+  $query  = "SELECT * FROM Rent";
   $result = $conn->query($query);
   if (!$result) die ("Database access failed: " . $conn->error);
 
@@ -50,14 +27,15 @@ _END;
 
     echo <<<_END
   <pre>
-     Title $row[0]
-    Author $row[1]
-  Category $row[2]
-      Year $row[3]
-     Price $row[4]</pre>
-  <form action="adddelete.php" method="post">
+    vid $row[0]
+    pid $row[1]
+    did $row[2]
+      </pre>
+  <form action="adminwebpage.php" method="post">
   <input type="hidden" name="delete" value="yes">
-  <input type="hidden" name="title" value="$row[0]">
+  <input type="hidden" name="vid" value="$row[0]">
+  <input type="hidden" name="pid" value="$row[1]">
+  <input type="hidden" name="did" value="$row[2]">
   <input type="submit" value="DELETE RECORD"></form>
 _END;
   }
@@ -72,3 +50,27 @@ _END;
   }
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>PHP and MySQL</title>
+</head>
+
+<body>
+
+<h2>PHP and MySQL</h2>
+
+<ol>
+
+<li><a href="addVehicle.php">addVehicle.php</a></li><br>
+
+<li><a href="deleteVehice.php">deleteVehice.php</a></li><br>
+
+<li><a href="deleteCustomer.php">deleteCustomer.php</a></li><br>
+
+
+</ol>
+
+</body>
+</html>
