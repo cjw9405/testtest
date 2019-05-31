@@ -207,3 +207,13 @@ INSERT INTO Address (pid,country,region,postal,city,street) VALUES (191,"Finland
 
 INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) VALUES (1,"A","A",1,"A@gmail.com",1,"010-1111-1111");
 INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) VALUES (2,"B","B",2,"B@gmail.com",1,"010-2222-2222");
+
+INSERT INTO admin (pid, click) VALUES(1, 999);
+INSERT INTO admin (pid, click) VALUES(2, 0);
+
+INSERT INTO Discount (ranking, rate) VALUES ("A",50);
+INSERT INTO Discount (ranking, rate) VALUES ("B",60);
+INSERT INTO Discount (ranking, rate) VALUES ("C",70);
+INSERT INTO Discount (ranking, rate) VALUES ("D",80);
+INSERT INTO Discount (ranking, rate) VALUES ("E",90);
+INSERT INTO Discount (ranking, rate) VALUES ("F",100);
