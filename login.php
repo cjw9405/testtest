@@ -7,7 +7,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   $sql = "SELECT pid, username, password, isManager FROM People WHERE username = ?";
   $result = $conn->query($sql);
   while($prow=mysqli_fetch_assoc($sql)){
-			if($prow['isManager'] = 0){
+			if($prow['isManager'] == 0){
 				header("location: welcome.php");
 			}else{
 				header("location: adminwebpage.php");
@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            if($sql['isManager'] = 0){
+                            if($sql['isManager'] == 0){
                       				header("location: welcome.php");
                       			}else{
                       				header("location: adminwebpage.php");
