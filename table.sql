@@ -19,7 +19,6 @@ CREATE TABLE Motorcycle (
 	vid INTEGER NOT NULL,
 	speed REAL,
   enginecapacity VARCHAR(10),
-  weight REAL,
   color VARCHAR(20),
   PRIMARY KEY (vid),
   FOREIGN KEY (vid) REFERENCES Vehicle (vid) ON DELETE CASCADE
@@ -30,7 +29,6 @@ CREATE TABLE Tank(
 	speed REAL,
   shell REAL,
   armor REAL,
-  weight REAL,
   PRIMARY KEY (vid),
   FOREIGN KEY (vid) REFERENCES Vehicle (vid) ON DELETE CASCADE
 );
@@ -125,3 +123,15 @@ INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (261,"A6",
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (271,"XM3","Cadillac","90367.36","0"),(272,"Pajero","Lexus","95182.41","0"),(273,"Pinto","FAW","86205.36","0"),(274,"A7","Chrysler","55951.82","0"),(275,"Z4","Smart","87730.43","0"),(276,"A6","Renault","69568.05","0"),(277,"E","Tata Motors","65261.37","0"),(278,"M3","Infiniti","97196.41","0"),(279,"XM3","Ferrari","88959.18","0"),(280,"Pajero","Skoda","70147.87","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (281,"Fitta","Buick","89424.91","0"),(282,"A5","Peugeot","90210.60","0"),(283,"Laura","Mitsubishi Motors","52977.71","0"),(284,"Moco","Chevrolet","58977.19","0"),(285,"Pinto","Peugeot","58022.51","0"),(286,"MR2","General Motors","66611.11","0"),(287,"Moco","Peugeot","62814.63","0"),(288,"XM3","Seat","51776.93","0"),(289,"A6","Cadillac","69474.75","0"),(290,"Laura","Volkswagen","91672.80","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (291,"M4","FAW","98781.66","0"),(292,"A6","BMW","61910.73","0"),(293,"M4","JLR","71712.66","0"),(294,"A7","Lexus","88467.61","0"),(295,"A8","Mercedes-Benz","97031.38","0"),(296,"Z4","Skoda","95069.49","0"),(297,"S","Acura","96493.93","0"),(298,"A5","Mercedes-Benz","56577.69","0"),(299,"S","Suzuki","66897.78","0"),(300,"LaCrosse","FAW","72355.43","0");
+
+
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (1,249,"125","violet"),(2,201,"50","yellow"),(3,236,"250","indigo"),(4,227,"125","green"),(5,233,"600","red"),(6,222,"50","orange"),(7,204,"600","orange"),(8,213,"1000","indigo"),(9,236,"600","violet"),(10,220,"1000","indigo");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (11,248,"600","red"),(12,227,"750","blue"),(13,198,"250","blue"),(14,219,"1000","blue"),(15,228,"750","orange"),(16,243,"50","blue"),(17,205,"125","yellow"),(18,202,"125","green"),(19,225,"600","orange"),(20,240,"250","orange");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (21,235,"750","violet"),(22,237,"50","indigo"),(23,210,"600","indigo"),(24,208,"1000","orange"),(25,244,"250","red"),(26,238,"125","indigo"),(27,213,"750","violet"),(28,200,"1000","yellow"),(29,239,"50","indigo"),(30,217,"125","indigo");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (31,230,"125","red"),(32,216,"50","blue"),(33,209,"50","yellow"),(34,241,"250","blue"),(35,208,"50","orange"),(36,241,"125","blue"),(37,222,"125","blue"),(38,200,"250","indigo"),(39,215,"50","indigo"),(40,236,"1000","orange");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (41,216,"250","blue"),(42,224,"400","violet"),(43,248,"125","yellow"),(44,250,"400","red"),(45,232,"750","violet"),(46,239,"400","orange"),(47,245,"1000","green"),(48,193,"250","red"),(49,217,"50","violet"),(50,224,"1000","indigo");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (51,230,"750","indigo"),(52,219,"750","blue"),(53,238,"125","red"),(54,250,"400","indigo"),(55,230,"50","yellow"),(56,205,"250","blue"),(57,210,"250","violet"),(58,243,"750","violet"),(59,191,"400","orange"),(60,244,"600","green");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (61,212,"750","indigo"),(62,221,"600","red"),(63,205,"50","orange"),(64,236,"750","orange"),(65,242,"125","violet"),(66,193,"50","blue"),(67,223,"400","green"),(68,213,"250","green"),(69,231,"400","red"),(70,212,"400","orange");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (71,223,"600","yellow"),(72,224,"400","violet"),(73,229,"125","yellow"),(74,245,"250","green"),(75,211,"400","yellow"),(76,233,"250","yellow"),(77,197,"600","yellow"),(78,214,"50","blue"),(79,202,"125","yellow"),(80,229,"50","yellow");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (81,208,"250","yellow"),(82,242,"750","orange"),(83,201,"50","orange"),(84,213,"125","red"),(85,223,"750","red"),(86,190,"50","orange"),(87,232,"400","yellow"),(88,212,"250","orange"),(89,208,"750","blue"),(90,245,"50","violet");
+INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (91,198,"125","green"),(92,217,"600","green"),(93,193,"50","violet"),(94,191,"750","indigo"),(95,209,"400","green"),(96,249,"125","violet"),(97,210,"600","red"),(98,197,"600","orange"),(99,221,"750","blue"),(100,217,"250","orange");
