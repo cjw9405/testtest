@@ -1,8 +1,6 @@
 <?php
 
-        session_start();
-
-        $connect = mysqli_connect('localhost','grader','allowme','hlps5') or die("fail");
+        require_once 'accessDatabase.php';
 
         //입력 받은 id와 password
         $id=$_GET['id'];
