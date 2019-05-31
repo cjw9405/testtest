@@ -4,7 +4,15 @@ session_start();
 require_once 'accessDatabase.php';
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+  $sql = "SELECT pid, username, password, isManager FROM People WHERE username = ?";
+  $result = $conn->query($sql);
+  while($prow=mysqli_fetch_assoc($sql)){
+			if($prow['isManager'] = 0){
+				header("location: welcome.php");
+			}else{
+				header("location: adminwebpage.php");
+			}
+		}
     exit;
 }
 
@@ -33,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT pid, username, password, isManager FROM People WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -62,7 +70,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            if($sql['isManager'] = 0){
+                      				header("location: welcome.php");
+                      			}else{
+                      				header("location: adminwebpage.php");
+                      			}
+
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
