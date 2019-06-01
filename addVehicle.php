@@ -3,67 +3,158 @@
 
 <head>
 <title>PHP and MySQL</title>
+<style>
+
+
+
+.main_container {
+
+width:100%;
+
+height:100%;
+}
+
+
+
+.main_title {
+
+width:100%;
+
+height:20%;
+
+float:left;
+
+
+text-align: center;
+border-bottom-width:thin;
+border-bottom:solid;}
+
+
+
+.main_left_btn {
+
+width:35%;
+
+height:80%;
+
+
+text-align: center;
+
+float:left;}
+
+.main_mid_btn {
+
+width:30%;
+
+height:80%;
+text-align: center;
+
+
+
+float:left;}
+
+
+
+.main_right_btn {
+
+width:35%;
+
+height:80%;
+
+
+text-align: center;
+
+float:left;}
+
+
+
+
+
+</style>
+
+
+
 </head>
 
 <body>
 
+<div class="main_container">
+
+<div class="main_title">
 <h1>Add the Vehicle</h1>
-<?php // adddelete.php
-  require_once 'accessDatabase.php';
- //session_start();
-// $id = $_SESSION['']
+
+  <?php
+   // adddelete.php
+    require_once 'accessDatabase.php';
+   //session_start();
+  // $id = $_SESSION['']
 
 
-if (isset($_POST['vid'])   &&
-    isset($_POST['model'])    &&
-    isset($_POST['maker']) &&
-    isset($_POST['price'])     &&
-    isset($_POST['speed'])&&
-    isset($_POST['enginecapacity'])&&
-    isset($_POST['color'])) {
-  $vid   = $_POST['vid'];
-  $model   = $_POST['model'];
-  $maker = $_POST['maker'];
-  $price     = $_POST['price'];
-  $speed   = $_POST['speed'];
-  $enginecapacity    = $_POST['enginecapacity'];
-  $color    = $_POST['color'];
+?>
+<li><a href="adminwebpage.php">Go to the Index </a></li><br>
+</div>
 
-  $query = "INSERT INTO Vehicle (vid,model,maker,price,isrent) VALUES" .
-    "('$vid', '$model', '$maker', '$price ', 0)";
-  $result   = $conn->query($query);
-  if(!$result){
-    echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-  }else{
-  echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-  }
+<div class="main_left_btn">
+  <?php
+  if (isset($_POST['vid'])   &&
+      isset($_POST['model'])    &&
+      isset($_POST['maker']) &&
+      isset($_POST['price'])     &&
+      isset($_POST['speed'])&&
+      isset($_POST['enginecapacity'])&&
+      isset($_POST['diff'])&&
+      isset($_POST['color'])) {
+    $vid   = $_POST['vid'];
+    $model   = $_POST['model'];
+    $maker = $_POST['maker'];
+    $price     = $_POST['price'];
+    $speed   = $_POST['speed'];
+    $enginecapacity    = $_POST['enginecapacity'];
+    $color    = $_POST['color'];
 
-$query = "INSERT INTO Motorcycle (vid,speed,enginecapacity,color) VALUES" .
-      "('$vid', '$speed', '$enginecapacity','$color')";
+    $query = "INSERT INTO Vehicle (vid,model,maker,price,isrent) VALUES" .
+      "('$vid', '$model', '$maker', '$price ', 0)";
     $result   = $conn->query($query);
     if(!$result){
       echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
     }else{
-    echo "INSERT Sucess<br><br>";
+    echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
     }
 
+  $query = "INSERT INTO Motorcycle (vid,speed,enginecapacity,color) VALUES" .
+        "('$vid', '$speed', '$enginecapacity','$color')";
+      $result   = $conn->query($query);
+      if(!$result){
+        echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
+      }else{
+      echo "INSERT Sucess<br><br>";
+      }
 
-}
-echo "Motorcycle <br>";
-echo <<<_END
+
+  }
+  echo "Motorcycle <br>";
+
+  echo <<<_END
+<pre>
 <form action="addVehicle.php" method="post"><pre>
-Vid <input type="text" name="vid">
-Model<input type="text" name="model">
-Maker <input type="text" name="maker">
-Price <input type="text" name="price">
-Speed<input type="text" name="speed">
-Enginecapacity <input type="text" name="enginecapacity">
+<input type="hidden" name="diff" value="yes">
+Vid <input type="text" name="vid"><br>
+Model<input type="text" name="model"><br>
+Maker <input type="text" name="maker"><br>
+Price <input type="text" name="price"><br>
+Speed<input type="text" name="speed"><br>
+Enginecapacity <input type="text" name="enginecapacity"><br>
 Color <input type="text" name="color">
 <br>
-<input type="submit" value="Add motorcycle">
-</pre></form>
+<input type="submit" value="Add motorcycle"></form>
 _END;
 
+
+?>
+
+</div>
+
+<div class="main_mid_btn">  <?php
 if (isset($_POST['vid'])   &&
     isset($_POST['model'])    &&
     isset($_POST['maker']) &&
@@ -114,6 +205,9 @@ Armor <input type="text" name="armor">
 </pre></form>
 _END;
 
+?></div>
+
+<div class="main_right_btn"> <?php
 if (isset($_POST['vid']) &&
     isset($_POST['model'])&&
     isset($_POST['maker'])&&
@@ -171,21 +265,21 @@ Enginecapacity <input type="text" name="enginecapacity">
 _END;
 
 
+$conn->close();
+
+// real_escape_string to strip out any characters that a hacker
+// may have inserted.
+function get_post($conn, $var) {
+  return $conn->real_escape_string($_POST[$var]);
+}
 
 
 
+?></div>
 
 
-  $conn->close();
+</div>
 
-  // real_escape_string to strip out any characters that a hacker
-  // may have inserted.
-  function get_post($conn, $var) {
-    return $conn->real_escape_string($_POST[$var]);
-  }
-
-?>
-
-<li><a href="adminwebpage.php">Go to the Index </a></li><br>
 </body>
+
 </html>
