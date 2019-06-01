@@ -52,12 +52,12 @@ $query = "INSERT INTO Motorcycle (vid,speed,enginecapacity,color) VALUES" .
 echo "Motorcycle <br>";
 echo <<<_END
 <form action="addVehicle.php" method="post"><pre>
-Vid <input type="text" name="vid"> <br>
-Model<input type="text" name="model"> <br>
-Maker <input type="text" name="maker"><br>
-Price <input type="text" name="price"><br>
-Speed<input type="text" name="speed"><br>
-Enginecapacity <input type="text" name="enginecapacity"><br>
+Vid <input type="text" name="vid">
+Model<input type="text" name="model">
+Maker <input type="text" name="maker">
+Price <input type="text" name="price">
+Speed<input type="text" name="speed">
+Enginecapacity <input type="text" name="enginecapacity">
 Color <input type="text" name="color">
 <br>
 <input type="submit" value="Add motorcycle">
