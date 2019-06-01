@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Which car do you want to rent?</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-<style type="text/css">
-    body{ font: 14px sans-serif; }
-    .wrapper{ width: 350px; padding: 20px; }
-</style>
-</head>
-
-<body>
-
-<h1>Which car do you want to rent?</h1>
 <?php // adddelete.php
 // require_once 'accessDatabase.php';
 // if(isset($_POST['searchCar']) &&
@@ -95,9 +80,23 @@
 //       function get_post($conn, $var) {
 //         return $conn->real_escape_string($_POST[$var]);
 //       }
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" media="screen">
+<title>Which car do you want to rent?</title>
+<style type="text/css">
+    body{
+      background-image: url("rentcarbackground.gif");
+      font: 14px sans-serif; }
+    .wrapper{ width: 350px; padding: 20px; }
+</style>
+</head>
 
+<body>
+
+<h1>Which car do you want to rent?</h1>
 <form action="showReservation.php" method="post"><pre>
 Type:<br />
     <input type="checkbox" name="carType[]" value="A" />SUV<br />
