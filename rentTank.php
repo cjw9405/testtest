@@ -2,196 +2,50 @@
 <html lang="en">
 
 <head>
-<title>Rent</title>
+<title>Which Tank do you want to rent?</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+<style type="text/css">
+    body{ font: 14px sans-serif; }
+    .wrapper{ width: 350px; padding: 20px; }
+</style>
 </head>
 
 <body>
 
-<h1>Rent Car</h1>
-<?php // adddelete.php
-  require_once 'accessDatabase.php';
- //session_start();
-// $id = $_SESSION['']
+<h1>Which Tank do you want to rent?</h1>
+<?php
+  //require_once 'accessDatabase.php';
 
-$car = $_POST['Type'];
-if(empty($car))
-  {
-    echo("You didn't select any type.");
-  }
-  else
-  {
-    $N = count($car);
+  //if(isset($_POST['searchTank']) &&
+      //isset($_POST['Minprice']) &&
+      //isset($_POST['Maxprice']) &&
+      //isset($_POST['color']) &&
+      // isset($_POST['maker'])){
+      // $maker = $_POST['maker'];
+      // $maxprice = $_POST['Maxprice'];
+      // $minprice = $_POST['Minprice'];
+      // $color = $_POST['color'];
+      //
+      // $query = "SELECT * FROM tank T, Vehicle V WHERE T.vid = V.vid AND T.color = $color AND V.price >= $minprice
+      // && V.price <= $maxprice AND V.maker = $maker";
+      // $result   = $conn->query($query);
+      // if(!$result){
+      //   echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
+      // }else{
+      // echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
+      // }
 
-    echo("You selected $N type: ");
-    for($i=0; $i < $N; $i++)
-    {
-      echo($car[$i] . " ");
-    }
-  }
-// if (isset($_POST['vid'])   &&
-//     isset($_POST['model'])    &&
-//     isset($_POST['maker']) &&
-//     isset($_POST['price'])     &&
-//     isset($_POST['speed'])&&
-//     isset($_POST['enginecapacity'])&&
-//     isset($_POST['color'])) {
-//   $vid   = $_POST['vid'];
-//   $model   = $_POST['model'];
-//   $maker = $_POST['maker'];
-//   $price     = $_POST['price'];
-//   $speed   = $_POST['speed'];
-//   $enginecapacity    = $_POST['enginecapacity'];
-//   $color    = $_POST['color'];
-//
-//   $query = "INSERT INTO Vehicle (vid,model,maker,price,isrent) VALUES" .
-//     "('$vid', '$model', '$maker', '$price ', 0)";
-//   $result   = $conn->query($query);
-//   if(!$result){
-//     echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-//   }else{
-//   echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-//   }
-//
-// $query = "INSERT INTO Motorcycle (vid,speed,enginecapacity,color) VALUES" .
-//       "('$vid', '$speed', '$enginecapacity','$color')";
-//     $result   = $conn->query($query);
-//     if(!$result){
-//       echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-//     }else{
-//     echo "INSERT Sucess<br><br>";
-//     }
-//
-//
-// }
+  ?>
 
-echo <<<_END
-<form action="addVehicle.php" method="post"><pre>
-Which car do you want to rent? <br />
-    Type:<br />
-    <input type="checkbox" id="Type[]" value="A" />SUV<br />
-    <input type="checkbox" id="Type[]" value="B" />Convertible<br />
-    <input type="checkbox" id="Type[]" value="C" />Sedan<br />
-    <input type="checkbox" id="Type[]" value="D" />Hatchback<br />
-    <input type="checkbox" id="Type[]" value="E" />Coupe<br />
-    Type your maximum price: <input type="text" name="price">
-    Color: <input type="color" id="head" name="head" value="#e66465">
-    <label for="head">Head</label>
+<form action="showReservation.php" method="post"><pre>
+Type your price range:
+    MIN<input type="text" name="Minprice">  MAX<input type="text" name="Maxprice"><br />
+Color: <input type="color" id="head" name="head" value="#e66465"><br />
 
-</pre></form>
-_END;
+<input type="submit" name = "searchTank" value="SEARCH">
+</pre>
 
-  echo  "<br><br>";
-
-
-
-  $conn->close();
-
-  // real_escape_string to strip out any characters that a hacker
-  // may have inserted.
-  function get_post($conn, $var) {
-    return $conn->real_escape_string($_POST[$var]);
-  }
-
-?>
-
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Rent</title>
-</head>
-
-<body>
-
-<h1>Rent Car</h1>
-<?php // adddelete.php
-  require_once 'accessDatabase.php';
- //session_start();
-// $id = $_SESSION['']
-
-$car = $_POST['Type'];
-if(empty($car))
-  {
-    echo("You didn't select any type.");
-  }
-  else
-  {
-    $N = count($car);
-
-    echo("You selected $N type: ");
-    for($i=0; $i < $N; $i++)
-    {
-      echo($car[$i] . " ");
-    }
-  }
-// if (isset($_POST['vid'])   &&
-//     isset($_POST['model'])    &&
-//     isset($_POST['maker']) &&
-//     isset($_POST['price'])     &&
-//     isset($_POST['speed'])&&
-//     isset($_POST['enginecapacity'])&&
-//     isset($_POST['color'])) {
-//   $vid   = $_POST['vid'];
-//   $model   = $_POST['model'];
-//   $maker = $_POST['maker'];
-//   $price     = $_POST['price'];
-//   $speed   = $_POST['speed'];
-//   $enginecapacity    = $_POST['enginecapacity'];
-//   $color    = $_POST['color'];
-//
-//   $query = "INSERT INTO Vehicle (vid,model,maker,price,isrent) VALUES" .
-//     "('$vid', '$model', '$maker', '$price ', 0)";
-//   $result   = $conn->query($query);
-//   if(!$result){
-//     echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-//   }else{
-//   echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-//   }
-//
-// $query = "INSERT INTO Motorcycle (vid,speed,enginecapacity,color) VALUES" .
-//       "('$vid', '$speed', '$enginecapacity','$color')";
-//     $result   = $conn->query($query);
-//     if(!$result){
-//       echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-//     }else{
-//     echo "INSERT Sucess<br><br>";
-//     }
-//
-//
-// }
-
-echo <<<_END
-<form action="addVehicle.php" method="post"><pre>
-Which car do you want to rent? <br />
-    Type:<br />
-    <input type="checkbox" id="Type[]" value="A" />SUV<br />
-    <input type="checkbox" id="Type[]" value="B" />Convertible<br />
-    <input type="checkbox" id="Type[]" value="C" />Sedan<br />
-    <input type="checkbox" id="Type[]" value="D" />Hatchback<br />
-    <input type="checkbox" id="Type[]" value="E" />Coupe<br />
-Type your maximum price: <input type="text" name="price">
-Color: <input type="color" id="head" name="head" value="#e66465">
-    
-</pre></form>
-_END;
-
-  echo  "<br><br>";
-
-
-
-  $conn->close();
-
-  // real_escape_string to strip out any characters that a hacker
-  // may have inserted.
-  function get_post($conn, $var) {
-    return $conn->real_escape_string($_POST[$var]);
-  }
-
-?>
-
-
+<p>Wanna reserve another vehicle? <a href="rent_check.php">Choose type of your Vehicle!</a>.</p>
+</form>
 </body>
 </html>
