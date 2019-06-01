@@ -172,7 +172,7 @@ _END;
 ?></div>
 
 <div class="main_right_btn"> <?php
-echo "Tank";
+echo "Car";
 
 $query  = "SELECT * FROM Car";
 $result = $conn->query($query);
