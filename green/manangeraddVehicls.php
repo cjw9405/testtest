@@ -32,8 +32,8 @@
               <h2 id="content">manager menu</h2>
 							<li><a href="manangerindex.php">HOME</a></li>
 							<li><a href="manangeraddVehicls.php">Add VehicleS</a></li>
-							<li><a href="elements.html">Delete VehiceS</a></li>
-              <li><a href="generic.html">Delete Bad Customer</a></li>
+							<li><a href="managerDeleteVehics.php">Delete VehiceS</a></li>
+              <li><a href="mangerDeleteCustomer.php">Delete Bad Customer</a></li>
 
 						</ul>
 						<ul class="actions stacked">
@@ -58,7 +58,7 @@
 										<div class="row">
 
 										<div class="col-4 col-12-medium">
-												<h3>Motorcycle </h3>
+												<h3 style="text-align:center">Motorcycle </h3>
                         <?php
                         require_once 'accessDatabase.php';
                         if (isset($_POST['vid'])   &&
@@ -100,8 +100,10 @@
 
 
   echo <<<_END
-                      <pre>
-                      <form action="manangeraddVehicls.php" method="post"><pre>
+
+
+<div style="text-align:center">
+                      <form action="manangeraddVehicls.php" method="post">
                       <input type="hidden" name="diff" value="yes">
                       Vid <input type="text" name="vid"><br>
                       Model<input type="text" name="model"><br>
@@ -112,13 +114,14 @@
                       Color <input type="text" name="color">
                       <br>
                       <input type="submit" value="Add motorcycle"></form>
+                      </div>
 _END;
 
 
                       ?>
 											</div>
 											<div class="col-4 col-12-medium">
-												<h3>Tank</h3>
+												<h3 style="text-align:center">Tank</h3>
                         <?php
                         if (isset($_POST['vid'])   &&
                             isset($_POST['model'])    &&
@@ -155,10 +158,11 @@ _END;
 
 
                         }
-                        echo "<br>";
+
 
 echo <<<_END
-                        <form action="manangeraddVehicls.php" method="post"><pre>
+<div style="text-align:center">
+                        <form action="manangeraddVehicls.php" method="post">
                         Vid <input type="text" name="vid"><br>
                         Model<input type="text" name="model"><br>
                         Maker <input type="text" name="maker"><br>
@@ -168,13 +172,14 @@ echo <<<_END
                         Armor <input type="text" name="armor">
                         <br>
                         <input type="submit" value="Add Tank">
-                        </pre></form>
+                        </form>
+                      </div>
 _END;
 
                         ?>
 											</div>
 											<div class="col-4 col-12-medium">
-												<h3>Car</h3>
+												<h3 style="text-align:center">Car</h3>
                         <?php
                         if (isset($_POST['vid']) &&
                             isset($_POST['model'])&&
@@ -217,7 +222,8 @@ _END;
                         }
 
 echo <<<_END
-                        <form action="manangeraddVehicls.php" method="post"><pre>
+<div style="text-align:center">
+                        <form action="manangeraddVehicls.php" method="post">
                         Vid <input type="text" name="vid"><br>
                         Model<input type="text" name="model"><br>
                         Maker <input type="text" name="maker"><br>
@@ -229,7 +235,8 @@ echo <<<_END
                         Enginecapacity <input type="text" name="enginecapacity">
                         <br>
                         <input type="submit" value="Add Car">
-                        </pre></form>
+                        </form>
+                        </div>
 _END;
 
 

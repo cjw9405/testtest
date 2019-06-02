@@ -1,7 +1,7 @@
 //WoohyungLee
 mysql -h localhost -u root
-source c:/xampp/htdocs/CSE305Project/table.sql;
-http://localhost/CSE305Project/index.php
+source c:/xampp/htdocs/CSE305Project/green/table.sql;
+http://localhost/CSE305Project/green/index.php
 
 //Jinwoo Choi
 mysql -h localhost -u root
