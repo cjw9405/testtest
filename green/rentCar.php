@@ -1,85 +1,85 @@
 <?php // adddelete.php
-// require_once 'accessDatabase.php';
-// if(isset($_POST['searchCar']) &&
-//     isset($_POST['carType']) &&
-//     isset($_POST['Minprice']) &&
-//     isset($_POST['Maxprice']) &&
-//     isset($_POST['color']) &&
-//     isset($_POST['maker'])){
-//     $maker = $_POST['maker'];
-//     $maxprice = $_POST['Maxprice'];
-//     $minprice = $_POST['Minprice'];
-//     $color = $_POST['color'];
-//     $carType = $_POST['carType'];
-//
-//     if(empty($carType))
-//         {
-//       echo("<p>You didn't select any Type.</p>\n");
-//     }
-//     else
-//         {
-//             $N = count($carType);
-//
-//       echo("<p>You selected $N: ");
-//       for($i=0; $i < $N; $i++)
-//       {
-//         echo($carType[$i] . " ");
-//       }
-//       echo("</p>");
-//     }
-//         //Checking whether a particular check box is selected
-//         //See the IsChecked() function below
-//         if(IsChecked('carType','A'))
-//         {
-//             echo ' SUV is checked. ';
-//         }
-//         if(IsChecked('carType','B'))
-//         {
-//             echo ' Convertible is checked. ';
-//         }
-//         if(IsChecked('carType','C'))
-//         {
-//             echo ' Sedan is checked. ';
-//         }
-//         if(IsChecked('carType','D'))
-//         {
-//             echo ' Hatchback is checked. ';
-//         }
-//         if(IsChecked('carType','E'))
-//         {
-//             echo ' Coupe is checked. ';
-//         }
-//         //and so on
-//   }
-//
-//     function IsChecked($chkname,$value)
-//     {
-//         if(!empty($_POST[$chkname]))
-//         {
-//             foreach($_POST[$chkname] as $chkval)
-//             {
-//                 if($chkval == $value)
-//                 {
-//                     return true;
-//                 }
-//             }
-//         }
-//         return false;
-//     }
-//     $query = "SELECT * FROM car C, Vehicle V WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
-//     && V.price <= $maxprice AND V.maker = $maker";
-//     $result   = $conn->query($query);
-//     if(!$result){
-//       echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-//     }else{
-//     echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-//     }
-//
-//       // real_escape_string to strip out any characters that a hacker
-//       // may have inserted.
-//       function get_post($conn, $var) {
-//         return $conn->real_escape_string($_POST[$var]);
-//       }
+ require_once 'accessDatabase.php';
+ if(isset($_POST['searchCar']) &&
+     isset($_POST['carType']) &&
+     isset($_POST['Minprice']) &&
+     isset($_POST['Maxprice']) &&
+     isset($_POST['color']) &&
+     isset($_POST['maker'])){
+     $maker = $_POST['maker'];
+     $maxprice = $_POST['Maxprice'];
+     $minprice = $_POST['Minprice'];
+     $color = $_POST['color'];
+     $carType = $_POST['carType'];
+
+     if(empty($carType))
+         {
+       echo("<p>You didn't select any Type.</p>\n");
+     }
+     else
+        {
+             $N = count($carType);
+
+       echo("<p>You selected $N: ");
+       for($i=0; $i < $N; $i++)
+       {
+         echo($carType[$i] . " ");
+       }
+       echo("</p>");
+     }
+         //Checking whether a particular check box is selected
+         //See the IsChecked() function below
+         if(IsChecked('carType','A'))
+         {
+             echo ' SUV is checked. ';
+         }
+         if(IsChecked('carType','B'))
+         {
+             echo ' Convertible is checked. ';
+         }
+         if(IsChecked('carType','C'))
+         {
+             echo ' Sedan is checked. ';
+         }
+         if(IsChecked('carType','D'))
+         {
+             echo ' Hatchback is checked. ';
+         }
+         if(IsChecked('carType','E'))
+         {
+             echo ' Coupe is checked. ';
+         }
+         //and so on
+  }
+
+    function IsChecked($chkname,$value)
+    {
+        if(!empty($_POST[$chkname]))
+        {
+            foreach($_POST[$chkname] as $chkval)
+            {
+                if($chkval == $value)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    $query = "SELECT * FROM car C, Vehicle V WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
+    && V.price <= $maxprice AND V.maker = $maker";
+    $result   = $conn->query($query);
+    if(!$result){
+      echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
+    }else{
+    echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
+    }
+
+      // real_escape_string to strip out any characters that a hacker
+      // may have inserted.
+      function get_post($conn, $var) {
+        return $conn->real_escape_string($_POST[$var]);
+       }
 ?>
 <!DOCTYPE HTML>
 
@@ -107,8 +107,8 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="rent_check.html">Home</a></li>
-							<li><a href="mysummercar.html">About Us</a></li>
+							<li><a href="rent_check.php">Home</a></li>
+							<li><a href="mysummercar.php">About Us</a></li>
 							<li><a href="elements.html">Elements</a></li>
 						</ul>
 						<ul class="actions stacked">
@@ -139,16 +139,16 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name="name" id="name" value="" placeholder=Minprice />
+                          <input type="text" name=minprice placeholder=Minprice />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="text" name="email" id="email" value="" placeholder=Maxprice />
+                          <input type="text" name=maxprice placeholder=Maxprice />
                         </div>
                         <!-- Break -->
                         <div class="col-12">
                           <p> Select your Car Type: </p>
-                          <select name="category" id="category">
+                          <select name=carType id="category">
                             <option value="">- Category -</option>
                             <option value="1">SUV</option>
                             <option value="1">Sedan</option>
@@ -158,15 +158,15 @@
                         </div>
                         <!-- Break -->
                         <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-low" name="priority" checked>
+                          <input type="checkbox" id="priority-low" name=navigation checked>
                           <label for="priority-low">Navigation</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-normal" name="priority" checked>
+                          <input type="checkbox" id="priority-normal" name=dd checked>
                           <label for="priority-normal">????</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-high" name="priority" checked>
+                          <input type="checkbox" id="priority-high" name=dd checked>
                           <label for="priority-high">????</label>
                         </div>
 
