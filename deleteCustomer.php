@@ -78,7 +78,7 @@ float:left;}
 
   }
 ?>
-<li><a href="adminwebpage.php">Go to the Index </a></li><br>
+<li><a href="adminwebpage.php">Go to the Home </a></li><br>
 </div>
 
 <div class="main_left_btn">
