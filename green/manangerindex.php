@@ -57,9 +57,65 @@
 										<p> Hi Human, This page is for admin. Let's work like a dog and earn money. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
-												<h3>Sem turpis amet semper</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat commodo eu sed ante lacinia. Sapien a lorem in integer ornare praesent commodo adipiscing arcu in massa commodo lorem accumsan at odio massa ac ac. Semper adipiscing varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+												<h3>Rent List</h3>
+												<?php
+												 // adddelete.php
+													require_once 'accessDatabase.php';
+												//	 session_start();
+												if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
+
+													$vid  = get_post($conn, 'vid');
+													$pid  = get_post($conn, 'pid');
+													$did  = get_post($conn, 'did');
+													$query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
+													$result = $conn->query($query);
+													$query  = "UPDATE Vehicle Set isrent =0  WHERE vid='$vid'";
+													$result = $conn->query($query);
+													if (!$result){echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
+													else{echo "DELETE Sucess: $query<br><br>";}
+
+												}
+
+												$query  = "SELECT * FROM Rent";
+												$result = $conn->query($query);
+												if (!$result) die ("Database access failed: " . $conn->error);
+
+												$rows = $result->num_rows;
+												for ($j = 0 ; $j < $rows ; ++$j) {
+													$result->data_seek($j);
+													$row = $result->fetch_array(MYSQLI_NUM);
+
+													echo <<<_END
+<div style="text-align:center">
+													vid $row[0] <br>
+													pid $row[1] <br>
+													did $row[2] <br>
+
+												<form action="manangerindex.php" method="post">
+												<input type="hidden" name="delete" value="yes">
+												<input type="hidden" name="vid" value="$row[0]">
+												<input type="hidden" name="pid" value="$row[1]">
+												<input type="hidden" name="did" value="$row[2]">
+												<input type="submit" value="DELETE RECORD"></form>
+												  </div>
+_END;
+												}
+
+												$result->close();
+												$conn->close();
+
+												// real_escape_string to strip out any characters that a hacker
+												// may have inserted.
+												function get_post($conn, $var) {
+													return $conn->real_escape_string($_POST[$var]);
+												}
+
+
+
+
+												?>
 											</div>
+
 										<div class="col-4 col-12-medium">
 												<h3>Interdum sapien gravida</h3>
 												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>

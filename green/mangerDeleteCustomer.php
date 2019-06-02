@@ -49,7 +49,7 @@
 							<section id="main" class="main">
 								<div class="inner">
 									<header class="major">
-										<h1>Admin Webpage </h1>
+										<h1>Delete Customer Webpage </h1>
 									</header>
 
 									<!-- Content -->
@@ -57,7 +57,7 @@
 										<p> This page is for delete Customer. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
-												<h3 style="text-align:center">Delete Obnoxious customer Black List  </h3>
+												<h3 style="text-align:center">Delete Obnoxious customer</h3>
                         <?php
                          // adddelete.php
                           require_once 'accessDatabase.php';
