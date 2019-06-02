@@ -200,7 +200,7 @@
                     <h3>Image</h3>
 
                     <h4>Fit</h4>
-                    <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+                    <span class="image fit"><img src="images/car9.jpg" alt="" /></span>
                     <div class="box alt">
                       <div class="row gtr-50 gtr-uniform">
                         <div class="col-4"><span class="image fit"><img src="images/car0.jpg" alt="" /></span></div>
