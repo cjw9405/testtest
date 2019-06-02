@@ -13,29 +13,26 @@
 <body>
 
 <h1>Which Motorcycle do you want to rent?</h1>
-<?php // adddelete.php
-  require_once 'accessDatabase.php';
- //session_start();
-// $id = $_SESSION['']
-
-if(isset($_POST['searchMotorcycle']) &&
-    isset($_POST['Minprice']) &&
-    isset($_POST['Maxprice']) &&
-    isset($_POST['color']) &&
-    isset($_POST['maker'])){
-    $maker = $_POST['maker'];
-    $maxprice = $_POST['Maxprice'];
-    $minprice = $_POST['Minprice'];
-    $color = $_POST['color'];
-
-    $query = "SELECT * FROM motorcycle M, Vehicle V WHERE M.vid = V.vid AND M.color = $color AND V.price >= $minprice
-    && V.price <= $maxprice AND V.maker = $maker";
-    $result   = $conn->query($query);
-    if(!$result){
-      echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-    }else{
-    echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-    }
+<?php
+//require_once 'accessDatabase.php';
+//if(isset($_POST['searchMotorcycle']) &&
+    // isset($_POST['Minprice']) &&
+    // isset($_POST['Maxprice']) &&
+    // isset($_POST['color']) &&
+    // isset($_POST['maker'])){
+    // $maker = $_POST['maker'];
+    // $maxprice = $_POST['Maxprice'];
+    // $minprice = $_POST['Minprice'];
+    // $color = $_POST['color'];
+    //
+    // $query = "SELECT * FROM motorcycle M, Vehicle V WHERE M.vid = V.vid AND M.color = $color AND V.price >= $minprice
+    // && V.price <= $maxprice AND V.maker = $maker";
+    // $result   = $conn->query($query);
+    // if(!$result){
+    //   echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
+    // }else{
+    // echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
+    // }
 
 ?>
 

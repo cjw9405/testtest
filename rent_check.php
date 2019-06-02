@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>Check the type of vehicle you want to Rent!</title>
-</head>
-
-<body>
-
-<h1>Check the type of vehicle you want to Rent!</h1>
-
 <?php //rent_check.php
   require_once 'accessDatabase.php';
 
@@ -63,14 +52,73 @@
       }
   ?>
 
-<form action="rentCar.php" method="post"><pre>
-Select the type: <div>
-<input type="checkbox" name="vehicle[]" value = "Motorcycle" onclick="window.location='rentMotorcycle.php';"/> Motorcycle<br />
-<input type="checkbox" name="vehicle[]" value = "Tank" onclick="window.location='rentTank.php';"/> Tank<br />
-<input type="checkbox" name="vehicle[]" value = "Car" onclick="window.location='rentCar.php';"/> Car<br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Check the type of vehicle you want to Rent!</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="sidenav">
+  <a href="information.php">About Our Company</a>
+  <a href="openboard.php">OpenBoard</a>
+  <a href="mysummercar.php">My Summer Car</a>
 </div>
-</pre></form>
 
-
+<form action="rentCar.php" method="post"><pre>
+<div class="content">
+  <h2>Check the type of vehicle you want to Rent!</h2>
+  <p>Select the type:
+    <input type="checkbox" name="vehicle[]" value = "Motorcycle" onclick="window.location='rentMotorcycle.php';"/> Motorcycle<br />
+    <input type="checkbox" name="vehicle[]" value = "Tank" onclick="window.location='rentTank.php';"/> Tank<br />
+    <input type="checkbox" name="vehicle[]" value = "Car" onclick="window.location='rentCar.php';"/> Car<br />
+  </p>
+</div>
+</pre>
+</form>
 </body>
 </html>
