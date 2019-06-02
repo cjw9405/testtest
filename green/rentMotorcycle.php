@@ -78,11 +78,11 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name="name" id="name" value="" placeholder="Name" />
+                          <input type="text" name="name" id="name" value="" placeholder="Minprice" />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="text" name="email" id="email" value="" placeholder="Email" />
+                          <input type="text" name="email" id="email" value="" placeholder="Maxprice" />
                         </div>
                         <!-- Break -->
                         <div class="col-12">
@@ -97,25 +97,16 @@
                         </div>
                         <!-- Break -->
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-low" name="priority" checked>
-                          <label for="priority-low">Low</label>
+                          <input type="checkbox" id="priority-low" name="priority" checked>
+                          <label for="priority-low">Navigation</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-normal" name="priority">
-                          <label for="priority-normal">Normal</label>
+                          <input type="checkbox" id="priority-normal" name="priority" checked>
+                          <label for="priority-normal">????</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-high" name="priority">
-                          <label for="priority-high">High</label>
-                        </div>
-                        <!-- Break -->
-                        <div class="col-6 col-12-small">
-                          <input type="checkbox" id="copy" name="copy">
-                          <label for="copy">Email me a copy</label>
-                        </div>
-                        <div class="col-6 col-12-small">
-                          <input type="checkbox" id="human" name="human" checked>
-                          <label for="human">I am a human</label>
+                          <input type="checkbox" id="priority-high" name="priority" checked>
+                          <label for="priority-high">????</label>
                         </div>
                         <!-- Break -->
                         <div class="col-12">
@@ -135,14 +126,14 @@
                     <h3>Image</h3>
 
                     <h4>Fit</h4>
-                    <span class="image fit"><img src="images/car9.jpg" alt="" /></span>
+                    <span class="image fit"><img src="images/m0.jpg" alt="" /></span>
                     <div class="box alt">
                       <div class="row gtr-50 gtr-uniform">
-                        <div class="col-4"><span class="image fit"><img src="images/car0.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car1.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car2.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m0.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m1.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m2.jpg" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/car3.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m3.jpg" alt="" /></span></div>
                         <div class="col-4"><span class="image fit"><img src="images/car4.jpg" alt="" /></span></div>
                         <div class="col-4"><span class="image fit"><img src="images/car5.jpg" alt="" /></span></div>
                         <!-- Break -->

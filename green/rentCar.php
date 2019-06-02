@@ -107,13 +107,13 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Generic</a></li>
+							<li><a href="rent_check.html">Home</a></li>
+							<li><a href="mysummercar.html">About Us</a></li>
 							<li><a href="elements.html">Elements</a></li>
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Sign Up</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
+							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
+							<li><a href="login.php" class="button fit">Log In</a></li>
 						</ul>
 					</nav>
 
@@ -124,7 +124,7 @@
 							<section id="main" class="main">
 								<div class="inner">
 									<header class="major">
-										<h1>RentCar</h1>
+										<h1>Rent Car</h1>
 									</header>
 
 									<!-- Content -->
@@ -139,11 +139,11 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name="name" id="name" value="" placeholder="Name" />
+                          <input type="text" name="name" id="name" value="" placeholder=Minprice />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="email" name="email" id="email" value="" placeholder="Email" />
+                          <input type="text" name="email" id="email" value="" placeholder=Maxprice />
                         </div>
                         <!-- Break -->
                         <div class="col-12">
@@ -158,26 +158,18 @@
                         </div>
                         <!-- Break -->
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-low" name="priority" checked>
-                          <label for="priority-low">Low</label>
+                          <input type="checkbox" id="priority-low" name="priority" checked>
+                          <label for="priority-low">Navigation</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-normal" name="priority">
-                          <label for="priority-normal">Normal</label>
+                          <input type="checkbox" id="priority-normal" name="priority" checked>
+                          <label for="priority-normal">????</label>
                         </div>
                         <div class="col-4 col-12-small">
-                          <input type="radio" id="priority-high" name="priority">
-                          <label for="priority-high">High</label>
+                          <input type="checkbox" id="priority-high" name="priority" checked>
+                          <label for="priority-high">????</label>
                         </div>
-                        <!-- Break -->
-                        <div class="col-6 col-12-small">
-                          <input type="checkbox" id="copy" name="copy">
-                          <label for="copy">Email me a copy</label>
-                        </div>
-                        <div class="col-6 col-12-small">
-                          <input type="checkbox" id="human" name="human" checked>
-                          <label for="human">I am a human</label>
-                        </div>
+
                         <!-- Break -->
                         <div class="col-12">
                           <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
@@ -185,7 +177,7 @@
                         <!-- Break -->
                         <div class="col-12">
                           <ul class="actions">
-                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="submit" value="Search" class="primary" /></li>
                             <li><input type="reset" value="Reset" /></li>
                           </ul>
                         </div>
