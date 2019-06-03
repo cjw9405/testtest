@@ -3,8 +3,8 @@
 require_once "accessDatabase.php";
 
 // Define variables and initialize with empty values
-$username = $password = $name = $email = $phone = $confirm_password = "";
-$username_err = $password_err = $email_err = $name_err = $phone_err = $confirm_password_err = "";
+$username = $password = $name = $email = $number = $confirm_password = " ";
+$username_err = $password_err = $email_err = $name_err = $number_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -65,11 +65,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = trim($_POST["email"]);
     }
 
-    if(empty(trim($_POST["phone"]))){
-        $phone_err = "Please enter phone.";
+    if(empty(trim($_POST["number"]))){
+        $number_err = "Please enter number.";
     }
     else{
-        $phone = trim($_POST["phone"]);
+        $number = trim($_POST["number"]);
     }
 
     // Validate confirm password
@@ -83,18 +83,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($name_err) && empty($email_err) && empty($phone_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($name_err) && empty($email_err) && empty($number_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
         $sql = "INSERT INTO People (pid, name, password, username, email, isManager, telephoneNumber) VALUES (999, ?, ?, ?, ?, 0, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, $param_username, $param_password, $param_name, $param_email, $param_number);
 
             // Set parameters
             $param_username = $username;
-            $param_password = $password; // Creates a password hash
+            $param_password = $password;
+            $param_name = $name;
+            $param_email = $email;
+            $param_number = $number;
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -186,10 +189,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="text" name="email" class="form-control" value="<?php echo $email; ?>" placeholder = "Email">
                 <span class="help-block"><?php echo $email_err; ?></span>
             </div>
-            <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+            <div class="form-group <?php echo (!empty($number_err)) ? 'has-error' : ''; ?>">
                 <label>Phone Number</label>
                 <input type="text" name="number" class="form-control" value="<?php echo $number; ?>" placeholder = "Phone Number">
-                <span class="help-block"><?php echo $phone_err; ?></span>
+                <span class="help-block"><?php echo $number_err; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
