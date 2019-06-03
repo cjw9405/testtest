@@ -15,7 +15,7 @@
 
     $query = $query  = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle v, car C WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
     && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
-    if ($res = $mysqli->query($sql)) {
+    if ($res = $mysqli->query($query)) {
     if ($res->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
