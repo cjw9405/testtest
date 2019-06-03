@@ -97,19 +97,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="generic.html">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+  <title>Untitled</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body style="background-color:powderblue;" >
+<body class="is-preload">
 
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your Username and Password to login.</p>
+  <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+        <header id="header">
+          <a href="index.html" class="logo">Formula <span>by Pixelarity</span></a>
+          <nav>
+            <ul>
+              <li><a href="#menu">Menu</a></li>
+            </ul>
+          </nav>
+        </header>
+
+      <!-- Menu -->
+        <nav id="menu">
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generic.html">Generic</a></li>
+            <li><a href="elements.html">Elements</a></li>
+          </ul>
+          <ul class="actions stacked">
+            <li><a href="#" class="button primary fit">Sign Up</a></li>
+            <li><a href="#" class="button fit">Log In</a></li>
+          </ul>
+        </nav>
+
+    <div id="wrapper">
+      <section id="main" class="main">
+        <div class="inner">
+          <header class="major">
+            <h1>Log In</h1>
+          </header>
+          <!-- Content -->
+        <h2 align="center">Welcome Back!</h2>
+        <p align="center">Please fill your username and password.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
