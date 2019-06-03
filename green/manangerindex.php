@@ -105,7 +105,7 @@
 							<form action="manangerindex.php" method="post">
 							<input type="submit" value="DELETE RECORD">
 							<input type="hidden" name="delete" value="yes">
-							<input type="hidden" name="pid" value="' . $row[0] . ' ">
+							<input type="hidden" name="vid" value="' . $row[0] . ' ">
 							<input type="hidden" name="pid" value="' . $row[1] . ' ">
 							<input type="hidden" name="did" value="' . $row[2] . ' ">
 							</form>
