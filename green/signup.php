@@ -3,7 +3,7 @@
 require_once "accessDatabase.php";
 
 // Define variables and initialize with empty values
-$username = $password = $name = $email = $number = $confirm_password = " ";
+$username = $password = $name = $email = $number = $confirm_password = "";
 $username_err = $password_err = $email_err = $name_err = $number_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
