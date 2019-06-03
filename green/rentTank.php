@@ -1,26 +1,55 @@
-<?php
-  //require_once 'accessDatabase.php';
+<?php // rentCar.php
+ require_once 'accessDatabase.php';
+ if(isset($_POST['carType']) &&
+     isset($_POST['Minprice']) &&
+     isset($_POST['Maxprice']) &&
+     isset($_POST['color']) &&
+     isset($_POST['maker']) &&
+     isset($_POST['model'])){
+     $maker = $_POST['maker'];
+     $model = $_POST['model'];
+     $maxprice = $_POST['Maxprice'];
+     $minprice = $_POST['Minprice'];
+     $color = $_POST['color'];
+     $carType = $_POST['carType'];
 
-  //if(isset($_POST['searchTank']) &&
-      //isset($_POST['Minprice']) &&
-      //isset($_POST['Maxprice']) &&
-      //isset($_POST['color']) &&
-      // isset($_POST['maker'])){
-      // $maker = $_POST['maker'];
-      // $maxprice = $_POST['Maxprice'];
-      // $minprice = $_POST['Minprice'];
-      // $color = $_POST['color'];
-      //
-      // $query = "SELECT * FROM tank T, Vehicle V WHERE T.vid = V.vid AND T.color = $color AND V.price >= $minprice
-      // && V.price <= $maxprice AND V.maker = $maker";
-      // $result   = $conn->query($query);
-      // if(!$result){
-      //   echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-      // }else{
-      // echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-      // }
-
-  ?>
+    $query = $query  = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle v, car C WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
+    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
+    if ($res = $mysqli->query($sql)) {
+    if ($res->num_rows > 0) {
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Vid</th>";
+        echo "<th>Type</th>";
+        echo "<th>Fuel</th>";
+        echo "<th>Color</th>";
+        echo "<th>Speed</th>";
+        echo "<th>Engine Capacity</th>";
+        echo "</tr>";
+        while ($row = $res->fetch_array())
+        {
+            echo "<tr>";
+            echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['type']."</td>";
+            echo "<td>".$row['fuel']."</td>";
+            echo "<td>".$row['color']."</td>";
+            echo "<td>".$row['speed']."</td>";
+            echo "<td>".$row['enginecapacity']."</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        $res->free();
+    }
+    else {
+        echo "No matching records are found.";
+    }
+}
+else {
+    echo "ERROR: Could not able to execute $sql. "
+                                             .$mysqli->error;
+}
+$mysqli->close();
+?>
 <!DOCTYPE HTML>
 
 <html>

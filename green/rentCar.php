@@ -1,88 +1,57 @@
-<?php // adddelete.php
+<?php // rentCar.php
  require_once 'accessDatabase.php';
- if(isset($_POST['searchCar']) &&
-     isset($_POST['carType']) &&
+ if(isset($_POST['carType']) &&
      isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['color']) &&
-     isset($_POST['maker'])){
+     isset($_POST['maker']) &&
+     isset($_POST['model'])){
      $maker = $_POST['maker'];
+     $model = $_POST['model'];
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
      $color = $_POST['color'];
      $carType = $_POST['carType'];
 
-     if(empty($carType))
-         {
-       echo("<p>You didn't select any Type.</p>\n");
-     }
-     else
+    $query = $query  = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle v, car C WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
+    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
+    if ($res = $mysqli->query($sql)) {
+    if ($res->num_rows > 0) {
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Vid</th>";
+        echo "<th>Type</th>";
+        echo "<th>Fuel</th>";
+        echo "<th>Color</th>";
+        echo "<th>Speed</th>";
+        echo "<th>Engine Capacity</th>";
+        echo "</tr>";
+        while ($row = $res->fetch_array())
         {
-             $N = count($carType);
-
-       echo("<p>You selected $N: ");
-       for($i=0; $i < $N; $i++)
-       {
-         echo($carType[$i] . " ");
-       }
-       echo("</p>");
-     }
-         //Checking whether a particular check box is selected
-         //See the IsChecked() function below
-         if(IsChecked('carType','A'))
-         {
-             echo ' SUV is checked. ';
-         }
-         if(IsChecked('carType','B'))
-         {
-             echo ' Convertible is checked. ';
-         }
-         if(IsChecked('carType','C'))
-         {
-             echo ' Sedan is checked. ';
-         }
-         if(IsChecked('carType','D'))
-         {
-             echo ' Hatchback is checked. ';
-         }
-         if(IsChecked('carType','E'))
-         {
-             echo ' Coupe is checked. ';
-         }
-         //and so on
-  }
-
-    function IsChecked($chkname,$value)
-    {
-        if(!empty($_POST[$chkname]))
-        {
-            foreach($_POST[$chkname] as $chkval)
-            {
-                if($chkval == $value)
-                {
-                    return true;
-                }
-            }
+            echo "<tr>";
+            echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['type']."</td>";
+            echo "<td>".$row['fuel']."</td>";
+            echo "<td>".$row['color']."</td>";
+            echo "<td>".$row['speed']."</td>";
+            echo "<td>".$row['enginecapacity']."</td>";
+            echo "</tr>";
         }
-        return false;
+        echo "</table>";
+        $res->free();
     }
-    $query = "SELECT * FROM car C, Vehicle V WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
-    && V.price <= $maxprice AND V.maker = $maker";
-    $result   = $conn->query($query);
-    if(!$result){
-      echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-    }else{
-    echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
+    else {
+        echo "No matching records are found.";
     }
+}
+else {
+    echo "ERROR: Could not able to execute $sql. "
+                                             .$mysqli->error;
+}
+$mysqli->close();
+}?>
 
-      // real_escape_string to strip out any characters that a hacker
-      // may have inserted.
-      function get_post($conn, $var) {
-        return $conn->real_escape_string($_POST[$var]);
-       }
-?>
 <!DOCTYPE HTML>
-
 <html>
 	<head>
 		<title>Rent Car</title>
@@ -96,7 +65,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">grand rental auto <span>by </span></a>
+						<a href="mysummercar.php" class="logo">grand rental auto <span>by </span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -129,7 +98,7 @@
 
 									<!-- Content -->
 										<h2 id="content">Description: </h2>
-										<p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</p>
+										<p>Please fill in or check your preferences. The given option is as follows: Range of the price, Type, Color, Need of auxillaries</p>
 									<hr class="major" />
 
                   <!-- Form -->
@@ -139,21 +108,69 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name=minprice placeholder=Minprice />
+                          <input type="text" name=Minprice placeholder=Minprice />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="text" name=maxprice placeholder=Maxprice />
+                          <input type="text" name=Maxprice placeholder=Maxprice />
                         </div>
                         <!-- Break -->
                         <div class="col-12">
                           <p> Select your Car Type: </p>
                           <select name=carType id="category">
-                            <option value="">- Category -</option>
+                            <option value="">- CarType -</option>
                             <option value="1">SUV</option>
                             <option value="1">Sedan</option>
                             <option value="1">Hatchback</option>
                             <option value="1">Coupe</option>
+                          </select>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                          <p> Select Maker: </p>
+                          <select name=maker id="category">
+                            <option value="">- Maker -</option>
+                            <option value="1">Kenworth</option>
+                            <option value="1">Renault</option>
+                            <option value="1">Subaru</option>
+                            <option value="1">Daimler</option>
+                            <option value="1">Maruti Suzuki</option>
+                            <option value="1">Seat</option>
+                            <option value="1">MINI</option>
+                            <option value="1">Cadillac</option>
+                            <option value="1">Buick</option>
+                            <option value="1">FAW</option>
+                          </select>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                          <p> Select Model: </p>
+                          <select name=model id="category">
+                            <option value="">- Model -</option>
+                            <option value="1">A1</option>
+                            <option value="1">A7</option>
+                            <option value="1">Pajero</option>
+                            <option value="1">A7</option>
+                            <option value="1">LaPuta</option>
+                            <option value="1">Reventon</option>
+                            <option value="1">A6</option>
+                            <option value="1">XM3</option>
+                            <option value="1">Fitta</option>
+                            <option value="1">M4</option>
+                          </select>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                          <p> Select Color: </p>
+                          <select name=color id="category">
+                            <option value="">- Color -</option>
+                            <option value="1">Red</option>
+                            <option value="1">Orange</option>
+                            <option value="1">Yellow</option>
+                            <option value="1">Green</option>
+                            <option value="1">Blue</option>
+                            <option value="1">Indigo</option>
+                            <option value="1">Violet</option>
                           </select>
                         </div>
                         <!-- Break -->

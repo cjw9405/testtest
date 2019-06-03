@@ -29,9 +29,9 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="rent_check.php">Home</a></li>
+							<li><a href="mysummercar.php">About Us</a></li>
+							<li><a href="mypage.php">My page</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Sign Up</a></li>
