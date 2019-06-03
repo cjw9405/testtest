@@ -57,63 +57,83 @@
 										<p> Hi Human, This page is for admin. Let's work like a dog and earn money. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
-												<h3>Rent List</h3>
-												<?php
-												 // adddelete.php
-													require_once 'accessDatabase.php';
-												//	 session_start();
-												if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
+												<h3 style="text-align:center">Rent List</h3>
+												<br>
+												<table>
 
-													$vid  = get_post($conn, 'vid');
-													$pid  = get_post($conn, 'pid');
-													$did  = get_post($conn, 'did');
-													$query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
-													$result = $conn->query($query);
-													$query  = "UPDATE Vehicle Set isrent =0  WHERE vid='$vid'";
-													$result = $conn->query($query);
-													if (!$result){echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
-													else{echo "DELETE Sucess: $query<br><br>";}
-
-												}
-
-												$query  = "SELECT * FROM Rent";
-												$result = $conn->query($query);
-												if (!$result) die ("Database access failed: " . $conn->error);
-
-												$rows = $result->num_rows;
-												for ($j = 0 ; $j < $rows ; ++$j) {
-													$result->data_seek($j);
-													$row = $result->fetch_array(MYSQLI_NUM);
-
-													echo <<<_END
-<div style="text-align:center">
-													vid $row[0] <br>
-													pid $row[1] <br>
-													did $row[2] <br>
-
-												<form action="manangerindex.php" method="post">
-												<input type="hidden" name="delete" value="yes">
-												<input type="hidden" name="vid" value="$row[0]">
-												<input type="hidden" name="pid" value="$row[1]">
-												<input type="hidden" name="did" value="$row[2]">
-												<input type="submit" value="DELETE RECORD"></form>
-												  </div>
-_END;
-												}
-
-												$result->close();
-												$conn->close();
-
-												// real_escape_string to strip out any characters that a hacker
-												// may have inserted.
-												function get_post($conn, $var) {
-													return $conn->real_escape_string($_POST[$var]);
-												}
+      <thead>
+        <tr>
+          <th>Vehices Id number</th>
+          <th>Customer Id numner</th>
+					  <th>Duration Id number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+            require_once 'accessDatabase.php';
 
 
+						if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
+
+						  $vid  = get_post($conn, 'vid');
+						  $pid  = get_post($conn, 'pid');
+						  $did  = get_post($conn, 'did');
+						  $query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
+						  $result = $conn->query($query);
+						  $query  = "UPDATE Vehicle Set isrent =0  WHERE vid='$vid'";
+						  $result = $conn->query($query);
+						  if (!$result){echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
+						  else{ echo '<p style="color: red;"> DELETE Sucess  rent  deleted.</p><br><br>';}
+
+						}
 
 
-												?>
+						$query  = "SELECT * FROM Rent";
+						$result = $conn->query($query);
+						if (!$result) die ("Database access failed: " . $conn->error);
+
+						$rows = $result->num_rows;
+
+						if($rows==0){
+							echo '<p style="color: red;"> Table is Empty </p>';
+
+						}else{
+							for ($j = 0 ; $j < $rows ; ++$j) {$result->data_seek($j);
+							$row = $result->fetch_array(MYSQLI_NUM);
+
+							$jb_delete = '
+							<form action="manangerindex.php" method="post">
+							<input type="submit" value="DELETE RECORD">
+							<input type="hidden" name="delete" value="yes">
+							<input type="hidden" name="pid" value="' . $row[0] . ' ">
+							<input type="hidden" name="pid" value="' . $row[1] . ' ">
+							<input type="hidden" name="did" value="' . $row[2] . ' ">
+							</form>
+						';
+
+	echo "<tr><td>" . $row[0] ."</td><td>". $row[1] ."</td><td>". $row[2] ."</td><td>". $jb_delete ."</td></tr>";
+
+	  //   echo "1" . $row[0] ."1". $row[1] ."1". $row[2] ."1". $row[3] ."1". $row[4] ."1". $row[5] ."1". $jb_delete ."1";
+
+							}
+
+						}
+
+
+
+					$conn->close();
+
+					// real_escape_string to strip out any characters that a hacker
+					// may have inserted.
+					function get_post($conn, $var) {
+						return $conn->real_escape_string($_POST[$var]);
+					}
+
+
+
+        ?>
+      </tbody>
+    </table>
 											</div>
 
 										<div class="col-4 col-12-medium">

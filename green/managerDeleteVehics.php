@@ -60,7 +60,7 @@
 
 
 											<div class="col-12 col-12-small">
-												<h3>DElete</h3>
+
                         <?php
                          // adddelete.php
                           require_once 'accessDatabase.php';
@@ -83,7 +83,8 @@
                             if (!$result){
                                 echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
                             else{
-                               echo "DELETE Sucess: $query<br>" . $conn->error . "<br><br>";}
+															echo '<p style="color: red;">DELETE Sucess: product number' .   $vid . ' is deleted.</p><br><br>';
+                              }
                           }
 
 

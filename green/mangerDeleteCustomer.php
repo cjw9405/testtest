@@ -57,67 +57,75 @@
 										<p> This page is for delete Customer. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
-												<h3 style="text-align:center">Delete Obnoxious customer</h3>
-                        <?php
-                         // adddelete.php
-                          require_once 'accessDatabase.php';
-                         //session_start();
-                        // $id = $_SESSION['']
+												<h2 style="text-align:center"> Obnoxious customer Black List</h2>
+												<br>
+												<table>
 
-                        if (isset($_POST['delete']) &&
-                            isset($_POST['pid'])) {
+      <thead>
+        <tr>
+          <th>Customer Id</th>
+          <th>Customer Name</th>
+					  <th>Password</th>
+						<th>User Nickname</th>
+          <th>Customer Email</th>
+          <th>TelephoneNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+            require_once 'accessDatabase.php';
 
-                          $pid  = get_post($conn, 'pid');
+						if (isset($_POST['delete']) &&
+								isset($_POST['pid'])) {
 
-                            $query  = "DELETE FROM  People WHERE pid='$pid'";
-                            $result = $conn->query($query);
-                            if (!$result){
-                                echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
-                            else{
-                               echo "DELETE Sucess: $query<br>" . $conn->error . "<br><br>";}
+							$pid  = get_post($conn, 'pid');
 
+								$query  = "DELETE FROM  People WHERE pid='$pid'";
+								$result = $conn->query($query);
+								if (!$result){
+										echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
+								else{
 
+									 echo '<p style="color: red;"> Obnoxious Customer ID number '.$pid .' is sucessfully deleted.</p><br><br>';
+									 }
+						}
+						$query  = "SELECT P.pid as pid,name,password,username,email,telephoneNumber FROM People P,Customer C Where P.pid= C.pid and C.ranking= 'F' ";
+						$result = $conn->query($query);
+						if (!$result) die ("Database access failed: " . $conn->error);
 
-                        }
-                      ?>
-                      <div class="col-12 col-12-small">
-												<h3 style="text-align:center">Credit Rating F Customer Black List</h3>
-                        <?php
-
-                        $query  = "SELECT P.pid as pid,name,password,username,email,telephoneNumber FROM People P,Customer C Where P.pid= C.pid and C.ranking= 'F' ";
-                        $result = $conn->query($query);
-                        if (!$result) die ("Database access failed: " . $conn->error);
-
-                        $rows = $result->num_rows;
-                        for ($j = 0 ; $j < $rows ; ++$j) {$result->data_seek($j);
-                        $row = $result->fetch_array(MYSQLI_NUM);
-
-                        echo <<<_END
-  <div style="text-align:center">
-                      Customer Id:  $row[0] <br> Name:  $row[1] <br>Password:  $row[2] <br> Email: $row[3] <br> UserName: $row[4] <br> TelephoneNumber: $row[5] <br>  <form action="mangerDeleteCustomer.php" method="post">
-                      <input type="submit" value="DELETE RECORD">
-                      <br><br>
-                      <input type="hidden" name="delete" value="yes">
-                      <input type="hidden" name="pid" value="$row[0]">
-
-                      </form>
-                      </div>
-_END;
-
-                        }
-
-
-                      $conn->close();
-
-                      // real_escape_string to strip out any characters that a hacker
-                      // may have inserted.
-                      function get_post($conn, $var) {
-                        return $conn->real_escape_string($_POST[$var]);
-                      }
+						$rows = $result->num_rows;
+						for ($j = 0 ; $j < $rows ; ++$j) {$result->data_seek($j);
+						$row = $result->fetch_array(MYSQLI_NUM);
+						$jb_delete = '
+						<form action="mangerDeleteCustomer.php" method="post">
+						<input type="submit" value="DELETE RECORD">
+						<input type="hidden" name="delete" value="yes">
+						<input type="hidden" name="pid" value="' . $row[0] . ' ">
+						</form>
+					';
 
 
 
-                      ?>
+echo "<tr><td>" . $row[0] ."</td><td>". $row[1] ."</td><td>". $row[2] ."</td><td>". $row[3] ."</td><td>". $row[4] ."</td><td>". $row[5] ."</td><td>". $jb_delete ."</td></tr>";
+
+  //   echo "1" . $row[0] ."1". $row[1] ."1". $row[2] ."1". $row[3] ."1". $row[4] ."1". $row[5] ."1". $jb_delete ."1";
+
+						}
+
+
+					$conn->close();
+
+					// real_escape_string to strip out any characters that a hacker
+					// may have inserted.
+					function get_post($conn, $var) {
+						return $conn->real_escape_string($_POST[$var]);
+					}
+
+
+
+        ?>
+      </tbody>
+    </table>
 											</div>
 
 
