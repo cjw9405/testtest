@@ -130,16 +130,16 @@ $mysqli->close();
                           <p> Select Maker: </p>
                           <select name=maker id="category">
                             <option value="">- Maker -</option>
-                            <option value="1">Kenworth</option>
-                            <option value="1">Renault</option>
-                            <option value="1">Subaru</option>
-                            <option value="1">Daimler</option>
-                            <option value="1">Maruti Suzuki</option>
-                            <option value="1">Seat</option>
-                            <option value="1">MINI</option>
-                            <option value="1">Cadillac</option>
-                            <option value="1">Buick</option>
-                            <option value="1">FAW</option>
+                            <option name = Kenworth value="1">Kenworth</option>
+                            <option name = Renault value="1">Renault</option>
+                            <option name = Subaru value="1">Subaru</option>
+                            <option name = Daimler value="1">Daimler</option>
+                            <option name = Maruti Suzuki value="1">Maruti Suzuki</option>
+                            <option name = Seat value="1">Seat</option>
+                            <option name = MINI value="1">MINI</option>
+                            <option name = Cadillac value="1">Cadillac</option>
+                            <option name = Buick value="1">Buick</option>
+                            <option name = FAW value="1">FAW</option>
                           </select>
                         </div>
                         <!-- Break -->
@@ -147,16 +147,15 @@ $mysqli->close();
                           <p> Select Model: </p>
                           <select name=model id="category">
                             <option value="">- Model -</option>
-                            <option value="1">A1</option>
-                            <option value="1">A7</option>
-                            <option value="1">Pajero</option>
-                            <option value="1">A7</option>
-                            <option value="1">LaPuta</option>
-                            <option value="1">Reventon</option>
-                            <option value="1">A6</option>
-                            <option value="1">XM3</option>
-                            <option value="1">Fitta</option>
-                            <option value="1">M4</option>
+                            <option name = A1 value="1">A1</option>
+                            <option name = A7 value="1">A7</option>
+                            <option name = Pajero value="1">Pajero</option>
+                            <option name = LaPuta value="1">LaPuta</option>
+                            <option name = Reventon value="1">Reventon</option>
+                            <option name = A6 value="1">A6</option>
+                            <option name = XM3 value="1">XM3</option>
+                            <option name = Fitta value="1">Fitta</option>
+                            <option name = M4 value="1">M4</option>
                           </select>
                         </div>
                         <!-- Break -->
@@ -164,13 +163,13 @@ $mysqli->close();
                           <p> Select Color: </p>
                           <select name=color id="category">
                             <option value="">- Color -</option>
-                            <option value="1">Red</option>
-                            <option value="1">Orange</option>
-                            <option value="1">Yellow</option>
-                            <option value="1">Green</option>
-                            <option value="1">Blue</option>
-                            <option value="1">Indigo</option>
-                            <option value="1">Violet</option>
+                            <option name = Red value="1">Red</option>
+                            <option name = Orange value="1">Orange</option>
+                            <option name = Yellow value="1">Yellow</option>
+                            <option name = Green value="1">Green</option>
+                            <option name = Blue value="1">Blue</option>
+                            <option name = Indigo value="1">Indigo</option>
+                            <option name = Violet value="1">Violet</option>
                           </select>
                         </div>
                         <!-- Break -->

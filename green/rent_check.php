@@ -31,7 +31,7 @@
   						<ul class="links">
   							<li><a href="rent_check.php">Home</a></li>
   							<li><a href="mysummercar.php">About Us</a></li>
-  
+
   						</ul>
   						<ul class="actions stacked">
   							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
@@ -48,7 +48,7 @@
   								</p>
   							</header>
   							<ul class="actions special">
-  								<li><a href="#" class="button primary large">Get Started</a></li>
+  								<li><a href="signup.php" class="button primary large">Get Started</a></li>
   							</ul>
   						</div>
   						<a href="#one" class="more">Learn More</a>
