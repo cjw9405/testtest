@@ -1,7 +1,6 @@
 <?php // rentCar.php
  require_once 'accessDatabase.php';
- if(isset($_POST['carType']) &&
-     isset($_POST['Minprice']) &&
+ if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['color']) &&
      isset($_POST['maker']) &&
@@ -11,30 +10,25 @@
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
      $color = $_POST['color'];
-     $carType = $_POST['carType'];
 
-    $query = $query  = "SELECT M.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle v, motorcycle M WHERE M.vid = V.vid AND M.type = $carType AND C.color = $color AND V.price >= $minprice
+    $query = $query  = "SELECT M.vid as vid, speed, enginecapacity, color FROM Vehicle v, motorcycle M WHERE M.vid = V.vid AND M.color = $color AND V.price >= $minprice
     && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
     if ($res = $mysqli->query($sql)) {
     if ($res->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
         echo "<th>Vid</th>";
-        echo "<th>Type</th>";
-        echo "<th>Fuel</th>";
-        echo "<th>Color</th>";
         echo "<th>Speed</th>";
         echo "<th>Engine Capacity</th>";
+        echo "<th>Color</th>";
         echo "</tr>";
         while ($row = $res->fetch_array())
         {
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
-            echo "<td>".$row['type']."</td>";
-            echo "<td>".$row['fuel']."</td>";
-            echo "<td>".$row['color']."</td>";
             echo "<td>".$row['speed']."</td>";
             echo "<td>".$row['enginecapacity']."</td>";
+						echo "<td>".$row['color']."</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -77,8 +71,9 @@ $mysqli->close();
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="myssummercar.php">About Us</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="mysummercar.php">About Us</a></li>
+							<li><a href="mypage.php">My Page</a></li>
+							<li><a href="openboard.php">Open Board</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
