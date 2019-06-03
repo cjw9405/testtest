@@ -8,9 +8,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   $result = $conn->query($sql);
   while($prow=mysqli_fetch_assoc($sql)){
 			if($prow['isManager'] == 0){
-				header("location: rentCheck.php");
+				header("location: rent_check.php");
 			}else{
-				header("location: adminwebpage.php");
+				header("location: managerindex.php");
 			}
 		}
     exit;
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if($sql['isManager'] == 0){
                       				header("location: rent_check.php");
                       			}else{
-                      				header("location: adminwebpage.php");
+                      				header("location: managerindex.php");
                       			}
 
                         } else{
