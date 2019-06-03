@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, $param_username, $param_password, $param_name, $param_email, $param_number);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_name, $param_email, $param_number);
 
             // Set parameters
             $param_username = $username;
