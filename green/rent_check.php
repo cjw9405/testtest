@@ -31,7 +31,7 @@
   						<ul class="links">
   							<li><a href="rent_check.php">Home</a></li>
   							<li><a href="mysummercar.php">About Us</a></li>
-  							<li><a href="">Elements</a></li>
+
   						</ul>
   						<ul class="actions stacked">
   							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
@@ -48,7 +48,7 @@
   								</p>
   							</header>
   							<ul class="actions special">
-  								<li><a href="#" class="button primary large">Get Started</a></li>
+  								<li><a href="signup.php" class="button primary large">Get Started</a></li>
   							</ul>
   						</div>
   						<a href="#one" class="more">Learn More</a>
@@ -122,7 +122,7 @@
   							<section id="four" class="main special">
   								<div class="inner">
   									<header>
-  										<h2>Tempor Suspendisse</h2>
+  										<h2>Feature of our service</h2>
   									</header>
   									<div class="features">
   										<section>

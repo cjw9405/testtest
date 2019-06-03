@@ -1,26 +1,49 @@
-<?php
-  //require_once 'accessDatabase.php';
+<?php // rentCar.php
+ require_once 'accessDatabase.php';
+ if( isset($_POST['Minprice']) &&
+     isset($_POST['Maxprice']) &&
+     isset($_POST['color']) &&
+     isset($_POST['maker']) &&
+     isset($_POST['model'])){
+     $maker = $_POST['maker'];
+     $model = $_POST['model'];
+     $maxprice = $_POST['Maxprice'];
+     $minprice = $_POST['Minprice'];
+     $color = $_POST['color'];
 
-  //if(isset($_POST['searchTank']) &&
-      //isset($_POST['Minprice']) &&
-      //isset($_POST['Maxprice']) &&
-      //isset($_POST['color']) &&
-      // isset($_POST['maker'])){
-      // $maker = $_POST['maker'];
-      // $maxprice = $_POST['Maxprice'];
-      // $minprice = $_POST['Minprice'];
-      // $color = $_POST['color'];
-      //
-      // $query = "SELECT * FROM tank T, Vehicle V WHERE T.vid = V.vid AND T.color = $color AND V.price >= $minprice
-      // && V.price <= $maxprice AND V.maker = $maker";
-      // $result   = $conn->query($query);
-      // if(!$result){
-      //   echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-      // }else{
-      // echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-      // }
-
-  ?>
+    $query = $query  = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle v, tank T WHERE T.vid = V.vid AND V.price >= $minprice
+    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
+    if ($res = $mysqli->query($sql)) {
+    if ($res->num_rows > 0) {
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Vid</th>";
+        echo "<th>Speed</th>";
+        echo "<th>Shell</th>";
+        echo "<th>Armor</th>";
+        echo "</tr>";
+        while ($row = $res->fetch_array())
+        {
+            echo "<tr>";
+            echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['speed']."</td>";
+            echo "<td>".$row['shell']."</td>";
+						echo "<td>".$row['armor']."</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        $res->free();
+    }
+    else {
+        echo "No matching records are found.";
+    }
+}
+else {
+    echo "ERROR: Could not able to execute $sql. "
+                                             .$mysqli->error;
+}
+$mysqli->close();
+}?>
 <!DOCTYPE HTML>
 
 <html>
@@ -36,7 +59,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">grand rental auto <span>by </span></a>
+						<a href="mysummercer.php" class="logo">grand rental auto <span>by </span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -48,8 +71,9 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="myssummercar.php">About Us</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="mysummercar.php">About Us</a></li>
+              <li><a href="mypage.php">My Page</a></li>
+              <li><a href="openboard.php">Open Board</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
@@ -69,7 +93,11 @@
 
 									<!-- Content -->
 										<h2 id="content">Description: </h2>
-										<p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</p>
+										<p>Our car rental system offers you to select followings:
+                      1. Minimum and Maximum price range of the product
+                      2. Type
+                      3. Color
+                      4. Option</p>
 									<hr class="major" />
 
                   <!-- Form -->
@@ -79,23 +107,47 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name="name" id="name" value="" placeholder="Minprice" />
+                          <input type="text" name="Minprice" value="" placeholder="Minprice" />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="text" name="email" id="email" value="" placeholder="Maxprice" />
+                          <input type="text" name="Maxprice" value="" placeholder="Maxprice" />
+                        </div>
+                        <!-- Break -->
+												<div class="col-12">
+                          <p> Select Maker: </p>
+                          <select name=maker id="category">
+                            <option value="">- Maker -</option>
+                            <option value="1">Renault</option>
+                            <option value="1">MINI</option>
+                            <option value="1">Isuzu</option>
+                            <option value="1">GMC</option>
+                            <option value="1">Nissan</option>
+                            <option value="1">Skoda</option>
+                            <option value="1">Acura</option>
+                            <option value="1">Audi</option>
+                            <option value="1">FAW</option>
+                            <option value="1">Fiat</option>
+                          </select>
                         </div>
                         <!-- Break -->
                         <div class="col-12">
-                          <p> Select your Motorcycle Type: </p>
-                          <select name="category" id="category">
-                            <option value="">- Category -</option>
-                            <option value="1">SUV</option>
-                            <option value="1">Sedan</option>
-                            <option value="1">Hatchback</option>
-                            <option value="1">Coupe</option>
+                          <p> Select Model: </p>
+                          <select name=model id="category">
+                            <option value="">- Model -</option>
+                            <option value="1">Super Hawk</option>
+                            <option value="1">Black Bird</option>
+                            <option value="1">Dominator</option>
+                            <option value="1">Intruder</option>
+                            <option value="1">Dominator</option>
+                            <option value="1">Intruder</option>
+                            <option value="1">Ninja</option>
+                            <option value="1">Formula 3</option>
+                            <option value="1">Black Bird</option>
+                            <option value="1">Road King</option>
                           </select>
                         </div>
+
                         <!-- Break -->
                         <div class="col-4 col-12-small">
                           <input type="checkbox" id="priority-low" name="priority" checked>
@@ -109,7 +161,7 @@
                           <input type="checkbox" id="priority-high" name="priority" checked>
                           <label for="priority-high">????</label>
                         </div>
-
+                        <!-- Break -->
                         <div class="col-12">
                           <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
                         </div>
@@ -127,14 +179,14 @@
                     <h3>Image</h3>
 
                     <h4>Fit</h4>
-                    <span class="image fit"><img src="images/t0.png" alt="" /></span>
+                    <span class="image fit"><img src="images/m0.jpg" alt="" /></span>
                     <div class="box alt">
                       <div class="row gtr-50 gtr-uniform">
-                        <div class="col-4"><span class="image fit"><img src="images/t0.png" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t1.png" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t2.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m0.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m1.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m2.jpg" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/t3.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/m3.jpg" alt="" /></span></div>
                         <div class="col-4"><span class="image fit"><img src="images/car4.jpg" alt="" /></span></div>
                         <div class="col-4"><span class="image fit"><img src="images/car5.jpg" alt="" /></span></div>
                         <!-- Break -->

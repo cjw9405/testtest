@@ -1,25 +1,49 @@
-<?php
-//require_once 'accessDatabase.php';
-//if(isset($_POST['searchMotorcycle']) &&
-    // isset($_POST['Minprice']) &&
-    // isset($_POST['Maxprice']) &&
-    // isset($_POST['color']) &&
-    // isset($_POST['maker'])){
-    // $maker = $_POST['maker'];
-    // $maxprice = $_POST['Maxprice'];
-    // $minprice = $_POST['Minprice'];
-    // $color = $_POST['color'];
-    //
-    // $query = "SELECT * FROM motorcycle M, Vehicle V WHERE M.vid = V.vid AND M.color = $color AND V.price >= $minprice
-    // && V.price <= $maxprice AND V.maker = $maker";
-    // $result   = $conn->query($query);
-    // if(!$result){
-    //   echo "Selection failed: $query<br>" . $conn->error . "<br><br>";
-    // }else{
-    // echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-    // }
+<?php // rentCar.php
+ require_once 'accessDatabase.php';
+ if( isset($_POST['Minprice']) &&
+     isset($_POST['Maxprice']) &&
+     isset($_POST['color']) &&
+     isset($_POST['maker']) &&
+     isset($_POST['model'])){
+     $maker = $_POST['maker'];
+     $model = $_POST['model'];
+     $maxprice = $_POST['Maxprice'];
+     $minprice = $_POST['Minprice'];
+     $color = $_POST['color'];
 
-?>
+    $query = $query  = "SELECT M.vid as vid, speed, enginecapacity, color FROM Vehicle v, motorcycle M WHERE M.vid = V.vid AND M.color = $color AND V.price >= $minprice
+    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
+    if ($res = $mysqli->query($sql)) {
+    if ($res->num_rows > 0) {
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Vid</th>";
+        echo "<th>Speed</th>";
+        echo "<th>Engine Capacity</th>";
+        echo "<th>Color</th>";
+        echo "</tr>";
+        while ($row = $res->fetch_array())
+        {
+            echo "<tr>";
+            echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['speed']."</td>";
+            echo "<td>".$row['enginecapacity']."</td>";
+						echo "<td>".$row['color']."</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        $res->free();
+    }
+    else {
+        echo "No matching records are found.";
+    }
+}
+else {
+    echo "ERROR: Could not able to execute $sql. "
+                                             .$mysqli->error;
+}
+$mysqli->close();
+}?>
 <!DOCTYPE HTML>
 
 <html>
@@ -35,7 +59,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">grand rental auto <span>by </span></a>
+						<a href="mysummercer.php" class="logo">grand rental auto <span>by </span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -47,8 +71,9 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="myssummercar.php">About Us</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="mysummercar.php">About Us</a></li>
+							<li><a href="mypage.php">My Page</a></li>
+							<li><a href="openboard.php">Open Board</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
@@ -68,7 +93,11 @@
 
 									<!-- Content -->
 										<h2 id="content">Description: </h2>
-										<p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</p>
+										<p>Our car rental system offers you to select followings:
+                      1. Minimum and Maximum price range of the product
+                      2. Type
+                      3. Color
+                      4. Option</p>
 									<hr class="major" />
 
                   <!-- Form -->
@@ -78,21 +107,58 @@
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
-                          <input type="text" name="name" id="name" value="" placeholder="Minprice" />
+                          <input type="text" name="Minprice" value="" placeholder="Minprice" />
                         </div>
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Maximum price: </p>
-                          <input type="text" name="email" id="email" value="" placeholder="Maxprice" />
+                          <input type="text" name="Maxprice" value="" placeholder="Maxprice" />
+                        </div>
+                        <!-- Break -->
+												<div class="col-12">
+                          <p> Select Maker: </p>
+                          <select name=maker id="category">
+                            <option value="">- Maker -</option>
+                            <option name = Renault value="1">Renault</option>
+                            <option name = MINI value="1">MINI</option>
+                            <option name = Isuzu value="1">Isuzu</option>
+                            <option name = GMC value="1">GMC</option>
+                            <option name = Nissan value="1">Nissan</option>
+                            <option name = Skoda value="1">Skoda</option>
+                            <option name = Acura value="1">Acura</option>
+                            <option name = Audi value="1">Audi</option>
+                            <option name = FAW value="1">FAW</option>
+                            <option name = Fiat value="1">Fiat</option>
+                          </select>
                         </div>
                         <!-- Break -->
                         <div class="col-12">
-                          <p> Select your Motorcycle Type: </p>
-                          <select name="category" id="category">
-                            <option value="">- Category -</option>
-                            <option value="1">SUV</option>
-                            <option value="1">Sedan</option>
-                            <option value="1">Hatchback</option>
-                            <option value="1">Coupe</option>
+                          <p> Select Model: </p>
+                          <select name=model id="category">
+                            <option value="">- Model -</option>
+                            <option name = Super Hawk value="1">Super Hawk</option>
+                            <option name = Black Bird value="1">Black Bird</option>
+                            <option name = Dominator value="1">Dominator</option>
+                            <option name = Intruder value="1">Intruder</option>
+                            <option name = Dominator value="1">Dominator</option>
+                            <option name = Intruder value="1">Intruder</option>
+                            <option name = Ninja value="1">Ninja</option>
+                            <option name = Formula 3 value="1">Formula 3</option>
+                            <option name = Black Bird value="1">Black Bird</option>
+                            <option name = Road King value="1">Road King</option>
+                          </select>
+                        </div>
+                        <!-- Break -->
+                        <div class="col-12">
+                          <p> Select Color: </p>
+                          <select name=color id="category">
+                            <option value="">- Color -</option>
+														<option name = Red value="1">Red</option>
+                            <option name = Orange value="1">Orange</option>
+                            <option name = Yellow value="1">Yellow</option>
+                            <option name = Green value="1">Green</option>
+                            <option name = Blue value="1">Blue</option>
+                            <option name = Indigo value="1">Indigo</option>
+                            <option name = Violet value="1">Violet</option>
                           </select>
                         </div>
                         <!-- Break -->
@@ -115,7 +181,7 @@
                         <!-- Break -->
                         <div class="col-12">
                           <ul class="actions">
-                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="submit" value="Search" class="primary" /></li>
                             <li><input type="reset" value="Reset" /></li>
                           </ul>
                         </div>
