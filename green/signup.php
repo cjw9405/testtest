@@ -3,8 +3,8 @@
 require_once "accessDatabase.php";
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $password = $name = $email = $phone = $confirm_password = "";
+$username_err = $password_err = $email_err = $name_err = $phone_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT pid FROM People WHERE username = ?";
+        $sql = "SELECT id FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -51,6 +51,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password = trim($_POST["password"]);
     }
 
+    if(empty(trim($_POST["name"]))){
+        $name_err = "Please enter name.";
+    }
+    else{
+        $name = trim($_POST["name"]);
+    }
+
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter email.";
+    }
+    else{
+        $email = trim($_POST["email"]);
+    }
+
+    if(empty(trim($_POST["phone"]))){
+        $phone_err = "Please enter phone.";
+    }
+    else{
+        $phone = trim($_POST["phone"]);
+    }
+
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
         $confirm_password_err = "Please confirm password.";
@@ -62,10 +83,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($name_err) && empty($email_err) && empty($phone_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO people (pid,name,password,username,email,isManager,telephoneNumber) VALUES (998,'jinwoso',?,?,'jinwsoo@laoreetposuereenim.co.uk',0,'010-8188-7555')";
+        $sql = "INSERT INTO People (pid, name, password, username, email, isManager, telephoneNumber) VALUES (999, ?, ?, ?, ?, 0, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -73,10 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Set parameters
             $param_username = $username;
-            $param_password = $password;
-            $param_name = $name;
-            $param_email = $email;
-            $param_tele
+            $param_password = $password; // Creates a password hash
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -96,36 +114,82 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+  <title>Untitled</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+<body class="is-preload">
+
+  <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+        <header id="header">
+          <a href="index.html" class="logo">Formula <span>by Pixelarity</span></a>
+          <nav>
+            <ul>
+              <li><a href="#menu">Menu</a></li>
+            </ul>
+          </nav>
+        </header>
+
+      <!-- Menu -->
+        <nav id="menu">
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generic.html">Generic</a></li>
+            <li><a href="elements.html">Elements</a></li>
+          </ul>
+          <ul class="actions stacked">
+            <li><a href="#" class="button primary fit">Sign Up</a></li>
+            <li><a href="#" class="button fit">Log In</a></li>
+          </ul>
+        </nav>
+
+    <div id="wrapper">
+      <section id="main" class="main">
+        <div class="inner">
+          <header class="major">
+            <h1>Sign Up</h1>
+          </header>
+          <!-- Content -->
+        <h2 align="center">Welcome to Grand Rental Auto</h2>
+        <p align="center">Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder = "Username">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder = "Password">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" placeholder = "Password">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" value="<?php echo $name; ?>" placeholder = "Name">
+                <span class="help-block"><?php echo $name_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>" placeholder = "Email">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                <label>Phone Number</label>
+                <input type="text" name="number" class="form-control" value="<?php echo $number; ?>" placeholder = "Phone Number">
+                <span class="help-block"><?php echo $phone_err; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">

@@ -22,14 +22,14 @@
         echo "<th>Type</th>";
         echo "<th>Fuel</th>";
         echo "<th>Color</th>";
-        echo "<th>Speed</th>";
+        echo "<th>Speed(km/h)</th>";
         echo "<th>Engine Capacity</th>";
         echo "<th>Select</th>";
         echo "</tr>";
         while ($row = $result->fetch_array())
         {
           $select = '
-          <form action="reservationConfirm_T.php" method="post">
+          <form action="reservationConfirm.php" method="post">
           <input type="submit" value="Choose">
           <input type="hidden" name="choose" value="yes">
           </form>

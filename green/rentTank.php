@@ -1,5 +1,17 @@
 <?php // rentCar.php
  require_once 'accessDatabase.php';
+ // if (isset($_POST['choose']) &&
+ //     isset($_POST['vid'])) {
+ //     $vid  = get_post($conn, 'vid');
+ //     $query  = "INSERT INTO rent (vid, pid, did) VALUES ('$vid', '$pid', );
+ //     $result = $conn->query($query);
+ //     if (!$result){
+ //         echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
+ //     else{
+ //
+ //        echo '<p style="color: red;"> Obnoxious Customer ID number '.$pid .' is sucessfully deleted.</p><br><br>';
+ //        }
+ // }
  if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['maker']) &&

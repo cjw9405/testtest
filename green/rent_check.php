@@ -119,7 +119,7 @@
   							</section>
 
   						<!-- Four -->
-  							<section id="four" class="main special">
+  							<!--<section id="four" class="main special">
   								<div class="inner">
   									<header>
   										<h2>Feature of our service</h2>
@@ -147,7 +147,7 @@
   										</section>
   									</div>
   								</div>
-  							</section>
+  							</section>-->
 
   						<!-- CTA -->
   							<section id="cta" class="main special">
