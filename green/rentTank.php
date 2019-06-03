@@ -2,47 +2,47 @@
  require_once 'accessDatabase.php';
  if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
-     isset($_POST['color']) &&
      isset($_POST['maker']) &&
      isset($_POST['model'])){
      $maker = $_POST['maker'];
      $model = $_POST['model'];
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
-     $color = $_POST['color'];
 
-    $query = $query  = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle v, tank T WHERE T.vid = V.vid AND V.price >= $minprice
-    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
-    if ($res = $mysqli->query($sql)) {
-    if ($res->num_rows > 0) {
+    $query = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid" ;
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
         echo "<th>Vid</th>";
-        echo "<th>Speed</th>";
-        echo "<th>Shell</th>";
-        echo "<th>Armor</th>";
+        echo "<th>Speed(km/h)</th>";
+        echo "<th>Shell(mm)</th>";
+        echo "<th>Armor(mm)</th>";
+        echo "<th>Select</th>";
         echo "</tr>";
-        while ($row = $res->fetch_array())
+        while ($row = $result->fetch_array())
         {
+          $select = '
+          <form action="reservationConfirm_T.php" method="post">
+          <input type="submit" value="Choose">
+          <input type="hidden" name="choose" value="yes">
+          </form>
+        ';
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
             echo "<td>".$row['speed']."</td>";
             echo "<td>".$row['shell']."</td>";
 						echo "<td>".$row['armor']."</td>";
+            echo "<td>".$select."</td>";
             echo "</tr>";
         }
         echo "</table>";
-        $res->free();
+        $result->free();
     }
     else {
         echo "No matching records are found.";
     }
-}
-else {
-    echo "ERROR: Could not able to execute $sql. "
-                                             .$mysqli->error;
-}
-$mysqli->close();
+$conn->close();
 }?>
 <!DOCTYPE HTML>
 
@@ -103,7 +103,7 @@ $mysqli->close();
                   <!-- Form -->
                     <h3>Form</h3>
 
-                    <form method="post" action="showReservation.php">
+                    <form method="post" action="showReservation_T.php">
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>
@@ -118,7 +118,7 @@ $mysqli->close();
                           <p> Select Maker: </p>
                           <select name=maker id="category">
                             <option value="">- Maker -</option>
-                            <option value="1">Renault</option>
+                            <option name = value="1">Renault</option>
                             <option value="1">MINI</option>
                             <option value="1">Isuzu</option>
                             <option value="1">GMC</option>

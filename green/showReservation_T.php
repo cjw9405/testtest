@@ -46,7 +46,7 @@
 									<header class="major">
 										<h1>Your Candidate</h1>
 									</header>
-									    <?php require 'rentCar.php';?>
+									    <?php include 'rentTank.php';?>
 								</div>
 							</section>
 

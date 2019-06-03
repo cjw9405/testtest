@@ -13,10 +13,9 @@
      $color = $_POST['color'];
      $carType = $_POST['carType'];
 
-    $query = $query  = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle v, car C WHERE C.vid = V.vid AND C.type = $carType AND C.color = $color AND V.price >= $minprice
-    && V.price <= $maxprice AND V.maker = $maker AND V.model = $model" ;
-    if ($res = $mysqli->query($query)) {
-    if ($res->num_rows > 0) {
+    $query = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle V, car C WHERE C.vid = V.vid" ;
+    $result = $conn->query($query);
+    if ($result->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
         echo "<th>Vid</th>";
@@ -25,9 +24,16 @@
         echo "<th>Color</th>";
         echo "<th>Speed</th>";
         echo "<th>Engine Capacity</th>";
+        echo "<th>Select</th>";
         echo "</tr>";
-        while ($row = $res->fetch_array())
+        while ($row = $result->fetch_array())
         {
+          $select = '
+          <form action="reservationConfirm_T.php" method="post">
+          <input type="submit" value="Choose">
+          <input type="hidden" name="choose" value="yes">
+          </form>
+        ';
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
             echo "<td>".$row['type']."</td>";
@@ -35,20 +41,16 @@
             echo "<td>".$row['color']."</td>";
             echo "<td>".$row['speed']."</td>";
             echo "<td>".$row['enginecapacity']."</td>";
+            echo "<td>".$select."</td>";
             echo "</tr>";
         }
         echo "</table>";
-        $res->free();
+        $result->free();
     }
     else {
         echo "No matching records are found.";
     }
-}
-else {
-    echo "ERROR: Could not able to execute $sql. "
-                                             .$mysqli->error;
-}
-$mysqli->close();
+$conn->close();
 }?>
 
 <!DOCTYPE HTML>
