@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Header -->
         <header id="header">
-          <a href="rent_check.php" class="logo">Grand Rental Auto <span></span></a>
+          <a href="defaultPage1.php" class="logo">Grand Rental Auto <span></span></a>
           <nav>
             <ul>
               <li><a href="#menu">Menu</a></li>
@@ -143,13 +143,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <!-- Menu -->
         <nav id="menu">
           <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="generic.html">Generic</a></li>
-            <li><a href="elements.html">Elements</a></li>
+            <li><a href="defaultPage1.php">Home</a></li>
+            <li><a href="aboutUs1.php">About Us</a></li>
           </ul>
           <ul class="actions stacked">
-            <li><a href="#" class="button primary fit">Sign Up</a></li>
-            <li><a href="#" class="button fit">Log In</a></li>
+            <li><a href="login.php" class="button fit">Log In</a></li>
           </ul>
         </nav>
 

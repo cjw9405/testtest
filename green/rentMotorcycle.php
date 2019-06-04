@@ -27,7 +27,7 @@
         while ($row = $result->fetch_array())
         {
 					$select = '
-          <form action="reservationConfirm_M.php" method="post">
+          <form action="locationDurationM.php" method="post">
           <input type="submit" value="Choose">
           <input type="hidden" name="choose" value="yes">
           </form>
@@ -65,7 +65,7 @@ $conn->close();
 
 				<!-- Header -->
 					<header id="header">
-						<a href="rent_check.php" class="logo">grand rental auto <span></span></a>
+						<a href="defaultPage2.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -76,14 +76,12 @@ $conn->close();
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="mysummercar.php">About Us</a></li>
-							<li><a href="mypage.php">My Page</a></li>
-							<li><a href="openboard.php">Open Board</a></li>
+							<li><a href="defaultPage2.php">Home</a></li>
+							<li><a href="aboutUs2.php">About Us</a></li>
+							<li><a href="myPage.php">My Page</a></li>
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
-							<li><a href="login.php" class="button fit">Log In</a></li>
+							<li><a href="logout.php" class="button fit">Log Out</a></li>
 						</ul>
 					</nav>
 
@@ -109,7 +107,7 @@ $conn->close();
                   <!-- Form -->
                     <h3>Form</h3>
 
-                    <form method="post" action="showReservation_M.php">
+                    <form method="post" action="showResultM.php">
                       <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
                           <p> Fill in Minimum price: </p>

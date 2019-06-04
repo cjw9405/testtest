@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="rent_check.php" class="logo">grand rental auto <span>by </span></a>
+						<a href="defaultPage1.php" class="logo">grand rental auto <span>by </span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -29,13 +29,12 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="mysummercar.php">About Us</a></li>
-							<li><a href="mypage.php">My page</a></li>
+							<li><a href="defaultPage1.php">Home</a></li>
+							<li><a href="aboutUs1.php">About Us</a></li>
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Sign Up</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
+							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
+							<li><a href="login.php" class="button fit">Log In</a></li>
 						</ul>
 					</nav>
 

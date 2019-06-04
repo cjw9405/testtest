@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="rent_check" class="logo">Formula <span>by Pixelarity</span></a>
+						<a href="defaultPage2" class="logo">Grand Rental Auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -29,22 +29,25 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="rent_check.php">Home</a></li>
-							<li><a href="mysummercar.php">About Us</a></li>
-							<li><a href="openboard">Open Board</a></li>
+							<li><a href="defaultPage2.php">Home</a></li>
+              <li><a href="aboutUs2.php">About Us</a></li>
+              <li><a href="myPage.php">My Page</a></li>
 						</ul>
 						<ul class="actions stacked">
+							<li><a href="logout.php" class="button fit">Log Out</a></li>
 						</ul>
 					</nav>
+
 				<!-- Wrapper -->
 					<div id="wrapper">
+
 						<!-- Main -->
 							<section id="main" class="main">
 								<div class="inner">
 									<header class="major">
-										<h1>Your Candidate</h1>
+										<h1>Here's the result</h1>
 									</header>
-									    <?php require 'rentCar.php';?>
+									    
 								</div>
 							</section>
 

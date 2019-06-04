@@ -18,7 +18,7 @@
 
   				<!-- Header -->
   					<header id="header">
-  						<a href="index.html" class="logo">grand rental auto <span>by </span></a>
+  						<a href="defaultPage1.php" class="logo">grand rental auto <span></span></a>
   						<nav>
   							<ul>
   								<li><a href="#menu">Menu</a></li>
@@ -29,14 +29,13 @@
   				<!-- Menu -->
   					<nav id="menu">
   						<ul class="links">
-  							<li><a href="rent_check.php">Home</a></li>
-  							<li><a href="mysummercar.php">About Us</a></li>
+  							<li><a href="defaultPage1.php">Home</a></li>
+  							<li><a href="aboutUs1.php">About Us</a></li>
 
   						</ul>
   						<ul class="actions stacked">
   							<li><a href="signup.php" class="button primary fit">Sign Up</a></li>
   							<li><a href="login.php" class="button fit">Log In</a></li>
-                <li><a href="logout.php" class="button fit">Log Out</a></li>
   						</ul>
   					</nav>
 
@@ -68,7 +67,7 @@
   										</header>
   										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
                       <ul class="actions special">
-                        <li><a href="rentCar.php" class="button primary large">Rent</a></li>
+                        <li><a href="login.php" class="button primary large">Rent</a></li>
                       </ul>
   									</div>
   									<!--
@@ -88,7 +87,7 @@
   										</header>
   										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
                       <ul class="actions special">
-                        <li><a href="rentMotorcycle.php" class="button primary large">Rent</a></li>
+                        <li><a href="login.php" class="button primary large">Rent</a></li>
                       </ul>
   									</div>
   									<!--
@@ -108,7 +107,7 @@
   										</header>
   										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
                       <ul class="actions special">
-                        <li><a href="rentTank.php" class="button primary large">Rent</a></li>
+                        <li><a href="login.php" class="button primary large">Rent</a></li>
                       </ul>
   									</div>
   									<!--
@@ -155,10 +154,7 @@
   								<div class="inner">
   									<p>Sed varius suspendisse dictum leo ipsum amet pellentesque<br />
   									fusce ac hendrerit consectetur tempor lorem ipsum.</p>
-  									<ul class="actions stacked special">
-  										<li><a href="#" class="button primary large">Get Started</a></li>
-  										<li><a href="#" class="button large">Learn More</a></li>
-  									</ul>
+
   								</div>
   							</section>
 

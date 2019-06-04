@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: defaultPage2.php");
     exit;
 }
 
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: rent_check.php");
+                            header("location: defaultPage2.php");
 
                     }
                 } else{
@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Header -->
         <header id="header">
-          <a href="rent_check.php" class="logo">Formula <span>by Pixelarity</span></a>
+          <a href="defaultPage1.php" class="logo">Grand Rental Auto<span></span></a>
           <nav>
             <ul>
               <li><a href="#menu">Menu</a></li>
@@ -110,13 +110,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       <!-- Menu -->
         <nav id="menu">
           <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="generic.html">Generic</a></li>
-            <li><a href="elements.html">Elements</a></li>
+            <li><a href="defaultPage1.php">Home</a></li>
+            <li><a href="aboutUs1.php">About Us</a></li>
           </ul>
           <ul class="actions stacked">
-            <li><a href="#" class="button primary fit">Sign Up</a></li>
-            <li><a href="#" class="button fit">Log In</a></li>
+            <li><a href="signup.php" class="button primary fit">Sign Up</a></li>
           </ul>
         </nav>
 
