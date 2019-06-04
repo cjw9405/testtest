@@ -1,4 +1,4 @@
-<?php // rentCar.php
+<?php // rentMotorcycle.php
  require_once 'accessDatabase.php';
  if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
@@ -11,12 +11,14 @@
      $minprice = $_POST['Minprice'];
      $color = $_POST['color'];
 
-    $query = "SELECT M.vid as vid, speed, enginecapacity, color FROM Vehicle V, motorcycle M WHERE M.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."'";
+    $query = "SELECT M.vid as vid, maker, model, speed, enginecapacity, color FROM Vehicle V, motorcycle M WHERE M.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND M.color = '".$color."' AND V.model = '".$model."' AND V.maker = '".$maker."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
-        echo "<th>Vid</th>";
+        echo "<th>Number</th>";
+        echo "<th>Maker</th>";
+        echo "<th>Model</th>";
         echo "<th>Speed(km/h)</th>";
         echo "<th>Engine Capacity</th>";
         echo "<th>Color</th>";
@@ -32,6 +34,8 @@
         ';
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['maker']."</td>";
+            echo "<td>".$row['model']."</td>";
             echo "<td>".$row['speed']."</td>";
             echo "<td>".$row['enginecapacity']."</td>";
 						echo "<td>".$row['color']."</td>";
@@ -61,7 +65,7 @@ $conn->close();
 
 				<!-- Header -->
 					<header id="header">
-						<a href="mysummercer.php" class="logo">grand rental auto <span>by </span></a>
+						<a href="rent_check.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -120,16 +124,16 @@ $conn->close();
                           <p> Select Maker: </p>
                           <select name=maker id="category">
                             <option value="">- Maker -</option>
-                            <option name = Renault value="1">Renault</option>
-                            <option name = MINI value="1">MINI</option>
-                            <option name = Isuzu value="1">Isuzu</option>
-                            <option name = GMC value="1">GMC</option>
-                            <option name = Nissan value="1">Nissan</option>
-                            <option name = Skoda value="1">Skoda</option>
-                            <option name = Acura value="1">Acura</option>
-                            <option name = Audi value="1">Audi</option>
-                            <option name = FAW value="1">FAW</option>
-                            <option name = Fiat value="1">Fiat</option>
+                            <option name = Renault value="Renault">Renault</option>
+                            <option name = MINI value="MINI">MINI</option>
+                            <option name = Isuzu value="Isuzu">Isuzu</option>
+                            <option name = GMC value="GMC">GMC</option>
+                            <option name = Nissan value="Nissan">Nissan</option>
+                            <option name = Skoda value="Skoda">Skoda</option>
+                            <option name = Acura value="Acura">Acura</option>
+                            <option name = Audi value="Audi">Audi</option>
+                            <option name = FAW value="FAW">FAW</option>
+                            <option name = Fiat value="Fiat">Fiat</option>
                           </select>
                         </div>
                         <!-- Break -->
@@ -137,16 +141,13 @@ $conn->close();
                           <p> Select Model: </p>
                           <select name=model id="category">
                             <option value="">- Model -</option>
-                            <option name = Super Hawk value="1">Super Hawk</option>
-                            <option name = Black Bird value="1">Black Bird</option>
-                            <option name = Dominator value="1">Dominator</option>
-                            <option name = Intruder value="1">Intruder</option>
-                            <option name = Dominator value="1">Dominator</option>
-                            <option name = Intruder value="1">Intruder</option>
-                            <option name = Ninja value="1">Ninja</option>
-                            <option name = Formula 3 value="1">Formula 3</option>
-                            <option name = Black Bird value="1">Black Bird</option>
-                            <option name = Road King value="1">Road King</option>
+                            <option name = Super Hawk value="Super Hawk">Super Hawk</option>
+                            <option name = Black Bird value="Black Bird">Black Bird</option>
+                            <option name = Dominator value="Dominator">Dominator</option>
+                            <option name = Intruder value="Intruder">Intruder</option>
+                            <option name = Ninja value="Ninja">Ninja</option>
+                            <option name = Formula 3 value="Formula 3">Formula 3</option>
+                            <option name = Road King value="Road King">Road King</option>
                           </select>
                         </div>
                         <!-- Break -->
@@ -154,13 +155,13 @@ $conn->close();
                           <p> Select Color: </p>
                           <select name=color id="category">
                             <option value="">- Color -</option>
-														<option name = Red value="1">Red</option>
-                            <option name = Orange value="1">Orange</option>
-                            <option name = Yellow value="1">Yellow</option>
-                            <option name = Green value="1">Green</option>
-                            <option name = Blue value="1">Blue</option>
-                            <option name = Indigo value="1">Indigo</option>
-                            <option name = Violet value="1">Violet</option>
+                            <option name = Red value="Red">Red</option>
+                            <option name = Orange value="Orange">Orange</option>
+                            <option name = Yellow value="Yellow">Yellow</option>
+                            <option name = Green value="Green">Green</option>
+                            <option name = Blue value="Blue">Blue</option>
+                            <option name = Indigo value="Indigo">Indigo</option>
+                            <option name = Violet value="Violet">Violet</option>
                           </select>
                         </div>
                         <!-- Break -->

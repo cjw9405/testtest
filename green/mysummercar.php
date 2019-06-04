@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="mysummercar.php" class="logo">grand rental auto <span>by </span></a>
+						<a href="rent_check.php" class="logo">grand rental auto <span>by </span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
