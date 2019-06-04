@@ -110,6 +110,20 @@
                            <body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
                               <div id="map" style="width: 1000; height: 500;"></div>
                            </body>
+													 <table>
+	       						 				<thead>
+	         									<tr>
+									           <th>Number</th>
+									           <th>Maker</th>
+									 					 <th>Model</th>
+									 					 <th>Car Type</th>
+									           <th>Fuel</th>
+														 <th>Color</th>
+														 <th>Speed</th>
+									           <th>Engine Capacity</th>
+									         </tr>
+									       </thead>
+									       <tbody>
 													 <?php
 													require_once 'accessDatabase.php';
 													require 'showResultC.php';
@@ -118,16 +132,22 @@
 
 														$vid = get_post($conn, 'vid');
 
-															$query  = "SELECT FROM Vehicle V, car C WHERE V.vid = C.vid AND V.vid ='$vid'";
+															$query  = "SELECT FROM car C AS vid, maker, model, type, fuel, color, speed, enginecapacity WHERE V.vid = C.vid AND V.vid ='$vid'";
 															$result = $conn->query($query);
 															if (!$result){
 																	echo "failed: $query<br>" . $conn->error . "<br><br>";}
 															else{
-																 echo "";
+																 echo "<tr><td>" . $row[0] ."</td><td>"
+																 . $row[1] ."</td><td>". $row[2] .
+																 "</td><td>". $row[3] ."</td><td>"
+																 . $row[4] ."</td><td>". $row[5] .
+																 "</td><td>". $row[6] ."</td><td>"
+																 . $row[7] ."</td></tr>";
 																 }
 													}
-
 													?>
+												</tbody>
+											</table>
                         </div>
                      </section>
 
