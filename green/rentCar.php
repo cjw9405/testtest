@@ -36,6 +36,14 @@
           <form action="locationDurationC.php" method="post">
           <input type="submit" value="Choose">
           <input type="hidden" name="choose" value="yes">
+          <input type="hidden" name="vid" value=".$row['vid'].">
+          <input type="hidden" name="maker" value=".$row['maker'].">
+          <input type="hidden" name="model" value=".$row['model'].">
+          <input type="hidden" name="type" value=".$row['type'].">
+          <input type="hidden" name="fuel" value=".$row['fuel'].">
+          <input type="hidden" name="color" value=".$row['color'].">
+          <input type="hidden" name="speed" value=".$row['speed'].">
+          <input type="hidden" name="enginecapacity" value=".$row['enginecapacity'].">
           </form>
         ';
             echo "<tr>";

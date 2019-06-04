@@ -59,7 +59,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-
                             $_SESSION["username"] = $username;
 
                             $query  = "SELECT pid From People WHERE username='$username'";
