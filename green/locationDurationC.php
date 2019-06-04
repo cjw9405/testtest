@@ -13,7 +13,7 @@
 
             <!-- Header -->
                <header id="header">
-                  <a href="defaultPage2.php" class="logo">Grand Rental Auto <span>by Pixelarity</span></a>
+                  <a href="defaultPage2.php" class="logo">Grand Rental Auto <span></span></a>
                   <nav>
                      <ul>
                         <li><a href="#menu">Menu</a></li>
@@ -42,13 +42,6 @@
                            <header class="major">
                               <h1>Here's the result</h1>
                            </header>
-
-
-
-
-
-
-
                            <head>
                               <meta charset="utf-8">
                               <title>OpenStreetMap &amp; OpenLayers - Marker Example</title>
@@ -112,7 +105,7 @@
 									           <th>Maker</th>
 									 					 <th>Model</th>
 									 					 <th>Car Type</th>
-									           <th>Fuel</th>
+									           <th>Fuel</th>e
 														 <th>Color</th>
 														 <th>Speed</th>
 									           <th>Engine Capacity</th>
