@@ -54,7 +54,24 @@
 
 									<!-- Content -->
 										<h2 id="content">Hello?</h2>
-										<p> Hi Human, This page is for admin. Let's work like a dog and earn money. </p>
+									<?php
+									require_once 'accessDatabase.php';
+									session_start();
+									$MYID  = $_SESSION['pid'] ;
+
+									$query  = "SELECT name From People  WHERE pid='$MYID'";
+									$result = $conn->query($query);
+
+								  $result->data_seek(0);
+									$row = $result->fetch_array(MYSQLI_NUM);
+									 $adminname= $row[0];
+									echo '<p>  Hello <b>'. $adminname . ' </b>, nice to meet you. </p>';
+
+
+
+
+									?>
+										<p>This page is for admin. Let's work like a dog and earn money. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
 												<h3 style="text-align:center">Rent List</h3>
@@ -70,10 +87,7 @@
       </thead>
       <tbody>
         <?php
-            require_once 'accessDatabase.php';
-					session_start();
-      $MYID  = $_SESSION['pid'] ;
-		     echo "string".$MYID;
+
 
 
 
@@ -192,7 +206,7 @@
 								 $Salary =$click* 20;
 
 									//echo " Hello " . $adminname . " your slary is ".  $Salary . "<br><br>";
-									echo '<p style="color: red;"> Hello Admin '. $adminname . ' your slary is  '.  $Salary . ' $</p><br><br>';
+									echo '<p style="color: red;"> Admin '. $adminname . ' your slary is  '.  $Salary . ' $</p><br><br>';
 
 
 
