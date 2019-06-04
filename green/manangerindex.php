@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="manangerindex.php" class="logo">Formula <span>by Pixelarity</span></a>
+						<a href="manangerindex.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -71,6 +71,9 @@
       <tbody>
         <?php
             require_once 'accessDatabase.php';
+			//			session_start();
+    //   $MYID  = $_SESSION['pid'] ;
+
 
 
 						if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
@@ -78,12 +81,47 @@
 						  $vid  = get_post($conn, 'vid');
 						  $pid  = get_post($conn, 'pid');
 						  $did  = get_post($conn, 'did');
+							// update click
+							// $query  = "UPDATE Admin Set click= click + 1  WHERE pid='$MYID'";
+						 // $result = $conn->query($query);
+
 						  $query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
 						  $result = $conn->query($query);
 						  $query  = "UPDATE Vehicle Set isrent =0  WHERE vid='$vid'";
 						  $result = $conn->query($query);
 						  if (!$result){echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
 						  else{ echo '<p style="color: red;"> DELETE Sucess  rent  deleted.</p><br><br>';}
+
+							$query  = "SELECT ranking From Customer WHERE pid='$pid'";
+							$result = $conn->query($query);
+							$j = 0 ;
+							$result->data_seek($j);
+							$row = $result->fetch_array(MYSQLI_NUM);
+							$ranking = $row[0];
+
+
+							$C= "C";
+							$D= "D";
+							$E= "E";
+							$F= "F";
+
+						if ($ranking==$C){
+                  $ranking = "B";
+							} else if ($ranking==$D) {
+								$ranking = "C";
+							}else if ($ranking==$E) {
+								$ranking = "D";
+							}elseif ($ranking==$F) {
+							$ranking = "E";
+							} else{
+								$ranking= "A";
+							}
+							$query  ="UPDATE Customer Set ranking ='$ranking'  WHERE pid='$pid'";
+							$result = $conn->query($query);
+							if (!$result){echo "UPDATE failed: $query<br>" . $conn->error . "<br><br>";}
+						  else{   }
+
+
 
 						}
 
@@ -121,7 +159,7 @@
 
 
 
-					$conn->close();
+
 
 					// real_escape_string to strip out any characters that a hacker
 					// may have inserted.
@@ -131,23 +169,37 @@
 
 
 
+
+
         ?>
       </tbody>
     </table>
 											</div>
 
-										<div class="col-4 col-12-medium">
-												<h3>Interdum sapien gravida</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<div class="col-12 col-12-medium">
+												<h3 style="text-align:center"> Your Salary </h3>
+							<?php
+   // slary of
+							// $query  = "SELECT P.name ,A.click From People P , Admin A  WHERE P.pid=A.pid and pid='$MYID'";
+							// $result = $conn->query($query);
+							// $j = 0 ;
+							// $result->data_seek($j);
+							// $row = $result->fetch_array(MYSQLI_NUM);
+							// if (!$result){echo " failed: $query<br>" . $conn->error . "<br><br>";}
+	 					 // else{ 	$adminname= $row[0];
+ 							//       $click= $row[1];
+ 							//       $Salary =$click* 2;
+             //  echo " Hello " . $adminname . "your slary is ".  $Salary . "<br><br>";
+						 //  }
+
+
+
+	$conn->close();
+
+ ?>
 											</div>
-											<div class="col-4 col-12-medium">
-												<h3>Faucibus consequat lorem</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-											</div>
-											<div class="col-4 col-12-medium">
-												<h3>Accumsan montes viverra</h3>
-												<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-											</div>
+
+
 
 										</div>
 
