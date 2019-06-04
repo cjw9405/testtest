@@ -13,7 +13,7 @@
      $color = $_POST['color'];
      $carType = $_POST['carType'];
 
-    $query = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle V, car C WHERE C.vid = V.vid" ;
+    $query = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle V, car C WHERE C.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";

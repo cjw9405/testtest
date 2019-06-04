@@ -86,12 +86,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($name_err) && empty($email_err) && empty($number_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO People (pid, name, password, username, email, isManager, telephoneNumber) VALUES (999, ?, ?, ?, ?, 0, ?)";
+        $sql = "INSERT INTO People (name, password, username, email, isManager, telephoneNumber) VALUES ( ?, ?, ?, ?, 0, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_name, $param_email, $param_number);
-
             // Set parameters
             $param_username = $username;
             $param_password = $password;
@@ -133,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Header -->
         <header id="header">
-          <a href="index.html" class="logo">Formula <span>by Pixelarity</span></a>
+          <a href="rent_check.php" class="logo">Grand Rental Auto <span></span></a>
           <nav>
             <ul>
               <li><a href="#menu">Menu</a></li>

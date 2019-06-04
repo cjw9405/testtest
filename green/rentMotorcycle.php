@@ -11,7 +11,7 @@
      $minprice = $_POST['Minprice'];
      $color = $_POST['color'];
 
-    $query = "SELECT M.vid as vid, speed, enginecapacity, color FROM Vehicle V, motorcycle M WHERE M.vid = V.vid" ;
+    $query = "SELECT M.vid as vid, speed, enginecapacity, color FROM Vehicle V, motorcycle M WHERE M.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";

@@ -21,7 +21,7 @@
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
 
-    $query = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid" ;
+    $query = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";
