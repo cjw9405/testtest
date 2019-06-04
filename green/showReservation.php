@@ -36,10 +36,8 @@
 						<ul class="actions stacked">
 						</ul>
 					</nav>
-
 				<!-- Wrapper -->
 					<div id="wrapper">
-
 						<!-- Main -->
 							<section id="main" class="main">
 								<div class="inner">

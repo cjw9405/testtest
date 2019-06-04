@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Header -->
         <header id="header">
-          <a href="index.html" class="logo">Formula <span>by Pixelarity</span></a>
+          <a href="rent_check.php" class="logo">Formula <span>by Pixelarity</span></a>
           <nav>
             <ul>
               <li><a href="#menu">Menu</a></li>
