@@ -30,6 +30,7 @@
         echo "</tr>";
         while ($row = $result->fetch_array())
         {
+
           $select = '
           <form action="reservationConfirm.php" method="post">
           <input type="submit" value="Choose">
@@ -54,7 +55,9 @@
     else {
         echo "No matching records are found.";
     }
-$conn->close();
+    $conn->close();
+
+
 }?>
 
 <!DOCTYPE HTML>
