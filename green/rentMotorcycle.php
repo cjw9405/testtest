@@ -1,5 +1,6 @@
 <?php // rentMotorcycle.php
  require_once 'accessDatabase.php';
+
  if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['color']) &&
