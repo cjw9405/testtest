@@ -129,10 +129,8 @@
 													require 'showResultC.php';
 													if (isset($_POST['choose']) &&
 															isset($_POST['vid'])) {
-
 														$vid = get_post($conn, 'vid');
-
-															$query  = "SELECT FROM car C AS vid, maker, model, type, fuel, color, speed, enginecapacity WHERE V.vid = C.vid AND V.vid ='$vid'";
+															$query  = "SELECT C.vid AS vid, maker, model, type, fuel, color, speed, enginecapacity FROM car C, vehicle V WHERE V.vid = C.vid AND V.vid ='$vid'";
 															$result = $conn->query($query);
 															if (!$result){
 																	echo "failed: $query<br>" . $conn->error . "<br><br>";}
