@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               							$result->data_seek($j);
               							$row = $result->fetch_array(MYSQLI_NUM);
               							$isManager = $row[0];
-
+                           $result->close();
                             if($isManager==1){
                           header("location: manangerindex.php");
                         }else if($isManager==0) {
