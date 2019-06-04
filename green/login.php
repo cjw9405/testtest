@@ -1,21 +1,16 @@
+ExampleProcedural Object Oriented PDO Download
 <?php
 // Initialize the session
 session_start();
-require_once 'accessDatabase.php';
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  $sql = "SELECT pid, name, password, username, email, isManager, telephoneNumber FROM People WHERE username = ?";
-  $result = $conn->query($sql);
-  while($prow=mysqli_fetch_assoc($sql)){
-			if($prow['isManager'] == 0){
-				header("location: rent_check.php");
-			}else{
-				header("location: managerindex.php");
-			}
-		}
+    header("location: welcome.php");
     exit;
 }
 
+// Include config file
+require_once "accessDatabase.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -41,49 +36,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT pid, name, password, username, email, isManager, telephoneNumber FROM People WHERE username = ?";
+        $sql = "SELECT pid, username, password FROM people WHERE username = ?";
+
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
+
             // Set parameters
             $param_username = $username;
+
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
+
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $pid, $name, $username, $password, $email, $isManager, $telephoneNumber);
+                    mysqli_stmt_bind_result($stmt, $id, $username);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $password)){
                             // Password is correct, so start a new session
                             session_start();
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["pid"] = $pid;
-                            $_SESSION["name"] = $name;
-                            $_SESSION["username"] = $username;
-                            $_SESSION["password"] = $password;
-                            $_SESSION["email"] = $email;
-                            $_SESSION["isManager"] = $isManager;
-                            $_SESSION["telephoneNumber"] = $telephoneNumber;
-
-
+                            $_SESSION["pid"] = $id;
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            if($sql['isManager'] == 0){
-                      				header("location: rent_check.php");
-                      			}else{
-                      				header("location: managerindex.php");
-                      			}
+                            header("location: logout.php");
 
-                        } else{
-                            // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
-                        }
                     }
                 } else{
                     // Display an error message if username doesn't exist
@@ -93,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
+
         // Close statement
         mysqli_stmt_close($stmt);
     }
@@ -117,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Header -->
         <header id="header">
-          <a href="index.html" class="logo">Formula <span>by Pixelarity</span></a>
+          <a href="rent_check.php" class="logo">Formula <span>by Pixelarity</span></a>
           <nav>
             <ul>
               <li><a href="#menu">Menu</a></li>
