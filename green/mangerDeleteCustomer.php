@@ -18,7 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="manangerindex.php" class="logo">Formula <span>by Pixelarity</span></a>
+							<a href="manangerindex.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
