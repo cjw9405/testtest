@@ -31,8 +31,8 @@
 						<ul class="links">
               <h2 id="content">manager menu</h2>
 							<li><a href="manangerindex.php">HOME</a></li>
-							<li><a href="manangeraddVehicls.php">Add VehicleS</a></li>
-							<li><a href="managerDeleteVehics.php">Delete VehiceS</a></li>
+							<li><a href="manangeraddVehicls.php">Add Vehicles</a></li>
+							<li><a href="managerDeleteVehics.php">Delete Vehicles</a></li>
               <li><a href="mangerDeleteCustomer.php">Delete Bad Customer</a></li>
 
 						</ul>

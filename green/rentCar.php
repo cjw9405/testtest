@@ -1,11 +1,13 @@
 <?php // rentCar.php
  require_once 'accessDatabase.php';
+
  if(isset($_POST['carType']) &&
      isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['color']) &&
      isset($_POST['maker']) &&
      isset($_POST['model'])){
+
      $maker = $_POST['maker'];
      $model = $_POST['model'];
      $maxprice = $_POST['Maxprice'];
@@ -30,7 +32,6 @@
         echo "</tr>";
         while ($row = $result->fetch_array())
         {
-
           $select = '
           <form action="locationDurationC.php" method="post">
           <input type="submit" value="Choose">

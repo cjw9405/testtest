@@ -47,7 +47,24 @@
 									<header class="major">
 										<h1>Here's the result</h1>
 									</header>
-									    <?php require 'showResultC.php';?>
+									    <?php
+											require_once 'accessDatabase.php';
+											require 'showResultC.php';
+											if (isset($_POST['choose']) &&
+													isset($_POST['vid'])) {
+
+												$vid = get_post($conn, 'vid');
+
+													$query  = "SELECT FROM Vehicle V, car C WHERE V.vid = C.vid AND V.vid ='$vid'";
+													$result = $conn->query($query);
+													if (!$result){
+															echo "failed: $query<br>" . $conn->error . "<br><br>";}
+													else{
+														 echo ;
+														 }
+											}
+
+											?>
 								</div>
 							</section>
 

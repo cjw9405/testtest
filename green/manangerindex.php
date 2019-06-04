@@ -37,7 +37,7 @@
 
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Log Out</a></li>
+							<li><a href="defaultPage1.php" class="button primary fit">Log Out</a></li>
 
 						</ul>
 					</nav>
