@@ -59,12 +59,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["pid"] = $id;
+
                             $_SESSION["username"] = $username;
 
-                            // Redirect user to welcome page
+                            $query  = "SELECT pid From People WHERE username='$username'";
+              							$result = $conn->query($query);
+              							$j = 0 ;
+              							$result->data_seek($j);
+              							$row = $result->fetch_array(MYSQLI_NUM);
+              							$id = $row[0];
+                            $_SESSION["pid"] = $id;
 
-                              header("location: defaultPage2.php");
+
+                            // Redirect user to welcome page
+                            echo "Before Login". $_SESSION["pid"];
+
+                            $query  = "SELECT isManager From People WHERE pid='$id'";
+              							$result = $conn->query($query);
+              							$j = 0 ;
+              							$result->data_seek($j);
+              							$row = $result->fetch_array(MYSQLI_NUM);
+              							$isManager = $row[0];
+
+                            if($isManager==1){
+                          header("location: manangerindex.php");
+                        }else if($isManager==0) {
+header("location: defaultPage2.php");
+                            }
+
+
+
 
 
 
