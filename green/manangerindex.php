@@ -54,7 +54,24 @@
 
 									<!-- Content -->
 										<h2 id="content">Hello?</h2>
-										<p> Hi Human, This page is for admin. Let's work like a dog and earn money. </p>
+									<?php
+									require_once 'accessDatabase.php';
+									session_start();
+									$MYID  = $_SESSION['pid'] ;
+
+									$query  = "SELECT name From People  WHERE pid='$MYID'";
+									$result = $conn->query($query);
+
+								  $result->data_seek(0);
+									$row = $result->fetch_array(MYSQLI_NUM);
+									 $adminname= $row[0];
+									echo '<p>  Hello <b>'. $adminname . ' </b>, nice to meet you. </p>';
+
+
+
+
+									?>
+										<p>This page is for admin. Let's work like a dog and earn money. </p>
 										<div class="row">
 											<div class="col-12 col-12-small">
 												<h3 style="text-align:center">Rent List</h3>
@@ -70,11 +87,9 @@
       </thead>
       <tbody>
         <?php
-            require_once 'accessDatabase.php';
-					session_start();
-      $MYID  = $_SESSION['pid'] ;
 
-echo $MYID;
+
+
 
 						if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
 
@@ -82,8 +97,8 @@ echo $MYID;
 						  $pid  = get_post($conn, 'pid');
 						  $did  = get_post($conn, 'did');
 							// update click
-							// $query  = "UPDATE Admin Set click= click + 1  WHERE pid='$MYID'";
-						 // $result = $conn->query($query);
+						 $query  = "UPDATE Admin Set click= click + 1  WHERE pid='$MYID'";
+						 $result = $conn->query($query);
 
 						  $query  = "DELETE FROM Rent WHERE vid='$vid' and pid='$pid' and did ='$did'";
 						  $result = $conn->query($query);
@@ -163,9 +178,7 @@ echo $MYID;
 
 					// real_escape_string to strip out any characters that a hacker
 					// may have inserted.
-					function get_post($conn, $var) {
-						return $conn->real_escape_string($_POST[$var]);
-					}
+
 
 
 
@@ -180,19 +193,35 @@ echo $MYID;
 												<h3 style="text-align:center"> Your Salary </h3>
 							<?php
    // slary of
-							// $query  = "SELECT P.name ,A.click From People P , Admin A  WHERE P.pid=A.pid and pid='$MYID'";
-							// $result = $conn->query($query);
-							// $j = 0 ;
-							// $result->data_seek($j);
-							// $row = $result->fetch_array(MYSQLI_NUM);
-							// if (!$result){echo " failed: $query<br>" . $conn->error . "<br><br>";}
-	 					 // else{ 	$adminname= $row[0];
- 							//       $click= $row[1];
- 							//       $Salary =$click* 2;
-             //  echo " Hello " . $adminname . "your slary is ".  $Salary . "<br><br>";
-						 //  }
+
+							$query  = "SELECT P.name ,A.click From People P , Admin A  WHERE P.pid=A.pid and P.pid='$MYID'";
+							$result = $conn->query($query);
 
 
+						$result->data_seek(0);
+							$row = $result->fetch_array(MYSQLI_NUM);
+
+							   $adminname= $row[0];
+								 $click= $row[1];
+								 $Salary =$click* 20;
+
+									//echo " Hello " . $adminname . " your slary is ".  $Salary . "<br><br>";
+									echo '<p style="color: red;"> Admin '. $adminname . ' your slary is  '.  $Salary . ' $</p><br><br>';
+
+
+
+
+
+
+
+
+
+
+
+
+function get_post($conn, $var) {
+ return $conn->real_escape_string($_POST[$var]);
+}
 
 	$conn->close();
 
