@@ -63,7 +63,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: defaultPage2.php");
+                            if($_SESSION["pid"] < 100){
+                              header("location: manangerindex.php");
+                            }
+                            else{
+                              header("location: defaultPage2.php");
+                            }
+
 
                     }
                 } else{
