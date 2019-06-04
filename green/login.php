@@ -1,4 +1,3 @@
-ExampleProcedural Object Oriented PDO Download
 <?php
 // Initialize the session
 session_start();
@@ -64,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: logout.php");
+                            header("location: rent_check.php");
 
                     }
                 } else{

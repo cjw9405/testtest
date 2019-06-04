@@ -10,7 +10,7 @@ http://localhost/CSE305/index.php
 
 //Suin Cho
 mysql -h localhost -u root
-source c:/xampp/htdocs/cse305/table.sql;
+source c:/xampp/htdocs/cse305/green/table.sql;
 http://localhost/cse305/index.php
 
 //필독! sql 파일 수정전에 꼭볼것.
