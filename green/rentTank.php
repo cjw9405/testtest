@@ -1,17 +1,6 @@
-<?php // rentCar.php
+<?php // rentTank.php
  require_once 'accessDatabase.php';
- // if (isset($_POST['choose']) &&
- //     isset($_POST['vid'])) {
- //     $vid  = get_post($conn, 'vid');
- //     $query  = "INSERT INTO rent (vid, pid, did) VALUES ('$vid', '$pid', );
- //     $result = $conn->query($query);
- //     if (!$result){
- //         echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";}
- //     else{
- //
- //        echo '<p style="color: red;"> Obnoxious Customer ID number '.$pid .' is sucessfully deleted.</p><br><br>';
- //        }
- // }
+
  if( isset($_POST['Minprice']) &&
      isset($_POST['Maxprice']) &&
      isset($_POST['maker']) &&
@@ -21,12 +10,14 @@
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
 
-    $query = "SELECT T.vid as vid, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."'";
+    $query = "SELECT T.vid as vid, maker, model, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND V.model = '".$model."' AND V.maker = '".$maker."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
-        echo "<th>Vid</th>";
+        echo "<th>Number</th>";
+        echo "<th>Maker</th>";
+        echo "<th>Model</th>";
         echo "<th>Speed(km/h)</th>";
         echo "<th>Shell(mm)</th>";
         echo "<th>Armor(mm)</th>";
@@ -42,6 +33,8 @@
         ';
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['maker']."</td>";
+            echo "<td>".$row['model']."</td>";
             echo "<td>".$row['speed']."</td>";
             echo "<td>".$row['shell']."</td>";
 						echo "<td>".$row['armor']."</td>";
@@ -71,7 +64,7 @@ $conn->close();
 
 				<!-- Header -->
 					<header id="header">
-						<a href="mysummercer.php" class="logo">grand rental auto <span>by </span></a>
+						<a href="rent_check.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -130,16 +123,15 @@ $conn->close();
                           <p> Select Maker: </p>
                           <select name=maker id="category">
                             <option value="">- Maker -</option>
-                            <option name = value="1">Renault</option>
-                            <option value="1">MINI</option>
-                            <option value="1">Isuzu</option>
-                            <option value="1">GMC</option>
-                            <option value="1">Nissan</option>
-                            <option value="1">Skoda</option>
-                            <option value="1">Acura</option>
-                            <option value="1">Audi</option>
-                            <option value="1">FAW</option>
-                            <option value="1">Fiat</option>
+                            <option name = BAE Systems value="BAE Systems">BAE Systems</option>
+                            <option name = Northrop Grumman value="Northrop Grumman">Northrop Grumman</option>
+                            <option name = Airbus Group value="Airbus Group">Airbus Group</option>
+                            <option name = Finmeccanica value="Finmeccanica">Finmeccanica</option>
+                            <option name = United Technologies Corporation value="United Technologies Corporation">United Technologies Corporation</option>
+                            <option name = General Dynamics value="General Dynamics">General Dynamics</option>
+                            <option name = Raytheon value="Raytheon">Raytheon</option>
+                            <option name = Boeing value="Boeing">Boeing</option>
+
                           </select>
                         </div>
                         <!-- Break -->
@@ -147,16 +139,14 @@ $conn->close();
                           <p> Select Model: </p>
                           <select name=model id="category">
                             <option value="">- Model -</option>
-                            <option value="1">Super Hawk</option>
-                            <option value="1">Black Bird</option>
-                            <option value="1">Dominator</option>
-                            <option value="1">Intruder</option>
-                            <option value="1">Dominator</option>
-                            <option value="1">Intruder</option>
-                            <option value="1">Ninja</option>
-                            <option value="1">Formula 3</option>
-                            <option value="1">Black Bird</option>
-                            <option value="1">Road King</option>
+                            <option name = Panzer IV value="Panzer IV">Panzer IV</option>
+                            <option name = Panzer I value="Panzer I">Panzer I</option>
+                            <option name = Tiger I  value="Tiger I ">Tiger I </option>
+                            <option name = Mk VI Crusader value="Mk VI Crusader">Mk VI Crusader</option>
+                            <option name = M4 Sherman value="M4 Sherman">M4 Sherman</option>
+                            <option name = Tiger II value="Tiger II">Tiger II</option>
+                            <option name = Panther value="Panther">Panther</option>
+                            <option name = M3 Stuart value="M3 Stuart">M3 Stuart</option>
                           </select>
                         </div>
 

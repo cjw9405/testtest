@@ -13,12 +13,14 @@
      $color = $_POST['color'];
      $carType = $_POST['carType'];
 
-    $query = "SELECT C.vid as vid, type, fuel, color, speed, enginecapacity FROM Vehicle V, car C WHERE C.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND C.color = '".$color."' AND V.model = '".$model."' AND V.maker = '".$maker."' AND C.type = '".$carType."'";
+    $query = "SELECT C.vid as vid, maker, model, type, fuel, color, speed, enginecapacity FROM Vehicle V, car C WHERE C.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND C.color = '".$color."' AND V.model = '".$model."' AND V.maker = '".$maker."' AND C.type = '".$carType."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";
         echo "<tr>";
-        echo "<th>Vid</th>";
+        echo "<th>Number</th>";
+        echo "<th>Maker</th>";
+        echo "<th>Model</th>";
         echo "<th>Type</th>";
         echo "<th>Fuel</th>";
         echo "<th>Color</th>";
@@ -36,6 +38,8 @@
         ';
             echo "<tr>";
             echo "<td>".$row['vid']."</td>";
+            echo "<td>".$row['maker']."</td>";
+            echo "<td>".$row['model']."</td>";
             echo "<td>".$row['type']."</td>";
             echo "<td>".$row['fuel']."</td>";
             echo "<td>".$row['color']."</td>";
@@ -67,7 +71,7 @@ $conn->close();
 
 				<!-- Header -->
 					<header id="header">
-						<a href="mysummercar.php" class="logo">grand rental auto <span>by </span></a>
+						<a href="rent_check.php" class="logo">grand rental auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
