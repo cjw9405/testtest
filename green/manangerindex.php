@@ -71,10 +71,10 @@
       <tbody>
         <?php
             require_once 'accessDatabase.php';
-			//			session_start();
-    //   $MYID  = $_SESSION['pid'] ;
+					session_start();
+      $MYID  = $_SESSION['pid'] ;
 
-
+echo $MYID;
 
 						if (isset($_POST['delete']) && isset($_POST['vid'])&& isset($_POST['pid'])&& isset($_POST['did'])) {
 
