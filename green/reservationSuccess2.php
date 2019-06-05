@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<?php // rentCar.php
- require_once 'accessDatabase.php';
-session_start();
- if(isset($_POST['pickupdate']) &&
-		 isset($_POST['dropoffdate']) &&
-	 	 isset($_SESSION["vid"]) &&
-	   isset($_SESSION["username"])){
-		 $pickupdate = $_POST['pickupdate'];
-		 $dropoffdate = $_POST['dropoffdate'];
-		$query = "INSERT INTO Duration(datefrom, dateto) VALUES ('".$pickupdate."', '".$dropoffdate."')";
-//		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
-		$result = $conn->query($query);
-		if(!$result){
-			echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
-		}else{
-		echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
-		}
-		$conn->close();
-
-}?>
-=======
-
-
->>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
 <!DOCTYPE HTML>
 
 <html>
@@ -68,20 +43,6 @@ session_start();
 									<header class="major">
 										<h1>Here's the result</h1>
 									</header>
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-=======
                   <?php // rentCar.php
                    require_once 'accessDatabase.php';
                   session_start();
@@ -110,10 +71,34 @@ session_start();
                           echo "";
                       }
                   		$conn->close();
-                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 401";
+
+                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
+                      $result = $conn->query($query);
+                      if ($result->num_rows > 0) {
+                          echo "<table>";
+                          echo "<tr>";
+                          echo "<th>Number</th>";
+                          echo "<th>Maker</th>";
+                          echo "<th>Model</th>";
+                          echo "</tr>";
+                          while ($row = $result->fetch_array())
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row[0]."</td>";
+                              echo "<td>".$row[1]."</td>";
+                              echo "<td>".$row[2]."</td>";
+                              echo "</tr>";
+                          }
+                          echo "</table>";
+                          $result->free();
+                      }
+                      else {
+                          echo "";
+                      }
+                  		$conn->close();
 
                   ?>
->>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
+
 
 
 
@@ -174,49 +159,10 @@ session_start();
 									}
 										</script>
 									</head>
-									<table>
-									<thead>
-									<tr>
-									 <th>Number</th>
-									 <th>Maker</th>
-									 <th>Model</th>
-									 <th>Speed</th>
-									 <th>Engine Capacity</th>
-									 <th>Color</th>
-								 </tr>
-							 </thead>
-							 <tbody>
-								 <?php
-								require_once 'accessDatabase.php';
-								 if (isset($_POST['choose'])&&
-										 isset($_POST['vid'])&&
-										 isset($_POST['maker'])&&
-										 isset($_POST['model'])&&
-										 isset($_POST['speed'])&&
-										 isset($_POST['enginecapacity'])&&
-										 isset($_POST['color'])){
-												$vid = $_POST['vid'];
-												$_SESSION["vid"] = $vid;
-												$maker = $_POST['maker'];
-												$model = $_POST['model'];
-												$speed = $_POST['speed'];
-												$shell = $_POST['enginecapacity'];
-												$armor = $_POST['color'];
-												echo "<tr><td>". $vid ."</td><td>"
-											 . $maker ."</td><td>". $model .
-											 "</td><td>". $speed ."</td><td>"
-											 . $shell ."</td><td>". $armor .
-											 "</td></tr>";
-								}
-								?>
-							</tbody>
-						</table>
 
-<<<<<<< HEAD
 									<body onload="initialize_map(); add_map_point(53.30253, -2.37337);">
-=======
 									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
->>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
+
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
 
