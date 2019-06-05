@@ -143,6 +143,13 @@ $conn->close();
                           <p> Fill in Model: </p>
                           <input type="text" name="model" value="" placeholder="Model" />
                         </div>
+                        <div class="col-12">
+                          <ul class="actions">
+                            <li><input type="submit" value="Search" class="primary" /></li>
+                            <li><input type="reset" value="Reset" /></li>
+                          </ul>
+                        </div>
+                        
                       </div>
                     </form>
 
