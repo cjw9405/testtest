@@ -88,8 +88,8 @@ CREATE TABLE Admin (
 
 CREATE TABLE Duration (
   did INTEGER AUTO_INCREMENT,
-  datefrom INTEGER,
-  dateto INTEGER,
+  datefrom VARCHAR(256),
+  dateto VARCHAR(256),
   PRIMARY KEY (did)
 );
 CREATE TABLE Rent (

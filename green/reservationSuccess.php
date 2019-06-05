@@ -8,7 +8,7 @@ session_start();
 		 $pickupdate = $_POST['pickupdate'];
 		 $dropoffdate = $_POST['dropoffdate'];
 		$query = "INSERT INTO Duration(datefrom, dateto) VALUES ('".$pickupdate."', '".$dropoffdate."')";
-		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
+//		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
 		$result = $conn->query($query);
 		if(!$result){
 			echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
