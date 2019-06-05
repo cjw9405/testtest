@@ -45,54 +45,6 @@
                   <?php // rentCar.php
                    require_once 'accessDatabase.php';
                   session_start();
-                  		$query = "SELECT C.vid AS vid, maker, model FROM car C, Vehicle V WHERE V.vid = C.vid AND C.vid = 401";
-                  //		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
-                  		$result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          echo "</table>";
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
-
-                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
-                      $result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          echo "</table>";
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
 
                       $query = "SELECT T.vid AS vid, maker, model FROM tank T, Vehicle V WHERE V.vid = T.vid AND T.vid = 111";
                       $result = $conn->query($query);

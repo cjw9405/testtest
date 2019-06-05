@@ -1,43 +1,37 @@
 <!DOCTYPE HTML>
-<!--
-	Formula by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
 <html>
-  <head>
-    <title>Untitled</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body class="is-preload">
+	<head>
+		<title>Untitled</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
-    <!-- Page Wrapper -->
-      <div id="page-wrapper">
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-        <!-- Header -->
-          <header id="header">
-            <a href="defaultPage2.php" class="logo">grand rental auto <span></span></a>
-            <nav>
-              <ul>
-                <li><a href="#menu">Menu</a></li>
-              </ul>
-            </nav>
-          </header>
+				<!-- Header -->
+					<header id="header">
+						<a href="defaultPage2" class="logo">Grand Rental Auto <span></span></a>
+						<nav>
+							<ul>
+								<li><a href="#menu">Menu</a></li>
+							</ul>
+						</nav>
+					</header>
 
-        <!-- Menu -->
-          <nav id="menu">
-            <ul class="links">
-              <li><a href="defaultPage2.php">Home</a></li>
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="defaultPage2.php">Home</a></li>
               <li><a href="aboutUs2.php">About Us</a></li>
               <li><a href="myPage.php">My Page</a></li>
-
-            </ul>
-            <ul class="actions stacked">
-              <li><a href="logout.php" class="button fit">Log Out</a></li>
-            </ul>
-          </nav>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="logout.php" class="button fit">Log Out</a></li>
+						</ul>
+					</nav>
 
 				<!-- Wrapper -->
 					<div id="wrapper">
@@ -46,121 +40,121 @@
 							<section id="main" class="main">
 								<div class="inner">
 									<header class="major">
-										<h1>Customer Webpage </h1>
+										<h1>Here's the result</h1>
 									</header>
+                  <?php // rentCar.php
+                   require_once 'accessDatabase.php';
+                  session_start();
+                  		$query = "SELECT C.vid AS vid, maker, model FROM car C, Vehicle V WHERE V.vid = C.vid AND C.vid = 401";
+                  //		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
+                  		$result = $conn->query($query);
+                      if ($result->num_rows > 0) {
+                          echo "<table>";
+                          echo "<tr>";
+                          echo "<th>Number</th>";
+                          echo "<th>Maker</th>";
+                          echo "<th>Model</th>";
+                          echo "</tr>";
+                          while ($row = $result->fetch_array())
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row[0]."</td>";
+                              echo "<td>".$row[1]."</td>";
+                              echo "<td>".$row[2]."</td>";
+                              echo "</tr>";
+                          }
+                          echo "</table>";
+                          $result->free();
+                      }
+                      else {
+                          echo "";
+                      }
 
-									<!-- Content -->
-										<h2 id="content">Hello?</h2>
-									<?php
-									require_once 'accessDatabase.php';
-									session_start();
-									$MYID  = $_SESSION['pid'] ;
-                  echo "string".$MYID;
+                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
+                      $result = $conn->query($query);
+                      if ($result->num_rows > 0) {
+                          echo "<table>";
+                          echo "<tr>";
+                          echo "<th>Number</th>";
+                          echo "<th>Maker</th>";
+                          echo "<th>Model</th>";
+                          echo "</tr>";
+                          while ($row = $result->fetch_array())
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row[0]."</td>";
+                              echo "<td>".$row[1]."</td>";
+                              echo "<td>".$row[2]."</td>";
+                              echo "</tr>";
+                          }
+                          echo "</table>";
+                          $result->free();
+                      }
+                      else {
+                          echo "";
+                      }
 
+                      $query = "SELECT T.vid AS vid, maker, model FROM tank T, Vehicle V WHERE V.vid = T.vid AND T.vid = 111";
+                      $result = $conn->query($query);
+                      if ($result->num_rows > 0) {
+                          echo "<table>";
+                          echo "<tr>";
+                          echo "<th>Number</th>";
+                          echo "<th>Maker</th>";
+                          echo "<th>Model</th>";
+                          echo "</tr>";
+                          while ($row = $result->fetch_array())
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row[0]."</td>";
+                              echo "<td>".$row[1]."</td>";
+                              echo "<td>".$row[2]."</td>";
+                              echo "</tr>";
+                          }
+                          echo "</table>";
+                          $result->free();
+                      }
+                      else {
+                          echo "";
+                      }
 
-					    	$query  = "SELECT P.name,P.email,P.telephoneNumber,C.ranking From People P,Customer C WHERE P.pid=C.pid and P.pid='$MYID'";
-									$result = $conn->query($query);
-								  $result->data_seek(0);
-									$row = $result->fetch_array(MYSQLI_NUM);
-                   $name= $row[0];
-									 $email= $row[1];
-                  $telephoneNumbe= $row[2];
-                   $ranking= $row[3];
-									echo '<p>  Hello <b>'. $name. ' </b>, nice to meet you. </p>';
+                  		$conn->close();
 
-
-
-
-									?>
-
-										<div class="row">
-											<div class="col-12 col-12-small">
-												<h3 style="text-align:center">Rent List</h3>
-												<br>
-												<table>
-
-      <thead>
-        <tr>
-          <th>Vehices Id number</th>
-          <th>Customer Id numner</th>
-					  <th>Duration Id number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-
-
-
-						$query  = "SELECT * FROM Rent WHERE pid='$MYID'";
-						$result = $conn->query($query);
-						if (!$result) die ("Database access failed: " . $conn->error);
-
-						$rows = $result->num_rows;
-
-						if($rows==0){
-							echo '<p style="color: red;"> Table is Empty </p>';
-
-						}else{
-							for ($j = 0 ; $j < $rows ; ++$j) {$result->data_seek($j);
-							$row = $result->fetch_array(MYSQLI_NUM);
-
-
-
-	echo "<tr><td>" . $row[0] ."</td><td>". $row[1] ."</td><td>". $row[2] ."</td></tr>";
-
-
-
-							}
-
-						}
-
-
-
-
-
-					// real_escape_string to strip out any characters that a hacker
-					// may have inserted.
-
-
-
-
-
-
-        ?>
-      </tbody>
-    </table>
-											</div>
-
-										<div class="col-12 col-12-medium">
-
-							<?php
-   // slary of
+                  ?>
 
 
 
 
 
 
-function get_post($conn, $var) {
- return $conn->real_escape_string($_POST[$var]);
-}
-
-	$conn->close();
-
- ?>
-											</div>
 
 
 
-										</div>
 
-									<hr class="major" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 								</div>
+
 							</section>
+
 
 					</div>
 
