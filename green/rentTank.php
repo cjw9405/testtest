@@ -10,7 +10,7 @@
      $maxprice = $_POST['Maxprice'];
      $minprice = $_POST['Minprice'];
 
-    $query = "SELECT T.vid as vid, maker, model, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND V.model = '".$model."' AND V.maker = '".$maker."'";
+    $query = "SELECT T.vid as vid, maker, model, speed, shell, armor FROM Vehicle V, tank T WHERE T.vid = V.vid AND V.price > '".$minprice."' AND V.price < '".$maxprice."' AND V.model LIKE '".$model."' AND V.maker = '".$maker."'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
         echo "<table>";
