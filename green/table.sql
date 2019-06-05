@@ -109,9 +109,7 @@ CREATE TABLE Rent (
 
 );
 
-INSERT INTO RENT(vid, pid, did) VALUES(401,101,1);
-INSERT INTO RENT(vid, pid, did) VALUES(432,101,2);
-INSERT INTO RENT(vid, pid, did) VALUES(111,101,3);
+
 
 
 
