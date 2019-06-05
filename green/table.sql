@@ -8,7 +8,7 @@ USE hlps5;
 
 CREATE TABLE Vehicle (
   vid INTEGER,
-  model VARCHAR(128),
+  model VARCHAR(256),
 	maker VARCHAR(128),
   price DOUBLE,
   isrent  BOOLEAN,
@@ -92,6 +92,7 @@ CREATE TABLE Duration (
   dateto VARCHAR(256),
   PRIMARY KEY (did)
 );
+
 CREATE TABLE Rent (
   rid INTEGER AUTO_INCREMENT,
   vid INTEGER NOT NULL,
@@ -118,8 +119,8 @@ INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (81,"Black
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (91,"Road King","Fiat","23241.55","0"),(92,"Bonneville","Vauxhall","16460.13","0"),(93,"Bonneville","Citroen","17376.71","0"),(94,"Katana","GMC","8692.36","0"),(95,"Black Bird","BMW","13630.77","0"),(96,"Bullet","JLR","11690.68","0"),(97,"Black Bird","GMC","26071.86","0"),(98,"Super Glide","Jeep","22931.58","0"),(99,"Bonneville","Porsche","26567.52","0"),(100,"Bonneville","Dodge","21058.30","0");
 
 
-INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (101," Panzer IV","BAE Systems","913534.63","0"),(102,"Mk VI Crusader","Boeing","989070.83","0"),(103,"Mk VI Crusader","Boeing","941862.86","0"),(104,"Tiger II","BAE Systems","999096.36","0"),(105,"Churchill","Finmeccanica","869293.60","0"),(106,"Panzer I","Raytheon","886662.39","0"),(107,"Tiger II","United Technologies Corporation","582684.21","0"),(108,"Tiger I ","BAE Systems","722785.92","0"),(109,"Tiger I ","Boeing","975104.82","0"),(110,"M4 Sherman","Boeing","587082.52","0");
-INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (111,"Panzer I","Northrop Grumman","540890.86","0"),(112,"Tiger II","Northrop Grumman","537683.31","0"),(113,"Panzer II","Northrop Grumman","821900.50","0"),(114,"Churchill","Finmeccanica","735157.10","0"),(115,"M4 Sherman","Boeing","500717.29","0"),(116,"M3 Stuart","Northrop Grumman","706186.02","0"),(117,"M3 Stuart","United Technologies Corporation","527587.36","0"),(118,"Panzer I","General Dynamics","807411.66","0"),(119,"Mk VI Crusader","Finmeccanica","768220.85","0"),(120,"Panther","Boeing","513723.84","0");
+INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (101,"SCHWERERPANZERSPAHWAGENSIEBENKOMMAFUNFZENTIMETERSONDERKRAFTPANZERABWEHRKANONENWAGEN","BAE Systems","913534.63","0"),(102,"Mk VI Crusader","Boeing","989070.83","0"),(103,"Mk VI Crusader","Boeing","941862.86","0"),(104,"Tiger II","BAE Systems","999096.36","0"),(105,"Churchill","Finmeccanica","869293.60","0"),(106,"Panzer I","Raytheon","886662.39","0"),(107,"Tiger II","United Technologies Corporation","582684.21","0"),(108,"Tiger I ","BAE Systems","722785.92","0"),(109,"Tiger I ","Boeing","975104.82","0"),(110,"M4 Sherman","Boeing","587082.52","0");
+INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (111,"SCHWERERPANZERSPAHWAGENSIEBENKOMMAFUNFZENTIMETERSONDERKRAFTPANZERABWEHRKANONENWAGEN","BAE Systems","540890.86","0"),(112,"Tiger II","Northrop Grumman","537683.31","0"),(113,"Panzer II","Northrop Grumman","821900.50","0"),(114,"Churchill","Finmeccanica","735157.10","0"),(115,"M4 Sherman","Boeing","500717.29","0"),(116,"M3 Stuart","Northrop Grumman","706186.02","0"),(117,"M3 Stuart","United Technologies Corporation","527587.36","0"),(118,"Panzer I","General Dynamics","807411.66","0"),(119,"Mk VI Crusader","Finmeccanica","768220.85","0"),(120,"Panther","Boeing","513723.84","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (121,"Tiger I ","Northrop Grumman","720974.08","0"),(122,"Panzer II","Finmeccanica","957488.64","0"),(123," Panzer IV","Airbus Group","512312.70","0"),(124,"Panzer II","BAE Systems","868984.38","0"),(125," Panzer III","Finmeccanica","949300.41","0"),(126,"Panzer I","Finmeccanica","796677.49","0"),(127,"Panzer II","General Dynamics","605005.36","0"),(128,"Tiger I ","Finmeccanica","730067.85","0"),(129,"Tiger I ","Airbus Group","532571.89","0"),(130,"Panther","BAE Systems","825842.09","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (131,"Mk VI Crusader","Airbus Group","728240.42","0"),(132,"Tiger II","United Technologies Corporation","678595.74","0"),(133,"Panzer II","BAE Systems","630807.11","0"),(134," Panzer III","BAE Systems","866595.60","0"),(135,"Panther","Raytheon","722746.20","0"),(136,"M3 Stuart","Airbus Group","919707.82","0"),(137,"Tiger II","United Technologies Corporation","576231.94","0"),(138,"Tiger I ","Northrop Grumman","840313.07","0"),(139," Panzer IV","Boeing","731855.89","0"),(140,"Panzer II","Raytheon","943305.29","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (141,"M4 Sherman","Finmeccanica","909272.17","0"),(142," Panzer IV","Northrop Grumman","931478.81","0"),(143,"M4 Sherman","Raytheon","652872.77","0"),(144,"M3 Stuart","United Technologies Corporation","737101.17","0"),(145,"Panzer I","United Technologies Corporation","795169.03","0"),(146,"Mk VI Crusader","Boeing","663184.90","0"),(147,"Panzer I","Airbus Group","772226.63","0"),(148,"Panzer II","BAE Systems","725093.72","0"),(149,"M3 Stuart","Airbus Group","628181.17","0"),(150,"M4 Sherman","United Technologies Corporation","506773.59","0");
@@ -176,8 +177,8 @@ INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (81,208,"250","ye
 INSERT INTO motorcycle (vid,speed,enginecapacity,color) VALUES (91,198,"125","green"),(92,217,"600","green"),(93,193,"50","violet"),(94,191,"750","indigo"),(95,209,"400","green"),(96,249,"125","violet"),(97,210,"600","red"),(98,197,"600","orange"),(99,221,"750","blue"),(100,217,"250","orange");
 
 
-INSERT INTO tank (vid,speed,shell,armor) VALUES (101,212,"100",159),(102,225,"105",138),(103,249,"120",69),(104,207,"120",112),(105,209,"75",53),(106,194,"75",154),(107,217,"120",11),(108,238,"120",50),(109,192,"120",9),(110,229,"105",243);
-INSERT INTO tank (vid,speed,shell,armor) VALUES (111,194,"105",10),(112,205,"75",108),(113,234,"100",101),(114,191,"105",107),(115,235,"100",86),(116,214,"105",80),(117,199,"120",141),(118,233,"105",199),(119,223,"120",193),(120,215,"120",34);
+INSERT INTO tank (vid,speed,shell,armor) VALUES (101,50,"105",159),(102,60,"75",138),(103,249,"120",69),(104,207,"120",112),(105,209,"75",53),(106,194,"75",154),(107,217,"120",11),(108,238,"120",50),(109,192,"120",9),(110,229,"105",243);
+INSERT INTO tank (vid,speed,shell,armor) VALUES (111,40,"75",110),(112,205,"75",108),(113,234,"100",101),(114,191,"105",107),(115,235,"100",86),(116,214,"105",80),(117,199,"120",141),(118,233,"105",199),(119,223,"120",193),(120,215,"120",34);
 INSERT INTO tank (vid,speed,shell,armor) VALUES (121,212,"100",72),(122,248,"120",125),(123,235,"100",142),(124,250,"120",195),(125,203,"105",11),(126,240,"105",76),(127,209,"120",116),(128,223,"120",20),(129,218,"105",28),(130,248,"75",213);
 INSERT INTO tank (vid,speed,shell,armor) VALUES (131,228,"120",114),(132,231,"120",142),(133,215,"105",58),(134,224,"120",143),(135,191,"120",139),(136,243,"105",140),(137,214,"75",49),(138,197,"105",174),(139,225,"105",132),(140,200,"100",161);
 INSERT INTO tank (vid,speed,shell,armor) VALUES (141,191,"105",143),(142,200,"100",200),(143,237,"100",211),(144,200,"120",19),(145,250,"100",201),(146,231,"120",27),(147,208,"100",225),(148,213,"120",162),(149,210,"120",123),(150,232,"100",65);
