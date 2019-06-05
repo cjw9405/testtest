@@ -129,6 +129,8 @@
 										</script>
 									</head>
 
+									//add_map_point("'$xValue'", "'$yValue'");
+
 									<body onload="initialize_map(); add_map_point(38.89724, -77.03664);">
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
