@@ -95,7 +95,7 @@
 
 
 
-									    <?php include 'showResultM.php';?>
+									    <?php include 'reservationSuccess2.php';?>
 								</div>
 							</section>
 

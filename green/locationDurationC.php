@@ -89,7 +89,7 @@
                      </table>
                      <h3>Form</h3>
 
-                     <form method="post" action="reservationSuccess.php">
+                     <form method="post" action="reservationSuccess1.php">
 
 
                        <div class="row gtr-uniform">
