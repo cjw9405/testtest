@@ -64,7 +64,8 @@
   										<header>
   											<h2>Rent Car?</h2>
   										</header>
-  										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
+  										<p>World's biggest online car rental service
+Working with over 900 companies in 160 countries, we can find the right car in the right place, at the right price.</p>
                       <ul class="actions special">
                         <li><a href="rentCar.php" class="button primary large">Rent</a></li>
                       </ul>
@@ -84,7 +85,8 @@
   										<header>
   											<h2>Rent Motorcycle?</h2>
   										</header>
-  										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
+  										<p>World's biggest online car rental service
+Working with over 900 companies in 160 countries, we can find the right car in the right place, at the right price.</p>
                       <ul class="actions special">
                         <li><a href="rentMotorcycle.php" class="button primary large">Rent</a></li>
                       </ul>
@@ -104,7 +106,8 @@
   										<header>
   											<h2>Rent Tank?</h2>
   										</header>
-  										<p>Ipsum efficitur nisi ac turpis venenatis varius. Suspendisse sed dictum leo ipsum amet pellentesque fusce ac hendrerit consectetur tempor risus, sed eget semper nunc. eleifend facilisis nisi vitae lorem ipsum dolor consequat lorem ipsum etiam.</p>
+  										<p>World's biggest online car rental service
+Working with over 900 companies in 160 countries, we can find the right car in the right place, at the right price.</p>
                       <ul class="actions special">
                         <li><a href="rentTank.php" class="button primary large">Rent</a></li>
                       </ul>

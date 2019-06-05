@@ -13,7 +13,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="defaultPage2" class="logo">Grand Rental Auto <span></span></a>
+						<a href="defaultPage2.php" class="logo">Grand Rental Auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>
@@ -40,7 +40,8 @@
 							<section id="main" class="main">
 								<div class="inner">
 									<header class="major">
-										<h1>Here's the result</h1>
+										<h1>Your Reservation Record: </h1>
+                    <h2>Hello ArthurLee! </h2>
 									</header>
                   <?php // rentCar.php
                    require_once 'accessDatabase.php';
@@ -121,6 +122,7 @@
                   		$conn->close();
 
                   ?>
+                  <p>The total price that you have to pay is as follows: $293151.865</p>
 
 
 

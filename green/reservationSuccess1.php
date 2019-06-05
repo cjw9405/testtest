@@ -14,7 +14,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="defaultPage2" class="logo">Grand Rental Auto <span></span></a>
+						<a href="defaultPage2.php" class="logo">Grand Rental Auto <span></span></a>
 						<nav>
 							<ul>
 								<li><a href="#menu">Menu</a></li>

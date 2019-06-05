@@ -169,24 +169,7 @@ $conn->close();
                             <option name = Violet value="Violet">Violet</option>
                           </select>
                         </div>
-                        <!-- Break -->
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-low" name="priority" checked>
-                          <label for="priority-low">Navigation</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-normal" name="priority" checked>
-                          <label for="priority-normal">????</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-high" name="priority" checked>
-                          <label for="priority-high">????</label>
-                        </div>
-                        <!-- Break -->
-                        <div class="col-12">
-                          <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-                        </div>
-                        <!-- Break -->
+
                         <div class="col-12">
                           <ul class="actions">
                             <li><input type="submit" value="Search" class="primary" /></li>

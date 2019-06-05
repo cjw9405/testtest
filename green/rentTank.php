@@ -157,20 +157,20 @@ $conn->close();
                     <h3>Image</h3>
 
                     <h4>Fit</h4>
-                    <span class="image fit"><img src="images/m0.jpg" alt="" /></span>
+                    <span class="image fit"><img src="images/t0.png" alt="" /></span>
                     <div class="box alt">
                       <div class="row gtr-50 gtr-uniform">
-                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t1.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t2.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t1.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t2.png" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/t3.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t1.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t3.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t1.png" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/t2.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t3.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t2.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t3.png" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.png" alt="" /></span></div>
                       </div>
 
                       <!-- Footer -->
