@@ -5,8 +5,8 @@ http://localhost/CSE305Project/green/login.php
 
 //Jinwoo Choi
 mysql -h localhost -u root
-source d:/downloads/xampp/htdocs/CSE305/table.sql;
-http://localhost/CSE305/index.php
+source d:/downloads/xampp/htdocs/CSE305/Green/table.sql;
+http://localhost/CSE305/green/index.php
 
 //Suin Cho
 mysql -h localhost -u root
