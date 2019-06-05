@@ -93,6 +93,10 @@ CREATE TABLE Duration (
   PRIMARY KEY (did)
 );
 
+INSERT INTO Duration(datefrom, dateto) VALUES(111,222);
+INSERT INTO Duration(datefrom, dateto) VALUES(333,444);
+INSERT INTO Duration(datefrom, dateto) VALUES(555,666);
+
 CREATE TABLE Rent (
   rid INTEGER AUTO_INCREMENT,
   vid INTEGER NOT NULL,
@@ -104,6 +108,10 @@ CREATE TABLE Rent (
   FOREIGN KEY (did) REFERENCES Duration (did) ON DELETE CASCADE
 
 );
+
+INSERT INTO RENT(vid, pid, did) VALUES(401,101,1);
+INSERT INTO RENT(vid, pid, did) VALUES(432,101,2);
+INSERT INTO RENT(vid, pid, did) VALUES(111,101,3);
 
 
 
@@ -119,7 +127,7 @@ INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (81,"Black
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (91,"Road King","Fiat","23241.55","0"),(92,"Bonneville","Vauxhall","16460.13","0"),(93,"Bonneville","Citroen","17376.71","0"),(94,"Katana","GMC","8692.36","0"),(95,"Black Bird","BMW","13630.77","0"),(96,"Bullet","JLR","11690.68","0"),(97,"Black Bird","GMC","26071.86","0"),(98,"Super Glide","Jeep","22931.58","0"),(99,"Bonneville","Porsche","26567.52","0"),(100,"Bonneville","Dodge","21058.30","0");
 
 
-INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (101,"SCHWERERPANZERSPAHWAGENSIEBENKOMMAFUNFZENTIMETERSONDERKRAFTPANZERABWEHRKANONENWAGEN","BAE Systems","913534.63","0"),(102,"Mk VI Crusader","Boeing","989070.83","0"),(103,"Mk VI Crusader","Boeing","941862.86","0"),(104,"Tiger II","BAE Systems","999096.36","0"),(105,"Churchill","Finmeccanica","869293.60","0"),(106,"Panzer I","Raytheon","886662.39","0"),(107,"Tiger II","United Technologies Corporation","582684.21","0"),(108,"Tiger I ","BAE Systems","722785.92","0"),(109,"Tiger I ","Boeing","975104.82","0"),(110,"M4 Sherman","Boeing","587082.52","0");
+INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (101,"SCHWERERPANZERSPAHWAGENSIEBENKOMMAFUNFZENTIMETERSONDERKRAFTPANZERABWEHRKANONEN","BAE Systems","913534.63","0"),(102,"Mk VI Crusader","Boeing","989070.83","0"),(103,"Mk VI Crusader","Boeing","941862.86","0"),(104,"Tiger II","BAE Systems","999096.36","0"),(105,"Churchill","Finmeccanica","869293.60","0"),(106,"Panzer I","Raytheon","886662.39","0"),(107,"Tiger II","United Technologies Corporation","582684.21","0"),(108,"Tiger I ","BAE Systems","722785.92","0"),(109,"Tiger I ","Boeing","975104.82","0"),(110,"M4 Sherman","Boeing","587082.52","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (111,"SCHWERERPANZERSPAHWAGENSIEBENKOMMAFUNFZENTIMETERSONDERKRAFTPANZERABWEHRKANONENWAGEN","BAE Systems","540890.86","0"),(112,"Tiger II","Northrop Grumman","537683.31","0"),(113,"Panzer II","Northrop Grumman","821900.50","0"),(114,"Churchill","Finmeccanica","735157.10","0"),(115,"M4 Sherman","Boeing","500717.29","0"),(116,"M3 Stuart","Northrop Grumman","706186.02","0"),(117,"M3 Stuart","United Technologies Corporation","527587.36","0"),(118,"Panzer I","General Dynamics","807411.66","0"),(119,"Mk VI Crusader","Finmeccanica","768220.85","0"),(120,"Panther","Boeing","513723.84","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (121,"Tiger I ","Northrop Grumman","720974.08","0"),(122,"Panzer II","Finmeccanica","957488.64","0"),(123," Panzer IV","Airbus Group","512312.70","0"),(124,"Panzer II","BAE Systems","868984.38","0"),(125," Panzer III","Finmeccanica","949300.41","0"),(126,"Panzer I","Finmeccanica","796677.49","0"),(127,"Panzer II","General Dynamics","605005.36","0"),(128,"Tiger I ","Finmeccanica","730067.85","0"),(129,"Tiger I ","Airbus Group","532571.89","0"),(130,"Panther","BAE Systems","825842.09","0");
 INSERT INTO `Vehicle` (`vid`,`model`,`maker`,`price`,`isrent`) VALUES (131,"Mk VI Crusader","Airbus Group","728240.42","0"),(132,"Tiger II","United Technologies Corporation","678595.74","0"),(133,"Panzer II","BAE Systems","630807.11","0"),(134," Panzer III","BAE Systems","866595.60","0"),(135,"Panther","Raytheon","722746.20","0"),(136,"M3 Stuart","Airbus Group","919707.82","0"),(137,"Tiger II","United Technologies Corporation","576231.94","0"),(138,"Tiger I ","Northrop Grumman","840313.07","0"),(139," Panzer IV","Boeing","731855.89","0"),(140,"Panzer II","Raytheon","943305.29","0");
