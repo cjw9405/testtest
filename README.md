@@ -6,7 +6,7 @@ http://localhost/CSE305Project/green/login.php
 //Jinwoo Choi
 mysql -h localhost -u root
 source d:/downloads/xampp/htdocs/CSE305/Green/table.sql;
-http://localhost/CSE305/green/index.php
+http://localhost/CSE305/green/reservationSuccess.php
 
 //Suin Cho
 mysql -h localhost -u root
