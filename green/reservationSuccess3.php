@@ -45,54 +45,6 @@
                   <?php // rentCar.php
                    require_once 'accessDatabase.php';
                   session_start();
-                  		$query = "SELECT C.vid AS vid, maker, model FROM car C, Vehicle V WHERE V.vid = C.vid AND C.vid = 401";
-                  //		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
-                  		$result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          echo "</table>";
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
-
-                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
-                      $result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          echo "</table>";
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
 
                       $query = "SELECT T.vid AS vid, maker, model FROM tank T, Vehicle V WHERE V.vid = T.vid AND T.vid = 111";
                       $result = $conn->query($query);
@@ -137,9 +89,9 @@
 										<script>
 									/* OSM & OL example code provided by https://mediarealm.com.au/ */
 									var map;
-									var mapLat = 40.9132;
-									var mapLng = -433.1295;
-									var mapDefaultZoom = 15;
+									var mapLat = 38.89724;
+									var mapLng = -77.03664;
+									var mapDefaultZoom = 18;
 									function initialize_map() {
 									map = new ol.Map({
 									target: "map",
@@ -177,7 +129,7 @@
 										</script>
 									</head>
 
-									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
+									<body onload="initialize_map(); add_map_point(38.89724, -77.03664);">
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
 
