@@ -87,7 +87,7 @@ CREATE TABLE Admin (
 );
 
 CREATE TABLE Duration (
-  did INTEGER NOT NULL,
+  did INTEGER AUTO_INCREMENT,
   datefrom INTEGER,
   dateto INTEGER,
   PRIMARY KEY (did)

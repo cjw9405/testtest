@@ -105,7 +105,43 @@
 									}
 										</script>
 									</head>
-
+									<table>
+									<thead>
+									<tr>
+									 <th>Number</th>
+									 <th>Maker</th>
+									 <th>Model</th>
+									 <th>Speed</th>
+									 <th>Engine Capacity</th>
+									 <th>Color</th>
+								 </tr>
+							 </thead>
+							 <tbody>
+								 <?php
+								require_once 'accessDatabase.php';
+								 if (isset($_POST['choose'])&&
+										 isset($_POST['vid'])&&
+										 isset($_POST['maker'])&&
+										 isset($_POST['model'])&&
+										 isset($_POST['speed'])&&
+										 isset($_POST['enginecapacity'])&&
+										 isset($_POST['color'])){
+												$vid = $_POST['vid'];
+												$_SESSION["vid"] = $vid;
+												$maker = $_POST['maker'];
+												$model = $_POST['model'];
+												$speed = $_POST['speed'];
+												$shell = $_POST['enginecapacity'];
+												$armor = $_POST['color'];
+												echo "<tr><td>". $vid ."</td><td>"
+											 . $maker ."</td><td>". $model .
+											 "</td><td>". $speed ."</td><td>"
+											 . $shell ."</td><td>". $armor .
+											 "</td></tr>";
+								}
+								?>
+							</tbody>
+						</table>
 
 									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
 										<div id="map" style="width: 1000; height: 500;"></div>

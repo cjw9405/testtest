@@ -31,6 +31,12 @@
           <form action="locationDurationM.php" method="post">
           <input type="submit" value="Choose">
           <input type="hidden" name="choose" value="yes">
+          <input type="hidden" name="vid" value="' . $row[0] . '">
+          <input type="hidden" name="maker" value="' . $row[1] . '">
+          <input type="hidden" name="model" value="' . $row[2] . '">
+          <input type="hidden" name="speed" value="' . $row[3] . '">
+          <input type="hidden" name="enginecapacity" value="' . $row[4] . '">
+          <input type="hidden" name="color" value="' . $row[5] . '">
           </form>
         ';
             echo "<tr>";

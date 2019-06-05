@@ -1,9 +1,25 @@
+<?php // rentCar.php
+ require_once 'accessDatabase.php';
+session_start();
+ if(isset($_POST['pickupdate']) &&
+		 isset($_POST['dropoffdate']) &&
+	 	 isset($_SESSION["vid"]) &&
+	   isset($_SESSION["username"])){
+		 $pickupdate = $_POST['pickupdate'];
+		 $dropoffdate = $_POST['dropoffdate'];
+		$query = "INSERT INTO Duration(datefrom, dateto) VALUES ('".$pickupdate."', '".$dropoffdate."')";
+		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
+		$result = $conn->query($query);
+		if(!$result){
+			echo "INSERT failed: $query<br>" . $conn->error . "<br><br>";
+		}else{
+		echo "INSERT Sucess: $query<br>" . $conn->error . "<br><br>";
+		}
+		$conn->close();
+
+}?>
 <!DOCTYPE HTML>
-<!--
-	Formula by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
+
 <html>
 	<head>
 		<title>Untitled</title>
@@ -47,9 +63,11 @@
 									<header class="major">
 										<h1>Here's the result</h1>
 									</header>
-									    
+
 								</div>
+
 							</section>
+
 
 					</div>
 

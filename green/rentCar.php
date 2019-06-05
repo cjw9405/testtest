@@ -36,14 +36,14 @@
           <form action="locationDurationC.php" method="post">
           <input type="submit" value="Choose">
           <input type="hidden" name="choose" value="yes">
-          <input type="hidden" name="vid" value=".$row['vid'].">
-          <input type="hidden" name="maker" value=".$row['maker'].">
-          <input type="hidden" name="model" value=".$row['model'].">
-          <input type="hidden" name="type" value=".$row['type'].">
-          <input type="hidden" name="fuel" value=".$row['fuel'].">
-          <input type="hidden" name="color" value=".$row['color'].">
-          <input type="hidden" name="speed" value=".$row['speed'].">
-          <input type="hidden" name="enginecapacity" value=".$row['enginecapacity'].">
+          <input type="hidden" name="vid" value="' . $row[0] . '">
+          <input type="hidden" name="maker" value="' . $row[1] . '">
+          <input type="hidden" name="model" value="' . $row[2] . '">
+          <input type="hidden" name="type" value="' . $row[3] . '">
+          <input type="hidden" name="fuel" value="' . $row[4] . '">
+          <input type="hidden" name="color" value="' . $row[5] . '">
+          <input type="hidden" name="speed" value="' . $row[6] . '">
+          <input type="hidden" name="enginecapacity" value="' . $row[7] . '">
           </form>
         ';
             echo "<tr>";
@@ -65,8 +65,6 @@
         echo "No matching records are found.";
     }
     $conn->close();
-
-
 }?>
 
 <!DOCTYPE HTML>
@@ -188,24 +186,6 @@
                             <option name = Indigo value="Indigo">Indigo</option>
                             <option name = Violet value="Violet">Violet</option>
                           </select>
-                        </div>
-                        <!-- Break -->
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-low" name=navigation checked>
-                          <label for="priority-low">Navigation</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-normal" name=dd checked>
-                          <label for="priority-normal">????</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-high" name=dd checked>
-                          <label for="priority-high">????</label>
-                        </div>
-
-                        <!-- Break -->
-                        <div class="col-12">
-                          <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
                         </div>
                         <!-- Break -->
                         <div class="col-12">

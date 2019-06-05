@@ -48,9 +48,6 @@
                               <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
                               <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
                               <script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
-
-
-
                               <script>
                            /* OSM & OL example code provided by https://mediarealm.com.au/ */
                            var map;
@@ -93,47 +90,84 @@
                            }
                               </script>
                            </head>
+                           <table>
+                           <thead>
+                           <tr>
+                            <th>Number</th>
+                            <th>Maker</th>
+                            <th>Model</th>
+                            <th>Car Type</th>
+                            <th>Fuel</th>
+                            <th>Color</th>
+                            <th>Speed</th>
+                            <th>Engine Capacity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                         require_once 'accessDatabase.php';
+                          if (isset($_POST['choose'])&&
+                              isset($_POST['vid'])&&
+                              isset($_POST['maker'])&&
+                              isset($_POST['model'])&&
+                              isset($_POST['type'])&&
+                              isset($_POST['fuel'])&&
+                              isset($_POST['color'])&&
+                              isset($_POST['speed'])&&
+                              isset($_POST['enginecapacity'])){
+                                 $vid = $_POST['vid'];
+                                 $_SESSION["vid"] = $vid;
+                                 $maker = $_POST['maker'];
+                                 $model = $_POST['model'];
+                                 $type = $_POST['type'];
+                                 $fuel = $_POST['fuel'];
+                                 $color = $_POST['color'];
+                                 $speed = $_POST['speed'];
+                                 $enginecapacity = $_POST['enginecapacity'];
+                                 echo "<tr><td>". $vid ."</td><td>"
+                                . $maker ."</td><td>". $model .
+                                "</td><td>". $type ."</td><td>"
+                                . $fuel ."</td><td>". $color .
+                                "</td><td>". $speed ."</td><td>"
+                                . $enginecapacity ."</td></tr>";
+                         }
+                         ?>
+                       </tbody>
+                     </table>
+                     <h3>Form</h3>
+
+                     <form method="post" action="reservationSuccess.php">
 
 
+                       <div class="row gtr-uniform">
+                         <div class="col-6 col-12-xsmall">
+                           <p> Fill in Pick up date: </p>
+                           <input type="text" name=pickupdate placeholder=PickUp />
+                         </div>
+                         <div class="col-6 col-12-xsmall">
+                           <p> Fill in Drop off date: </p>
+                           <input type="text" name=dropoffdate placeholder=DropOff />
+                         </div>
+                         <!--<div class="col-6 col-12-xsmall">
+                           <p> Fill in Pick up Location : </p>
+                           <input type="text" name=pickuplocation placeholder=PickUp />
+                         </div>
+                         <div class="col-6 col-12-xsmall">
+                           <p> Fill in Drop off Location: </p>
+                           <input type="text" name=dropofflocation placeholder=DropOff />
+                         </div>-->
+                         <div class="col-12">
+                           <ul class="actions">
+                             <li><input type="submit" value="Find" class="primary" /></li>
+                             <li><input type="reset" value="Reset" /></li>
+                           </ul>
+                         </div>
+                       </div>
+                     </form>
                            <body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
                               <div id="map" style="width: 1000; height: 500;"></div>
                            </body>
-													 <table>
-	       						 				<thead>
-	         									<tr>
-									           <th>Number</th>
-									           <th>Maker</th>
-									 					 <th>Model</th>
-									 					 <th>Car Type</th>
-									           <th>Fuel</th>e
-														 <th>Color</th>
-														 <th>Speed</th>
-									           <th>Engine Capacity</th>
-									         </tr>
-									       </thead>
-									       <tbody>
-													 <?php
-													require_once 'accessDatabase.php';
-													require 'showResultC.php';
-													if (isset($_POST['choose']) &&
-															isset($_POST['vid'])) {
-														$vid = get_post($conn, 'vid');
-															$query  = "SELECT C.vid AS vid, maker, model, type, fuel, color, speed, enginecapacity FROM car C, vehicle V WHERE V.vid = C.vid AND V.vid ='$vid'";
-															$result = $conn->query($query);
-															if (!$result){
-																	echo "failed: $query<br>" . $conn->error . "<br><br>";}
-															else{
-																 echo "<tr><td>" . $row[0] ."</td><td>"
-																 . $row[1] ."</td><td>". $row[2] .
-																 "</td><td>". $row[3] ."</td><td>"
-																 . $row[4] ."</td><td>". $row[5] .
-																 "</td><td>". $row[6] ."</td><td>"
-																 . $row[7] ."</td></tr>";
-																 }
-													}
-													?>
-												</tbody>
-											</table>
+
                         </div>
                      </section>
 
