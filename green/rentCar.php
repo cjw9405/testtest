@@ -145,14 +145,14 @@
                           <p> Select Maker: </p>
                           <select name=maker id="category">
                             <option value="">- Maker -</option>
-                            <option name = Kenworth value="Kenworth">Kenworth</option>
-                            <option name = Renault value="Renault">Renault</option>
-                            <option name = Subaru value="Subaru">Subaru</option>
-                            <option name = Daimler value="Daimler">Daimler</option>
-                            <option name = Maruti value="Maruti">Maruti Suzuki</option>
-                            <option name = Seat value="Seat">Seat</option>
-                            <option name = MINI value="MINI">MINI</option>
-                            <option name = Cadillac value="Cadillac">Cadillac</option>
+                            <option name = Toyota value="Toyota">Toyota</option>
+                            <option name = BMW value="BMW">BMW</option>
+                            <option name = Mercedes-Benz value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option name = Ford value="Ford">Ford</option>
+                            <option name = Nissan value="Nissan">Nissan</option>
+                            <option name = Honda value="Honda">Honda</option>
+                            <option name = Porsche value="Porsche">Porsche</option>
+                            <option name = Hyundai Motors value="Hyundai Motors">Hyundai Motors</option>
                             <option name = Buick value="Buick">Buick</option>
                             <option name = FAW value="FAW">FAW</option>
                           </select>
