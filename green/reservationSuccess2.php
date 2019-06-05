@@ -163,7 +163,6 @@
 																	?>
 																</tbody>
 															</table>
-//add_map_point("'$xValue'", "'$yValue'");
 																		<body onload="initialize_map(); add_map_point(53.30253, -2.37337);">
 																			<div id="map" style="width: 1000; height: 500;"></div>
 																		</body>
