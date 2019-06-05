@@ -1,20 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
-<!--
-	Formula by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
 <html>
 	<head>
 		<title>Untitled</title>
@@ -95,7 +79,36 @@
 								?>
 							</tbody>
 						</table>
+						<h3>Form</h3>
 
+						<form method="post" action="reservationSuccess3.php">
+
+
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<p> Fill in Pick up date: </p>
+									<input type="text" name=pickupdate placeholder=PickUp />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<p> Fill in Drop off date: </p>
+									<input type="text" name=dropoffdate placeholder=DropOff />
+								</div>
+								<!--<div class="col-6 col-12-xsmall">
+									<p> Fill in Pick up Location : </p>
+									<input type="text" name=pickuplocation placeholder=PickUp />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<p> Fill in Drop off Location: </p>
+									<input type="text" name=dropofflocation placeholder=DropOff />
+								</div>-->
+								<div class="col-12">
+									<ul class="actions">
+										<li><input type="submit" value="Find" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
 									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
 									  <div id="map" style="width: 1000; height: 500;"></div>
 									</body>

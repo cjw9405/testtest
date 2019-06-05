@@ -70,7 +70,6 @@
                       else {
                           echo "";
                       }
-                  		$conn->close();
 
                       $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
                       $result = $conn->query($query);

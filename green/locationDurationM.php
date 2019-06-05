@@ -49,10 +49,8 @@
                             <th>Number</th>
                             <th>Maker</th>
                             <th>Model</th>
-                            <th>Car Type</th>
-                            <th>Fuel</th>
-                            <th>Color</th>
                             <th>Speed</th>
+														<th>Color</th>
                             <th>Engine Capacity</th>
                           </tr>
                         </thead>
