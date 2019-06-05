@@ -140,24 +140,8 @@ $conn->close();
                         </div>
                         <!-- Break -->
                         <div class="col-12">
-                          <p> Select Model: </p>
-                          <select name=model id="category">
-                            <option value="">- Model -</option>
-                            <option name = Panzer IV value="Panzer IV">Panzer IV</option>
-                            <option name = Panzer I value="Panzer I">Panzer I</option>
-                            <option name = Tiger I  value="Tiger I ">Tiger I </option>
-                            <option name = Mk VI Crusader value="Mk VI Crusader">Mk VI Crusader</option>
-                            <option name = M4 Sherman value="M4 Sherman">M4 Sherman</option>
-                            <option name = Tiger II value="Tiger II">Tiger II</option>
-                            <option name = Panther value="Panther">Panther</option>
-                            <option name = M3 Stuart value="M3 Stuart">M3 Stuart</option>
-                          </select>
-                        </div>
-                        <div class="col-12">
-                          <ul class="actions">
-                            <li><input type="submit" value="Search" class="primary" /></li>
-                            <li><input type="reset" value="Reset" /></li>
-                          </ul>
+                          <p> Fill in Model: </p>
+                          <input type="text" name="model" value="" placeholder="Model" />
                         </div>
                       </div>
                     </form>
