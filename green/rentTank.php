@@ -153,25 +153,6 @@ $conn->close();
                             <option name = M3 Stuart value="M3 Stuart">M3 Stuart</option>
                           </select>
                         </div>
-
-                        <!-- Break -->
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-low" name="priority" checked>
-                          <label for="priority-low">Navigation</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-normal" name="priority" checked>
-                          <label for="priority-normal">????</label>
-                        </div>
-                        <div class="col-4 col-12-small">
-                          <input type="checkbox" id="priority-high" name="priority" checked>
-                          <label for="priority-high">????</label>
-                        </div>
-                        <!-- Break -->
-                        <div class="col-12">
-                          <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-                        </div>
-                        <!-- Break -->
                         <div class="col-12">
                           <ul class="actions">
                             <li><input type="submit" value="Search" class="primary" /></li>
@@ -188,17 +169,17 @@ $conn->close();
                     <span class="image fit"><img src="images/m0.jpg" alt="" /></span>
                     <div class="box alt">
                       <div class="row gtr-50 gtr-uniform">
-                        <div class="col-4"><span class="image fit"><img src="images/m0.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/m1.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/m2.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t1.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t2.jpg" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/m3.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car4.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car5.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t3.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t1.jpg" alt="" /></span></div>
                         <!-- Break -->
-                        <div class="col-4"><span class="image fit"><img src="images/car6.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car7.jpg" alt="" /></span></div>
-                        <div class="col-4"><span class="image fit"><img src="images/car8.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t2.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t3.jpg" alt="" /></span></div>
+                        <div class="col-4"><span class="image fit"><img src="images/t0.jpg" alt="" /></span></div>
                       </div>
 
                       <!-- Footer -->
