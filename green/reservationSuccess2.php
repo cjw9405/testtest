@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php // rentCar.php
  require_once 'accessDatabase.php';
 session_start();
@@ -18,6 +19,10 @@ session_start();
 		$conn->close();
 
 }?>
+=======
+
+
+>>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
 <!DOCTYPE HTML>
 
 <html>
@@ -63,6 +68,7 @@ session_start();
 									<header class="major">
 										<h1>Here's the result</h1>
 									</header>
+<<<<<<< HEAD
 
 
 
@@ -75,6 +81,39 @@ session_start();
 
 
 
+=======
+                  <?php // rentCar.php
+                   require_once 'accessDatabase.php';
+                  session_start();
+                  		$query = "SELECT C.vid AS vid, maker, model FROM car C, Vehicle V WHERE V.vid = C.vid AND C.vid = 401";
+                  //		$query = "INSERT INTO Rent(vid, pid, did) VALUES ('".$_SESSION["vid"]."', '".$_SESSION["username"]."', 1)";
+                  		$result = $conn->query($query);
+                      if ($result->num_rows > 0) {
+                          echo "<table>";
+                          echo "<tr>";
+                          echo "<th>Number</th>";
+                          echo "<th>Maker</th>";
+                          echo "<th>Model</th>";
+                          echo "</tr>";
+                          while ($row = $result->fetch_array())
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row[0]."</td>";
+                              echo "<td>".$row[1]."</td>";
+                              echo "<td>".$row[2]."</td>";
+                              echo "</tr>";
+                          }
+                          echo "</table>";
+                          $result->free();
+                      }
+                      else {
+                          echo "";
+                      }
+                  		$conn->close();
+                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 401";
+
+                  ?>
+>>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
 
 
 
@@ -90,9 +129,15 @@ session_start();
 										<script>
 									/* OSM & OL example code provided by https://mediarealm.com.au/ */
 									var map;
+<<<<<<< HEAD
 									var mapLat = 53.30253;
 									var mapLng = -2.37337;
 									var mapDefaultZoom = 20;
+=======
+									var mapLat = 40.9132;
+									var mapLng = -433.1295;
+									var mapDefaultZoom = 15;
+>>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
 									function initialize_map() {
 									map = new ol.Map({
 									target: "map",
@@ -167,7 +212,11 @@ session_start();
 							</tbody>
 						</table>
 
+<<<<<<< HEAD
 									<body onload="initialize_map(); add_map_point(53.30253, -2.37337);">
+=======
+									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
+>>>>>>> c2a1a65a3a8de57a87eb2e8d634cb4473bc870d8
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
 
