@@ -46,32 +46,6 @@
                    require_once 'accessDatabase.php';
                   session_start();
 
-                      $query = "SELECT T.vid AS vid, maker, model FROM tank T, Vehicle V WHERE V.vid = T.vid AND T.vid = 111";
-                      $result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          echo "</table>";
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
-
-                  		$conn->close();
-
                   ?>
 
 
@@ -89,8 +63,8 @@
 										<script>
 									/* OSM & OL example code provided by https://mediarealm.com.au/ */
 									var map;
-									var mapLat = 38.89724;
-									var mapLng = -77.03664;
+									var mapLat = $xValue;
+									var mapLng = $yValue;
 									var mapDefaultZoom = 18;
 									function initialize_map() {
 									map = new ol.Map({
@@ -130,7 +104,7 @@
 									</head>
 
 
-									<body onload="initialize_map(); add_map_point(38.89724, -77.03664);">
+									<body onload="initialize_map(); add_map_point($xValue, $yValue);">
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
 

@@ -87,8 +87,8 @@
 										<script>
 									/* OSM & OL example code provided by https://mediarealm.com.au/ */
 									var map;
-									var mapLat = 40.9132;
-									var mapLng = -433.1295;
+									var mapLat = $xValue;
+									var mapLng = $yValue;
 									var mapDefaultZoom = 15;
 									function initialize_map() {
 									map = new ol.Map({
@@ -127,7 +127,7 @@
 										</script>
 									</head>
 
-									<body onload="initialize_map(); add_map_point(40.9132, -433.1295);">
+									<body onload="initialize_map(); add_map_point($xValue, $yValue);">
 										<div id="map" style="width: 1000; height: 500;"></div>
 									</body>
 

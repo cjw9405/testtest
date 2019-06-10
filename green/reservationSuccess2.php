@@ -46,31 +46,6 @@
                   <?php // rentCar.php
                    require_once 'accessDatabase.php';
                   session_start();
-
-                      $query = "SELECT M.vid AS vid, maker, model FROM motorcycle M, Vehicle V WHERE V.vid = M.vid AND M.vid = 11";
-                      $result = $conn->query($query);
-                      if ($result->num_rows > 0) {
-                          echo "<table>";
-                          echo "<tr>";
-                          echo "<th>Number</th>";
-                          echo "<th>Maker</th>";
-                          echo "<th>Model</th>";
-                          echo "</tr>";
-                          while ($row = $result->fetch_array())
-                          {
-                              echo "<tr>";
-                              echo "<td>".$row[0]."</td>";
-                              echo "<td>".$row[1]."</td>";
-                              echo "<td>".$row[2]."</td>";
-                              echo "</tr>";
-                          }
-                          $result->free();
-                      }
-                      else {
-                          echo "";
-                      }
-                  		$conn->close();
-
                   ?>
 
 
@@ -86,8 +61,8 @@
 																			<script>
 																		/* OSM & OL example code provided by https://mediarealm.com.au/ */
 																		var map;
-																		var mapLat = 53.30253;
-																		var mapLng = -2.37337;
+																		var mapLat = $xValue;
+																		var mapLng = $yValue;
 																		var mapDefaultZoom = 20;
 																		function initialize_map() {
 																		map = new ol.Map({
@@ -162,7 +137,7 @@
 																	?>
 																</tbody>
 															</table>
-																		<body onload="initialize_map(); add_map_point(53.30253, -2.37337);">
+																		<body onload="initialize_map(); add_map_point($xValue, $yValue);">
 																			<div id="map" style="width: 1000; height: 500;"></div>
 																		</body>
 
